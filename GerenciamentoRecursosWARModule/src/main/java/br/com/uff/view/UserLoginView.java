@@ -5,12 +5,13 @@ package br.com.uff.view;
 
 import java.io.Serializable;
 
+import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.event.ActionEvent;
 
+import org.CommonsEJB.UserLoginBean;
 import org.primefaces.context.RequestContext;
 
 /**
@@ -28,6 +29,9 @@ public class UserLoginView implements Serializable {
 	private String username;
 
 	private String password;
+	
+	@EJB
+	private UserLoginBean userLoginBean;
 
 	public String getUsername() {
 		return username;
@@ -49,8 +53,24 @@ public class UserLoginView implements Serializable {
 		RequestContext context = RequestContext.getCurrentInstance();
 		FacesMessage message = null;
 		boolean loggedIn = false;
+		
+		try {
+			this.id = userLoginBean.login(this.username, this.password);
+			loggedIn = true;
+			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", username);
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			FacesContext.getCurrentInstance().getExternalContext().getFlash().put("id", this.getId());
+			context.addCallbackParam("loggedIn", loggedIn);
+			return "success";
+		} catch (Exception e) {
+			loggedIn = false;
+			message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials");
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			context.addCallbackParam("loggedIn", loggedIn);
+			return "failure";
+		}
 
-		if (this.username != null && this.username.equals("admin") && this.password != null && this.password.equals("admin")) {
+		/*if (this.username != null && this.username.equals("admin") && this.password != null && this.password.equals("admin")) {
 			loggedIn = true;
 			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", username);
 			FacesContext.getCurrentInstance().addMessage(null, message);
@@ -62,7 +82,7 @@ public class UserLoginView implements Serializable {
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			context.addCallbackParam("loggedIn", loggedIn);
 			return "failure";
-		}
+		}*/
 	}
 
 	public String logout() {

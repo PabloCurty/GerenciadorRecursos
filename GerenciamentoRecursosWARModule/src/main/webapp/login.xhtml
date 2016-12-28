@@ -13,6 +13,7 @@
 
 	<h:form>
 		<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+		<!-- <p:messages autoUpdate="true" />  -->
 		<h:panelGrid columns="2">
 			<h:outputLabel for="username" value="Usuário:" />
 			<p:inputText id="username" value="#{userLoginView.username}"
@@ -27,6 +28,7 @@
 					action="#{userLoginView.login()}" />
 			</f:facet>
 		</h:panelGrid>
+		<p:separator/>
 		<p:link value="Criar conta" outcome="cadastroUsuario" />
 	</h:form>
 
