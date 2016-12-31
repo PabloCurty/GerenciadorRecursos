@@ -55,7 +55,7 @@ public class UserLoginView implements Serializable {
 		boolean loggedIn = false;
 		
 		try {
-			this.id = userLoginBean.login(this.username, this.password);
+			this.id = userLoginBean.login(this.username, this.password).getId_usuario();
 			loggedIn = true;
 			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", username);
 			FacesContext.getCurrentInstance().addMessage(null, message);
@@ -70,19 +70,6 @@ public class UserLoginView implements Serializable {
 			return "failure";
 		}
 
-		/*if (this.username != null && this.username.equals("admin") && this.password != null && this.password.equals("admin")) {
-			loggedIn = true;
-			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", username);
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			context.addCallbackParam("loggedIn", loggedIn);
-			return "success";
-		} else {
-			loggedIn = false;
-			message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials");
-			FacesContext.getCurrentInstance().addMessage(null, message);
-			context.addCallbackParam("loggedIn", loggedIn);
-			return "failure";
-		}*/
 	}
 
 	public String logout() {

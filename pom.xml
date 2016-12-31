@@ -37,6 +37,6 @@
 		<module>GerenciamentoRecursosJARModule</module>
 		<module>GerenciamentoRecursosWARModule</module>
 		<module>GerenciamentoRecursosEARModule</module>
-    <module>CommonsEJB</module>
+    	<module>CommonsEJB</module>
   </modules>
 </project>
