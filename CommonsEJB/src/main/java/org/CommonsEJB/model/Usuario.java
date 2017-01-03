@@ -12,16 +12,12 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "USUARIO", uniqueConstraints = @UniqueConstraint(columnNames = {"ID_USUARIO", "username"}))
+@Table(name = "USUARIO", uniqueConstraints = @UniqueConstraint(columnNames = {"ID_USUARIO", "USERNAME"}))
 @AttributeOverride(name="oid", column=@Column(name="ID_USUARIO"))
 public class Usuario extends EntidadeAbstrata implements Serializable{
 
 	private static final long serialVersionUID = -729122042918040016L;
-	
-	/*@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "SEQUENCIA_USUARIO")
-	@Column(name = "ID_USUARIO")
-	private Long id_usuario; */
+
 	
 	@Column(name = "NOME", nullable = false)
 	private String nome_usuario;
@@ -42,6 +38,15 @@ public class Usuario extends EntidadeAbstrata implements Serializable{
 	public Usuario(String username, String password) {
 		this.setPassword(password);
 		this.setUsername(username);
+	}
+
+	public Usuario(String nome_usuario, String email, String password, String username, Perfil perfil) {
+		super();
+		this.nome_usuario = nome_usuario;
+		this.email = email;
+		this.password = password;
+		this.username = username;
+		this.perfil = perfil;
 	}
 
 	public Usuario() {
@@ -78,6 +83,14 @@ public class Usuario extends EntidadeAbstrata implements Serializable{
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Perfil getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
 	}
 
 	

@@ -12,6 +12,8 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import org.CommonsEJB.UserLoginBean;
+import org.CommonsEJB.model.Usuario;
+import org.CommonsEJB.util.PerfilType;
 import org.primefaces.context.RequestContext;
 
 /**
@@ -29,6 +31,8 @@ public class UserLoginView implements Serializable {
 	private String username;
 
 	private String password;
+	
+	private PerfilType perfil;
 	
 	@EJB
 	private UserLoginBean userLoginBean;
@@ -53,13 +57,17 @@ public class UserLoginView implements Serializable {
 		RequestContext context = RequestContext.getCurrentInstance();
 		FacesMessage message = null;
 		boolean loggedIn = false;
+		Usuario usuario;
 		
 		try {
-			this.id = userLoginBean.login(this.username, this.password).getOid();
+			usuario = userLoginBean.login(this.username, this.password);
+			this.id = usuario.getOid();
+			this.perfil = usuario.getPerfil().getNome_perfil();
 			loggedIn = true;
 			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", username);
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			FacesContext.getCurrentInstance().getExternalContext().getFlash().put("id", this.getId());
+			FacesContext.getCurrentInstance().getExternalContext().getFlash().put("id", this.getPerfil());
 			context.addCallbackParam("loggedIn", loggedIn);
 			return "success";
 		} catch (Exception e) {
@@ -87,6 +95,14 @@ public class UserLoginView implements Serializable {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public PerfilType getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(PerfilType perfil) {
+		this.perfil = perfil;
 	}
 
 	
