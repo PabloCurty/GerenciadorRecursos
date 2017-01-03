@@ -2,29 +2,26 @@ package org.CommonsEJB.model;
 
 import java.io.Serializable;
 
+import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "USUARIO", uniqueConstraints = @UniqueConstraint(columnNames = {"ID_USUARIO", "username"}))
-@SequenceGenerator(name = "SEQUENCIA_USUARIO", sequenceName = "SEQ_USUARIO", allocationSize = 1)
-public class Usuario implements Serializable{
+@AttributeOverride(name="oid", column=@Column(name="ID_USUARIO"))
+public class Usuario extends EntidadeAbstrata implements Serializable{
 
 	private static final long serialVersionUID = -729122042918040016L;
 	
-	@Id
+	/*@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "SEQUENCIA_USUARIO")
 	@Column(name = "ID_USUARIO")
-	private Long id_usuario; 
+	private Long id_usuario; */
 	
 	@Column(name = "NOME", nullable = false)
 	private String nome_usuario;
@@ -65,14 +62,6 @@ public class Usuario implements Serializable{
 
 	public void setUsername(String username) {
 		this.username = username;
-	}
-
-	public Long getId_usuario() {
-		return id_usuario;
-	}
-
-	public void setId_usuario(Long id) {
-		this.id_usuario = id;
 	}
 
 	public String getNome_usuario() {

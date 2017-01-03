@@ -24,7 +24,7 @@ public class UserLoginView implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Long id;
+	private String id;
 
 	private String username;
 
@@ -55,7 +55,7 @@ public class UserLoginView implements Serializable {
 		boolean loggedIn = false;
 		
 		try {
-			this.id = userLoginBean.login(this.username, this.password).getId_usuario();
+			this.id = userLoginBean.login(this.username, this.password).getOid();
 			loggedIn = true;
 			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", username);
 			FacesContext.getCurrentInstance().addMessage(null, message);
@@ -81,12 +81,13 @@ public class UserLoginView implements Serializable {
 		return "login.xhtml";
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
+	
 }

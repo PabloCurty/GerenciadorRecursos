@@ -3,29 +3,26 @@ package org.CommonsEJB.model;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.AttributeOverride;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
 @Entity
 @Table(name = "PERFIL")
-@SequenceGenerator(name = "SEQUENCIA_PERFIL", sequenceName = "SEQ_PERFIL", allocationSize = 1)
-public class Perfil implements Serializable{
+@AttributeOverride(name="oid", column=@Column(name="ID_PERFIL"))
+public class Perfil extends EntidadeAbstrata implements Serializable{
 
 	private static final long serialVersionUID = 5917873439974157899L;
 	
-	@Id
+	/*@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "SEQUENCIA_PERFIL")
 	@Column(name = "ID_PERFIL")
-	private Long id;
+	private Long id;*/
 	
 	@Column(name = "NOME_PERFIL")
 	private String nome_perfil;
@@ -37,14 +34,6 @@ public class Perfil implements Serializable{
 	
 	public Perfil() {
 		super();
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getNome_perfil() {
