@@ -32,7 +32,7 @@ public class UserLoginView implements Serializable {
 
 	private String password;
 	
-	private PerfilType perfil;
+	private String perfil;
 	
 	@EJB
 	private UserLoginBean userLoginBean;
@@ -57,17 +57,13 @@ public class UserLoginView implements Serializable {
 		RequestContext context = RequestContext.getCurrentInstance();
 		FacesMessage message = null;
 		boolean loggedIn = false;
-		Usuario usuario;
 		
 		try {
-			usuario = userLoginBean.login(this.username, this.password);
-			this.id = usuario.getOid();
-			this.perfil = usuario.getPerfil().getNome_perfil();
+			this.id = userLoginBean.login(this.username, this.password).getOid();
 			loggedIn = true;
 			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", username);
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			FacesContext.getCurrentInstance().getExternalContext().getFlash().put("id", this.getId());
-			FacesContext.getCurrentInstance().getExternalContext().getFlash().put("id", this.getPerfil());
 			context.addCallbackParam("loggedIn", loggedIn);
 			return "success";
 		} catch (Exception e) {
@@ -97,11 +93,11 @@ public class UserLoginView implements Serializable {
 		this.id = id;
 	}
 
-	public PerfilType getPerfil() {
+	public String getPerfil() {
 		return perfil;
 	}
 
-	public void setPerfil(PerfilType perfil) {
+	public void setPerfil(String perfil) {
 		this.perfil = perfil;
 	}
 

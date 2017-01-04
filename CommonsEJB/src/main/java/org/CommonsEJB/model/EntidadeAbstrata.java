@@ -32,7 +32,6 @@ public abstract class EntidadeAbstrata implements Serializable {
 	
 	
 	@Id
-	//@GenericGenerator(name = "uff-uuid", strategy= "org.CommonsEJB.model.util.IdGenerator")
 	@SequenceGenerator(name = "uff-uuid", sequenceName = "SEQ_uff-uuid", allocationSize = 1)
 	@GeneratedValue(generator = "uff-uuid")
 	@Column(name = "OID")

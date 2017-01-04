@@ -40,15 +40,6 @@ public class Usuario extends EntidadeAbstrata implements Serializable{
 		this.setUsername(username);
 	}
 
-	public Usuario(String nome_usuario, String email, String password, String username, Perfil perfil) {
-		super();
-		this.nome_usuario = nome_usuario;
-		this.email = email;
-		this.password = password;
-		this.username = username;
-		this.perfil = perfil;
-	}
-
 	public Usuario() {
 		super();
 	}
