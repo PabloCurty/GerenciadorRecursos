@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.SequenceGenerator;
@@ -32,8 +33,8 @@ public abstract class EntidadeAbstrata implements Serializable {
 	
 	
 	@Id
-	@SequenceGenerator(name = "uff-uuid", sequenceName = "SEQ_uff-uuid", allocationSize = 1)
-	@GeneratedValue(generator = "uff-uuid")
+	@SequenceGenerator(name = "SEQUENCIA_UFF", sequenceName = "SEQ_UFF", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "SEQUENCIA_UFF")
 	@Column(name = "OID")
 	protected String oid;
 	

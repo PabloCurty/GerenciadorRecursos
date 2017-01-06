@@ -57,13 +57,16 @@ public class UserLoginView implements Serializable {
 		RequestContext context = RequestContext.getCurrentInstance();
 		FacesMessage message = null;
 		boolean loggedIn = false;
-		
+		Usuario user;
 		try {
-			this.id = userLoginBean.login(this.username, this.password).getOid();
+			user = userLoginBean.login(this.username, this.password);
+			this.id = user.getOid();
+			this.perfil = user.getPerfil().getNome_perfil();
 			loggedIn = true;
 			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", username);
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			FacesContext.getCurrentInstance().getExternalContext().getFlash().put("id", this.getId());
+			FacesContext.getCurrentInstance().getExternalContext().getFlash().put("perfil", this.getPerfil());
 			context.addCallbackParam("loggedIn", loggedIn);
 			return "success";
 		} catch (Exception e) {
