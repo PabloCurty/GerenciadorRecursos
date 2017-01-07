@@ -1,4 +1,4 @@
-package org.CommonsEJB.util;
+package org.CommonsEJB.enums;
 
 public enum PerfilType {
 	

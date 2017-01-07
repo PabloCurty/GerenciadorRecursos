@@ -29,44 +29,44 @@ public class MenuBeanView implements Serializable{
     	 * dá níveis aos papeis
     	 */
     	switch (perfil) {
-		case "Administrador":
-			perfilNivel = 4;
-			break;
-		
-		case "ADMINISTRADOR":
-			perfilNivel = 4;
-			break;	
+			case "Administrador":
+				perfilNivel = 4;
+				break;
 			
-		case "Gerente":
-			perfilNivel = 3;
-			break;
-	
-		case "GERENTE":
-			perfilNivel = 3;
-			break;
-	
-		case "Professor":
-			perfilNivel = 2;
-			break;
-	
-		case "PROFESSOR":
-			perfilNivel = 2;
-			break;
+			case "ADMINISTRADOR":
+				perfilNivel = 4;
+				break;	
+				
+			case "Gerente":
+				perfilNivel = 3;
+				break;
 		
-		case "Assistente":
-			perfilNivel = 1;
-			break;
+			case "GERENTE":
+				perfilNivel = 3;
+				break;
 		
-		case "ASSISTENTE":
-			perfilNivel = 1;
-			break;	
+			case "Professor":
+				perfilNivel = 2;
+				break;
+		
+			case "PROFESSOR":
+				perfilNivel = 2;
+				break;
 			
-		default:
-			perfilNivel = 0;
-			break;
-		}
+			case "Assistente":
+				perfilNivel = 1;
+				break;
+			
+			case "ASSISTENTE":
+				perfilNivel = 1;
+				break;	
+				
+			default:
+				perfilNivel = 0;
+				break;
+			}
     	
-    	return perfilNivel;
+    		return perfilNivel;
     }
 
 	public int getPerfilNivel() {
@@ -92,7 +92,5 @@ public class MenuBeanView implements Serializable{
 	public void setPerfil(String perfil) {
 		this.perfil = perfil;
 	}
-    
-    
 
 }
