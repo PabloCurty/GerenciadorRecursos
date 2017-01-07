@@ -30,6 +30,9 @@ public class Usuario extends EntidadeAbstrata implements Serializable{
 	@Column(name = "USERNAME", nullable = false, unique = true)
 	private String username;
 	
+	@Column(name = "MATRICULA", nullable = false, unique = true)
+	private String matricula;
+	
 	@ManyToOne //(fetch=FetchType.LAZY)
 	@JoinColumn(name="ID_PERFIL")
 	private Perfil perfil;

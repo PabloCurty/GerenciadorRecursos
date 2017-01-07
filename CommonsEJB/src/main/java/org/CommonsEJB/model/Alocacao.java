@@ -19,13 +19,10 @@ import javax.persistence.UniqueConstraint;
 import org.CommonsEJB.enums.DiasSemana;
 
 @Entity
-@Table(name = "ALOCACAO", uniqueConstraints = @UniqueConstraint(columnNames = {"ID_ALOCACAO", "ALOCACAO"}))
+@Table(name = "ALOCACAO", uniqueConstraints = @UniqueConstraint(columnNames = {"ID_ALOCACAO"}))
 @AttributeOverride(name="oid", column=@Column(name="ID_ALOCACAO"))
 public class Alocacao extends EntidadeAbstrata implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -8698953061832691450L;
 	
 	@Column(name = "ANO", nullable = false)

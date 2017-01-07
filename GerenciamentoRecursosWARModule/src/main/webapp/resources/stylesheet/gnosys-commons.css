@@ -1,0 +1,858 @@
+/********************************************** 
+ Itens
+**********************************************/
+
+.gnosys-item-visualizacao,
+.gnosys-item-retratil .gnosys-label-retratil,
+.gnosys-check.gnosys-campo-visualizacao .gnosys-campo-label,
+.gnosys-campo-visualizacao .gnosys-check .gnosys-campo-label,
+.gnosys-campo-visualizacao .gnosys-groupradio label,
+.gnosys-telefone-descricao p {
+	color: #0098d9;
+	font-size: 13px;
+	line-height: normal;
+}
+
+.gnosys-item-retratil .gnosys-label-retratil {
+	margin-bottom: 1em;
+	width: 100%;
+}
+
+.gnosys-retratil p {
+	margin-bottom: 0;
+}
+
+/********************************************** 
+Botões, Ícones e Funcionalidades
+**********************************************/
+
+.fa.gnosys-retratil-trigger {
+	text-decoration: none;
+	color: #363635;
+	float: right;
+	font-size: 14px;
+}
+
+.fa.gnosys-retratil-trigger:hover {
+	color: #fcaf17;
+}
+
+.fa.gnosys-retratil-trigger.gnosys-retratil-aberto:before {
+	content: "\f077";
+}
+
+.fa.gnosys-retratil-trigger.gnosys-retratil-fechado:before {
+	content: "\f078";
+}
+
+/**************** 
+ POC - Selects
+****************/
+
+.gnosys-input,
+.gnosys-inputarea, 
+.gnosys-select,
+.gnosys-selectlist {
+     border: 1px solid #565658;
+     padding: 7px 10px;
+     font-size: 13px;
+     margin-right: 7px;
+     height: 30px;
+}
+
+.gnosys-select-wrapper {
+    background-color: #fff;
+    display: inline-block;
+    position: relative;
+    margin-right: 7px;
+    z-index: 0;
+}
+
+.gnosys-select-wrapper:after {
+    content: "\f078";
+    font-family: 'FontAwesome';
+    font-size: 1.25em;
+    color: #bbb;
+    position: absolute;
+    right: .5em;
+    transition: .25s;
+    top: .4em;
+    z-index: -1;
+}
+
+.gnosys-select-wrapper:focus:after,
+.gnosys-select-wrapper:hover:after {
+    color: #71aa3f;
+}
+
+.gnosys-select-wrapper.disabled:hover:after {
+	color: #bbb;
+}
+
+.gnosys-select-wrapper select.gnosys-select {
+    background-color: transparent;
+    border-radius: 0;
+    cursor: pointer;
+    margin-right: 0px;
+	padding-right: 30px;
+    position: relative;
+    z-index: 0;
+}
+
+/********************************************************************** 
+ Campos de texto, Select One, Select Many, RadioButton e Checkbox
+**********************************************************************/
+
+.gnosys-campo-label,
+.gnosys-item-visualizacao {
+	display: inline-block;
+    margin: .75em .3em 0 0;
+    vertical-align: top;
+}
+
+.gnosys-campo-visualizacao .vertical {
+     margin-bottom: -5px;
+}
+
+.checkbox label,
+.gnosys-groupradio label,
+.gnosys-check label {
+     margin: 0 2em 0 0;
+}
+
+.gnosys-groupradio td,
+.gnosys-check td {
+     display: inline-block;
+}
+
+.gnosys-campo-label.vertical,
+.gnosys-check.vertical td,
+.gnosys-groupcheck.vertical > .gnosys-check {
+     display: block;
+}
+
+.gnosys-modal .gnosys-groupradio td label {
+     margin-right: 1em;
+}
+
+.gnosys-groupradio input[type="radio"],
+.gnosys-check input[type="checkbox"] {
+     position: absolute;
+     left: -9999px;
+}
+
+.gnosys-groupradio input[type="radio"] + label:before,
+.gnosys-check input[type="checkbox"] + label:before {
+     font-family: 'FontAwesome';
+     display: inline-block;
+     font-size: 1.5em;
+     color: #ccc;
+     width: 1.1em;
+     vertical-align: sub;
+}
+
+.gnosys-campo-edicao .gnosys-groupradio input[type="radio"] + label:hover:before,
+.gnosys-campo-edicao .gnosys-check input[type="checkbox"]:enabled + label:hover:before,
+.gnosys-campo-edicao .gnosys-check:enabled + label:hover:before,
+.gnosys-campo-edicao .gnosys-check input[type="checkbox"]:focus + label:before {
+     color: #71AA3F;
+}
+
+.gnosys-groupradio input[type="radio"] + label:before {
+     content: "\f10c"; /* circle-o */
+}
+
+.gnosys-groupradio input[type="radio"]:checked + label:before {
+     color: #71AA3F;
+     content: "\f192"; /* dot-circle-o */
+}
+
+.gnosys-check input[type="checkbox"] + label:before {
+     content: "\f096"; /* square-o */
+}
+
+.gnosys-check input[type="checkbox"]:checked + label:before {
+     color: #71AA3F;
+     content: "\f046"; /* checked-square-o */
+}
+
+.gnosys-groupradio input[type="radio"]:disabled + label:before,
+.gnosys-check input[type="checkbox"]:disabled + label:before {
+	color: #ccc;
+}
+
+.gnosys-selectlist {
+    overflow-y: auto;
+}
+
+.gnosys-selectlist option {
+     margin-top: 2px;
+     margin-left: 1.25em;
+     outline: none;
+     height: 1.5em;
+}
+
+.gnosys-selectlist option:checked {
+     height: 1.5em;
+}
+
+.gnosys-selectlist option:checked:before,
+.gnosys-selectlist option:hover:before {
+     font-family: 'FontAwesome';
+     font-size: 1.5em;
+     color: #71AA3F;
+     width: 1.25em;
+     height: 1.5em;
+     display: inline-block;
+     margin-left: -1.25em;
+     margin-top: -5px;
+     content: '\f00c'
+}
+
+/********************************************** 
+Botões
+**********************************************/
+
+.gnosys-botao-peq {
+	font-size: 14px;
+	height: 20px;
+}
+
+/********************************************** 
+ Componente de Mensagens em caixa (Sucesso, Erro, Alerta e Informação)
+**********************************************/
+
+.gnosys-caixa-mensagens {
+    padding: 15px 25px 15px;
+    background-color: #dbddde;
+}
+
+.gnosys-caixa-mensagens p {
+	margin: 0px;
+}
+
+.gnosys-caixa-mensagens a {
+	color: #c78502;
+	text-decoration: none;
+}
+
+.gnosys-caixa-mensagens a:hover {
+	color: #c78502;
+	text-decoration: underline;
+}
+
+.gnosys-caixa-mensagens.gnosys-caixa-mensagens-comicone {
+    background-color: #fff;
+	background-repeat: no-repeat;
+	background-position: 15px 15px;
+	padding: 15px 15px 15px 78px;
+	min-height: 48px;
+	margin: 0 auto 15px;
+	border: 1px solid;
+	box-shadow: 0 5px 10px rgba(0,0,0,.15);
+	-webkit-box-shadow: 0 5px 10px rgba(0,0,0,.15);
+	-moz-box-shadow: 0 5px 10px rgba(0,0,0,.15);
+	border-radius: 4px;
+	display: block;	
+}
+
+.mensagem-centralizada {
+	display: block;
+	text-align: center;
+}
+
+.gnosys-caixa-mensagens-comicone p,
+.gnosys-caixa-mensagens-comicone div {
+	line-height: 45px;
+	font-weight: bold;
+	font-size: 0.9em;
+}
+
+.data-e-hora-log,
+.gnosys-caixa-mensagens-comicone p.data-e-hora-log,
+.gnosys-caixa-mensagens.gnosys-caixa-mensagens-erro.gnosys-caixa-mensagens-comicone p.data-e-hora-log {
+	color: #363635;
+	font-weight: normal;
+	font-size: 12px;
+	text-align: right;
+	line-height: 0;
+}
+
+.gnosys-caixa-mensagens.gnosys-caixa-mensagens-aviso.gnosys-caixa-mensagens-comicone p,
+.gnosys-caixa-mensagens.gnosys-caixa-mensagens-aviso.gnosys-caixa-mensagens-comicone div {
+	color: #c78502;
+}
+
+.gnosys-caixa-mensagens.gnosys-caixa-mensagens-info.gnosys-caixa-mensagens-comicone p,
+.gnosys-caixa-mensagens.gnosys-caixa-mensagens-info.gnosys-caixa-mensagens-comicone div {
+	color: #0095da;
+}
+
+.gnosys-caixa-mensagens.gnosys-caixa-mensagens-erro.gnosys-caixa-mensagens-comicone p,
+.gnosys-caixa-mensagens.gnosys-caixa-mensagens-erro.gnosys-caixa-mensagens-comicone div {
+	color: #f95b2a;
+}
+
+.gnosys-caixa-mensagens.gnosys-caixa-mensagens-sucesso.gnosys-caixa-mensagens-comicone p,
+.gnosys-caixa-mensagens.gnosys-caixa-mensagens-sucesso.gnosys-caixa-mensagens-comicone div {
+	color: #71aa3f;
+}
+
+.gnosys-caixa-mensagens.gnosys-caixa-mensagens-aviso.gnosys-caixa-mensagens-comicone {
+    background-image: url("/ssm/javax.faces.resource/img/alert48.png.xhtml");
+    border-color: #c78502;
+}
+
+.gnosys-caixa-mensagens.gnosys-caixa-mensagens-info.gnosys-caixa-mensagens-comicone {
+    background-image: url("/ssm/javax.faces.resource/img/info48.png.xhtml");
+    border-color: #0095da;
+}
+
+.gnosys-caixa-mensagens.gnosys-caixa-mensagens-erro.gnosys-caixa-mensagens-comicone {
+    background-image: url("/ssm/javax.faces.resource/img/error48.png.xhtml");
+    border-color: #f95b2a;
+}
+
+.gnosys-caixa-mensagens.gnosys-caixa-mensagens-sucesso.gnosys-caixa-mensagens-comicone {
+    background-image: url("/ssm/javax.faces.resource/img/success48.png.xhtml");
+    border-color: #71aa3f;
+}
+
+.solicitar-acesso-form .gnosys-caixa-mensagens.gnosys-caixa-mensagens-sucesso.gnosys-caixa-mensagens-comicone {
+	width: 210px;
+}
+
+.caixa-erro .gnosys-caixa-mensagens.gnosys-caixa-mensagens-erro.gnosys-caixa-mensagens-comicone,
+.form-resultado .gnosys-caixa-mensagens.gnosys-caixa-mensagens-sucesso.gnosys-caixa-mensagens-comicone {
+	width: 320px;
+}
+
+.solicitar-acesso-form .gnosys-caixa-mensagens.gnosys-caixa-mensagens-sucesso.gnosys-caixa-mensagens-comicone p {
+	font-size: 1em;
+	color: rgb(113,170,63);
+}
+
+.gnosys-caixa-mensagens .gnosys-mensagens li.gnosys-mensagens-sucesso,
+.gnosys-caixa-mensagens .gnosys-mensagens li.gnosys-mensagens-aviso,
+.gnosys-caixa-mensagens .gnosys-mensagens li.gnosys-mensagens-erro {
+	background-image: none;
+}
+
+/********************************************** 
+ Mensagens de validação
+**********************************************/
+
+.gnosys-campo-requerido:after {
+	content:' *';
+	font-size: 16px;
+	line-height: 0;
+}
+
+.gnosys-mensagem,
+.mensagem-validacao {
+    display: block;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.mensagem-validacao.fa {
+	font-size: 13px;
+}
+
+.mensagem-validacao.fa:before {
+	padding-right: 5px;
+	font-size: 16px;
+	vertical-align: top;
+	line-height: 13px;
+}
+
+.gnosys-mensagem-alerta,
+.mensagem-validacao-alerta,
+.mensagem-alerta {
+	color: #f90;
+}
+
+.gnosys-mensagem-erro,
+.mensagem-validacao-erro,
+.mensagem-erro {
+    color: #f95b2a;
+ }
+ 
+.gnosys-mensagem-info,
+.mensagem-validacao-info,
+.mensagem-info {
+	color: #0095da;
+}
+
+.gnosys-mensagem-sucesso,
+.mensagem-validacao-sucesso,
+.mensagem-validacao-info-relacionada,
+.mensagem-sucesso {
+    color: #71aa3f;
+}
+
+/********************************************** 
+ Gnosys
+**********************************************/
+
+.gnosys-subbloco {
+	margin-bottom: 1em;
+}
+
+.gnosys-bloco, .gnosys-subbloco, .gnosys-blococoluna, .gnosys-coluna {
+	padding: 0px;
+	position: relative;
+}
+
+.gnosys-blococoluna:not (.automatico ) .gnosys-coluna {
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: 10px;
+}
+
+.gnosys-blococoluna.automatico .gnosys-blococoluna-conteudo-grupo > *:not(.gnosys-clear) {
+	float: left;
+	margin-right: 0px;
+	margin-bottom: 10px;
+}
+
+.gnosys-bloco-overflow {
+	height: 250px;
+	overflow: auto;
+}
+
+.gnosys-coluna-conteudo {
+	margin-right: 10px;
+}
+
+.gnosys-blococoluna-conteudo .gnosys-coluna-conteudo {
+	margin-right: 1.5em;
+}
+
+.bloco-textarea div span.gnosys-campo.gnosys-campo-edicao {
+	width: 100%;
+} 
+
+.bloco-textarea div span.gnosys-campo.gnosys-campo-edicao .gnosys-inputarea {
+	width: 46%;
+}
+
+.group-check label{
+	margin-right: 3em;
+}
+
+.gnosys-groupcheck {
+	color: #363535;
+}
+
+.gnosys-legend {
+	font-size: .9em;
+}
+
+label,
+.gnosys-campo-edicao,
+.gnosys-campo-label {
+	font-size: 13px;
+	color: #565658;
+	display: inherit;
+	margin-bottom: 3px;
+	text-align: left;
+	vertical-align: top;
+}
+
+div.gnosys-coluna.automatico.colunaCamposUsuarioEsquerda div.gnosys-coluna-conteudo .gnosys-campo.gnosys-campo-edicao {
+	width: 100%;
+	vertical-align: top;
+}
+
+.pesquisa-instituicao-solicitacao-inf .gnosys-check.gnosys-campo.gnosys-campo-edicao .gnosys-campo-label {
+	padding: 0;
+	text-align: left;
+}
+
+.gnosys-blococoluna-conteudo ul li .gnosys-check.gnosys-campo.gnosys-campo-edicao .gnosys-campo-label {
+	text-align: left;
+	width: 100%;
+	display: inline;
+	font-size: 1em;
+}
+
+.gnosys-groupradio tbody tr td label {
+	font-size: 13px;
+}
+
+.gnosys-bloco-conteudo .rf-dg .rf-dg-body .rf-dg-r .rf-dg-c {
+	padding: 0;
+}
+
+.gnosys-bloco-conteudo .rf-dg .rf-dg-body .rf-dg-r .rf-dg-c .texto-p {
+	margin-bottom: 1em;
+}
+
+.gnosys-bloco-conteudo .rf-dg .rf-dg-body .rf-dg-r .rf-dg-c .gnosys-check.gnosys-campo.gnosys-campo-edicao {
+	font-weight: bold;
+}
+
+/********************************************** 
+ Gnosys - Telefone, endereço e mapa
+**********************************************/
+
+.gnosys-telefone, 
+.gnosys-telefone-edicao,
+.gnosys-endereco,
+.gnosys-endereco-edicao {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.gnosys-endereco-tipo,
+.gnosys-telefone-tipo,
+.gnosys-telefone-descricao {
+	display: inline-block;
+	font-size: 13px;
+	vertical-align: top;
+}
+
+.gnosys-endereco-detalhe,
+.gnosys-endereco-detalhe input,
+.gnosys-endereco-apagar {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.gnosys-endereco-descricao p {
+	line-height: normal;
+	margin-bottom: 3px;
+}
+
+.gnosys-endereco-descricao p:last-child {
+	margin-bottom: .75em;
+}
+
+.gnosys-decor-visdados .gnosys-telefone-visualizacao:hover,
+.gnosys-decor-visdados .gnosys-enderecoComMapa .gnosys-endereco-selecionado,
+.gnosys-decor-visdados .gnosys-enderecoComMapa .gnosys-endereco-selecionado:hover,
+.gnosys-decor-visdados .gnosys-enderecoComMapa .gnosys-enderecoComMapa-mapa,
+.gnosys-decor-visdados .gnosys-bloco .gnosys-campo-visualizacao:hover,
+.gnosys-decor-visdados .gnosys-blococoluna .gnosys-campo-visualizacao:hover,
+.gnosys-decor-visdados .gnosys-enderecoComMapa-enderecos .gnosys-endereco:hover {
+	background-color: #dbddde;
+}
+
+.gnosys-decor-visdados .gnosys-bloco .gnosys-telefone,
+.gnosys-decor-visdados .gnosys-bloco .gnosys-endereco,
+.gnosys-decor-visdados .gnosys-bloco .gnosys-campo,
+.gnosys-decor-visdados .gnosys-blococoluna .gnosys-telefone,
+.gnosys-decor-visdados .gnosys-blococoluna .gnosys-endereco,
+.gnosys-decor-visdados .gnosys-blococoluna .gnosys-campo,
+.gnosys-decor-visdados .gnosys-coluna .gnosys-endereco,
+.gnosys-decor-visdados .gnosys-coluna .gnosys-telefone,
+.gnosys-decor-visdados .gnosys-coluna .gnosys-campo {
+	min-height: 1.6em;
+	padding: 4px 5px;
+	margin-right: 10px;
+}
+
+div.gnosys-campo.gnosys-campo-edicao span ul.gnosys-endereco.gnosys-endereco-edicao	{
+	display: inline-block;
+	margin: 3px 0 0 -10px;
+}
+
+/********************************************** 
+ Gnosys - Calendário
+**********************************************/
+
+.gnosys-calendar *.rf-cal-c-cnt-overflow {
+	width: 25px;
+	height: 22px;
+}
+
+.gnosys-calendar *.rf-cal-c-cnt {
+	overflow: hidden;
+}
+
+.gnosys-calendar *.rf-cal-c {
+	border-bottom: 1px solid;
+	border-right: 1px solid;
+	padding: 0px;
+	vertical-align: middle;
+	text-align: center;
+	border-bottom-color: #C4C0B9;
+	border-right-color: #C4C0B9;
+	background: #FFFFFF;
+	font-size: 11px;
+}
+
+.gnosys-calendar *.rf-cal-c:hover {
+	background: #fcaf17;
+}
+
+.gnosys-calendar *.rf-cal-hdr-month {
+	vertical-align: middle;
+	text-align: center;
+	height: 22px;
+	white-space: nowrap;
+	background: #0098d9;
+	font-weight: bold;
+	font-size: 11px;
+	color: #fff;
+	width: 100px;
+}
+
+.gnosys-calendar *.rf-cal-tl {
+	vertical-align: middle;
+	text-align: center;
+	width: 20px;
+	height: 22px;
+	background: #0098d9;
+	font-weight: bold;
+	font-size: 11px;
+	color: #fff;
+}
+
+.gnosys-calendar *.rf-cal-day-lbl {
+	border-bottom: 1px solid;
+	border-right: 0px solid;
+	vertical-align: middle;
+	text-align: center;
+	height: 22px;
+	border-bottom-color: #C4C0B9;
+	border-right-color: #C4C0B9;
+	background-color: #fff;
+	font-size: 11px;
+}
+
+.gnosys-calendar *.rf-cal-tl-ftr {
+	height: 22px;
+	padding: 1px 2px 1px 1px;
+	background: #363535;
+	color: #fff;
+	font-size: 11px;
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+.gnosys-calendar *.rf-cal-holiday {
+	background-color: #fff;
+	color: #0098d9;
+}
+
+.gnosys-calendar *.rf-cal-sel {
+	background-color: #fcaf17;
+	color: #000;
+	font-weight: bold;
+}
+
+.gnosys-calendar > span {
+    position: relative;
+}
+		
+.gnosys-calendarfaixa {
+	display: inline-block;
+}
+
+.gnosys-calendar .gnosys-calendar-input {
+	margin-right: 0px;
+	min-width: 110px;
+	padding-right: 2.5em;
+}
+
+.gnosys-calendar-input + .rf-cal-btn{
+	position: absolute;
+	right: .5em;
+	margin-top: .45em;
+}		
+
+.gnosys-calendar {
+    position: relative;
+}
+
+.gnosys-calendar:after {
+    content: "\f073";
+    font: 18px FontAwesome;
+    margin-left: -25px;
+    position: absolute;
+    top: 0;
+    transition: .25s;
+    z-index: 1;
+}
+
+.gnosys-calendar:hover:after {
+    color: #71aa3f;
+}
+
+.gnosys-calendar img {
+    height: 33px;
+    left: 0;
+    opacity: 0;
+    top: -14px;
+    width: 100%;
+    z-index: 2;
+}
+
+.gnosys-calendar input {
+    padding-right: 30px;
+}
+
+/********************************************** 
+ Gnosys - Modal
+**********************************************/
+
+div.gnosys-modal {
+	background-color: #fff;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0 5px 10px rgba(0,0,0,.15);
+	-webkit-box-shadow: 0 5px 10px rgba(0,0,0,.15);
+	-moz-box-shadow: 0 5px 10px rgba(0,0,0,.15);
+}
+
+div.gnosys-modal-header {
+	color: #fff;
+	background: #71aa3f;
+	border-radius: 5px 5px 0 0;
+	font-size: 14px;
+	padding: .5em 0;
+	position: relative;
+}
+
+.gnosys-modal-control a {
+	color: #fff;
+	margin: 6px 10px;
+	text-decoration: none;
+}
+
+.gnosys-modal-control a:hover {
+	font-size: 20px;
+	margin: 5px 8px;
+}
+
+.gnosys-modal .rf-pp-cnt {
+	padding: 20px 10px;
+}
+
+.gnosys-modal .gnosys-campo-label {
+	display: block;
+}
+
+.gnosys-modal .gnosys-item-visualizacao,
+.gnosys-modal .gnosys-campo-label {
+	margin-top: 0;
+	padding-top: 0;
+}
+
+.gnosys-modal .gnosys-campo.gnosys-campo-edicao,
+.gnosys-modal .gnosys-campo.gnosys-campo-visualizacao,
+.gnosys-modal .bloco-associacao .bloco-associacao {
+	box-sizing: border-box;
+	display: inline-block;
+	margin-bottom: 1em;
+	padding-left: .5em;
+	vertical-align: top;
+	width: 50%;
+}
+
+.gnosys-modal table.selecao-codigo,
+.gnosys-modal .selecao-codigo .gnosys-campo.gnosys-campo-edicao,
+.gnosys-modal td .gnosys-campo.gnosys-campo-edicao {
+	width: 100%;
+	margin-bottom: 0;
+}
+
+.gnosys-modal .bloco-associacao .bloco-associacao .gnosys-campo.gnosys-campo-edicao {
+	padding-left: 0;
+}
+
+.gnosys-modal .gnosys-campo.gnosys-campo-visualizacao {
+	display: block;
+}
+
+.gnosys-modal .gnosys-campo.gnosys-campo-edicao input[type=radio],
+.gnosys-modal .gnosys-campo.gnosys-campo-edicao input[type=checkbox] {
+	float: left;
+	width: auto;
+}
+
+.gnosys-modal .bloco-associacao .informe-instituicao,
+.gnosys-modal .bloco-associacao select,
+.gnosys-modal .bloco-associacao ul.gnosys-endereco li {
+	margin-left: 0;
+}
+
+.gnosys-modal .bloco-associacao .rf-st-start {
+	display: none;
+	margin-left: 0;
+}
+
+.gnosys-telefoneModal {
+	margin-left: 36px;
+}
+
+.img-loading-center {
+	position: absolute;
+	left: 50%;
+	bottom: 50%;
+	margin-left: -8px;
+	margin-top: -8px;
+}
+
+.gnosys-modal .botoes-rodape {
+	margin-top: 1em;
+}
+
+.gnosys-modal.scroller-modal .rf-pp-cnt-scrlr {
+	overflow-y: auto;
+}
+
+.gnosys-modal .botao,
+.gnosys-modal .botao input {
+	color: #fff;
+}
+
+.gnosys-modal .botao {
+	background-color: #71aa3f;
+}
+
+/********************************************** 
+ Gnosys - Modal de seleção de perfil
+**********************************************/
+
+.modal-selecao-perfil .gnosys-campo.gnosys-campo-edicao {
+	width: 100%;
+	text-align: center;
+}
+
+.modal-selecao-perfil .gnosys-campo.gnosys-campo-edicao .gnosys-select {
+	max-width: 215px;
+}
+
+/********************************************** 
+ Gnosys - Autocomplete
+**********************************************/
+
+.gnosys-campo-edicao span.rf-au {
+	border: none;
+	color: #565658;
+	padding: 0;
+	vertical-align: top;
+}
+
+.gnosys-campo-edicao input.rf-au-inp {
+	background-image: url("/ssm/javax.faces.resource/img/power.png.xhtml");
+	background-position: center right 10px;
+	background-repeat: no-repeat;
+	background-size: 12px;
+	margin-right: 7px;
+	padding: 8px 2px 8px 5px;
+	border: 1px solid #565658;
+}
+
+.autocomplete-assunto-frequente {
+	vertical-align: top;
+}
+
+.autocomplete-assunto-frequente span.rf-au {
+	min-width: 224px;
+	margin: 0;
+}

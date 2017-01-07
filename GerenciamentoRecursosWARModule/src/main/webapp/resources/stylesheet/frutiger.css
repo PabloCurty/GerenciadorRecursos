@@ -1,0 +1,105 @@
+/*******************************************
+				   Fonts
+*******************************************/
+
+@font-face {
+    font-family: 'FrutigerLTCn';
+    src: url("#{resource['/stylesheet/fonts/frutigerlt-cn.eot']}");
+    src: url("#{resource['/stylesheet/fonts/frutigerlt-cn.svg#FrutigerLTCn']}") format('svg'),
+		 url("#{resource['/stylesheet/fonts/frutigerlt-cn.eot']}") format('embedded-opentype'),
+         url("#{resource['/stylesheet/fonts/frutigerlt-cn.woff']}") format('woff'),
+         url("#{resource['/stylesheet/fonts/frutigerlt-cn.ttf']}") format('truetype');
+	font-style:normal;
+	font-weight:normal;
+	font-smooth: always;
+	-webkit-text-stroke: 0.5px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+@font-face {
+    font-family: 'FrutigerLTCn';
+    src: url("#{resource['/stylesheet/fonts/frutigerlt-cn.svg#FrutigerLTCn']}") format('svg');
+}
+}
+
+@font-face {
+    font-family: 'FrutigerBoldCn';
+    src: url("#{resource['/stylesheet/fonts/frutiger-boldcn.eot']}");
+    src: url("#{resource['/stylesheet/fonts/frutiger-boldcn.svg#FrutigerBoldCn']}") format('svg'),
+		 url("#{resource['/stylesheet/fonts/frutiger-boldcn.eot']}") format('embedded-opentype'),
+         url("#{resource['/stylesheet/fonts/frutiger-boldcn.woff']}") format('woff'),
+         url("#{resource['/stylesheet/fonts/frutiger-boldcn.ttf']}") format('truetype');
+	font-style:normal;
+	font-weight:normal;
+	font-smooth: always;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+@font-face {
+    font-family: 'FrutigerBoldCn';
+    src: url("#{resource['/stylesheet/fonts/frutiger-boldcn.svg#FrutigerBoldCn']}") format('svg');
+}
+}
+
+@font-face {
+    font-family: 'MyriadProRegular';
+    src: url("#{resource['/stylesheet/fonts/myriadpro-regular.eot']}");
+    src: url("#{resource['/stylesheet/fonts/myriadpro-regular.eot']}") format('embedded-opentype'),
+		 url("#{resource['/stylesheet/fonts/myriadpro-regular.svg#MyriadProRegular']}") format('svg'),
+         url("#{resource['/stylesheet/fonts/myriadpro-regular.woff']}") format('woff'),
+         url("#{resource['/stylesheet/fonts/myriadpro-regular.ttf']}") format('truetype');
+	font-style:normal;
+	font-weight:normal;
+	font-smooth: always;
+}
+
+@font-face {
+    font-family: 'FrutigerLTBold';
+    src: url("#{resource['/stylesheet/fonts/frutigerlt-bold.eot']}");
+    src: url("#{resource['/stylesheet/fonts/frutigerlt-bold.svg#FrutigerLTBold']}") format('svg'),
+		 url("#{resource['/stylesheet/fonts/frutigerlt-bold.eot']}") format('embedded-opentype'),
+         url("#{resource['/stylesheet/fonts/frutigerlt-bold.woff']}") format('woff'),
+         url("#{resource['/stylesheet/fonts/frutigerlt-bold.ttf']}") format('truetype');
+	font-style:normal;
+	font-weight:normal;
+	font-smooth: always;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+@font-face {
+    font-family: 'FrutigerLTBold';
+    src: url("#{resource['/stylesheet/fonts/frutigerlt-bold.svg#FrutigerLTBold']}") format('svg');
+}
+}
+
+@font-face {
+    font-family: 'FrutigerLight';
+    src: url("#{resource['/stylesheet/fonts/frutiger-light.eot']}");
+    src: url("#{resource['/stylesheet/fonts/frutiger-light.svg#FrutigerLight']}") format('svg'),
+		 url("#{resource['/stylesheet/fonts/frutiger-light.eot']}") format('embedded-opentype'),
+         url("#{resource['/stylesheet/fonts/frutiger-light.woff']}") format('woff'),
+         url("#{resource['/stylesheet/fonts/frutiger-light.ttf']}") format('truetype');
+	font-style:normal;
+	font-weight:normal;
+	font-smooth: always;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+@font-face {
+    font-family: 'FrutigerLight';
+    src: url("#{resource['/stylesheet/fonts/frutiger-light.svg#FrutigerLight']}") format('svg');
+}
+}
+
+body {
+    -webkit-animation-delay: 0.1s;
+    -webkit-animation-name: fontfix;
+    -webkit-animation-duration: 0.1s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes fontfix {
+    from { opacity: 1; }
+    to   { opacity: 1; }
+}

@@ -1,42 +1,41 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:composite="http://java.sun.com/jsf/composite"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:p="http://primefaces.org/ui">
-<head>
-<title>Login</title>
-</head>
-<body>
+	xmlns:p="http://primefaces.org/ui" template="/layout/template.xhtml">
 
-	<h:form>
-		<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
-		<!-- <p:messages autoUpdate="true" />  -->
-		<h:panelGrid columns="2">
-			<h:outputLabel for="username" value="Usuário:" />
-			<p:inputText id="username" value="#{userLoginView.username}"
-				required="false" label="username" />
+	<ui:define name="title">Gerenciador de Recursos UFF</ui:define>
 
-			<h:outputLabel for="password" value="Senha:" />
-			<p:password id="password" value="#{userLoginView.password}"
-				required="false" label="password" />
+	<ui:define name="content">
+		<h:form>
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+			<!-- <p:messages autoUpdate="true" />  -->
+			<h:panelGrid columns="2">
+				<h:outputLabel for="username" value="Usuário:" />
+				<p:inputText id="username" value="#{userLoginView.username}"
+					required="false" label="username" />
 
-			<f:facet name="footer">
-				<p:commandButton value="Login" type="submit" update="growl"
-					action="#{userLoginView.login()}" />
-			</f:facet>
+				<h:outputLabel for="password" value="Senha:" />
+				<p:password id="password" value="#{userLoginView.password}"
+					required="false" label="password" />
 
-
-		</h:panelGrid>
-
-		<p:separator />
-		<h:commandLink action="#{userLoginView.entrarSemLogin()}"
-			value="Consulta salas e equipamentos" />
-
-	</h:form>
+				<f:facet name="footer">
+					<p:commandButton value="Login" type="submit" update="growl"
+						action="#{userLoginView.login()}" />
+				</f:facet>
 
 
-</body>
-</html>
+			</h:panelGrid>
+
+			<p:separator />
+			<h:commandLink action="#{userLoginView.entrarSemLogin()}"
+				value="Consulta salas e equipamentos" />
+
+		</h:form>
+
+
+	</ui:define>
+</ui:composition>
