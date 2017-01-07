@@ -12,29 +12,22 @@
     <p:growl id="messages"/>
  
     <p:menubar>
-        <p:submenu label="Cadastro" icon="ui-icon-document" rendered="#{(menuBean.pegaPermissoes()) == 3}">
+        <p:submenu label="Cadastro" icon="ui-icon-document" rendered="#{(menuBean.pegaPermissoes()) >= 3}">
             <p:submenu label="Cadastrar" icon="ui-icon-contact">
-                <p:menuitem value="Gerente" url="#" />
-                <p:menuitem value="Professor" url="#" />
-                <p:menuitem value="Assistente" url="#" />
-            </p:submenu>
-            <p:separator />
-            <p:submenu label="Consultar" icon="ui-icon-contact">
-                <p:menuitem value="Gerente" url="#" />
-                <p:menuitem value="Professor" url="#" />
-                <p:menuitem value="Assistente" url="#" />   
-            </p:submenu>
-             <p:separator />
-            <p:submenu label="Excluir" icon="ui-icon-contact">
-                <p:menuitem value="Gerente" url="#" />
-                <p:menuitem value="Professor" url="#" />
-                <p:menuitem value="Assistente" url="#" />   
+                <p:submenu label="Usuario" rendered="#{(menuBean.pegaPermissoes()) == 4}" url="#" >
+                	<p:menuitem value="Professor" url="#" />
+                	<p:menuitem value="Gerente" url="#" />
+                	<p:menuitem value="Assistente" url="#" />
+                </p:submenu>
+                <p:menuitem value="Equipamento" url="#" />
+                <p:menuitem value="Sala" url="#" />
             </p:submenu>
         </p:submenu>
  
-        <p:submenu label="Solicitação" icon="ui-icon-pencil">
-            <p:menuitem value="Undo" url="#" icon="ui-icon-arrowreturnthick-1-w" />
-            <p:menuitem value="Redo" url="#" icon="ui-icon-arrowreturnthick-1-e" />
+        <p:submenu label="Solicitação" icon="ui-icon-pencil" rendered="#{(menuBean.pegaPermissoes()) >= 0}">
+            <p:menuitem value="Solicitar" url="#" icon="ui-icon-arrowreturnthick-1-w" rendered="#{(menuBean.pegaPermissoes()) >= 2}" />
+            <p:menuitem value="Consultar" url="#" icon="ui-icon-arrowreturnthick-1-e" />
+            <p:menuitem value="Atender" url="#" icon="ui-icon-arrowreturnthick-1-e"  rendered="#{(menuBean.pegaPermissoes()) >= 3}"/>
         </p:submenu>
  
         <p:submenu label="Actions" icon="ui-icon-gear">

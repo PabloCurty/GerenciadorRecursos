@@ -30,38 +30,39 @@ public class MenuBeanView implements Serializable{
     	 */
     	switch (perfil) {
 		case "Administrador":
-			perfilNivel = 3;
+			perfilNivel = 4;
 			break;
 		
 		case "ADMINISTRADOR":
-			perfilNivel = 3;
+			perfilNivel = 4;
 			break;	
 			
 		case "Gerente":
-			perfilNivel = 2;
+			perfilNivel = 3;
 			break;
 	
 		case "GERENTE":
-			perfilNivel = 2;
+			perfilNivel = 3;
 			break;
 	
 		case "Professor":
-			perfilNivel = 1;
+			perfilNivel = 2;
 			break;
 	
 		case "PROFESSOR":
-			perfilNivel = 1;
+			perfilNivel = 2;
 			break;
 		
 		case "Assistente":
-			perfilNivel = 0;
+			perfilNivel = 1;
 			break;
 		
 		case "ASSISTENTE":
-			perfilNivel = 0;
+			perfilNivel = 1;
 			break;	
 			
 		default:
+			perfilNivel = 0;
 			break;
 		}
     	
