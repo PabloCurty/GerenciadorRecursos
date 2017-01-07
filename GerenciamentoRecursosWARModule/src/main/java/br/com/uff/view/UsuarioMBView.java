@@ -30,14 +30,16 @@ public class UsuarioMBView implements Serializable {
 	private List<String> perfilType;
 
 	public UsuarioMBView() {
+		
+	}
+
+	public List<String> completeText() {
+		
 		perfilType = new ArrayList<String>();
 		perfilType.add("ADMINISTRADOR");
 		perfilType.add("GERENTE");
 		perfilType.add("PROFESSOR");
 		perfilType.add("ASSISTENTE");
-	}
-
-	public List<String> completeText() {
 
 		return perfilType;
 	}
