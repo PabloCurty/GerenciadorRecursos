@@ -13,7 +13,6 @@ import javax.faces.context.FacesContext;
 
 import org.CommonsEJB.UserLoginBean;
 import org.CommonsEJB.model.Usuario;
-import org.CommonsEJB.util.PerfilType;
 import org.primefaces.context.RequestContext;
 
 /**
@@ -62,8 +61,9 @@ public class UserLoginView implements Serializable {
 			user = userLoginBean.login(this.username, this.password);
 			this.id = user.getOid();
 			this.perfil = user.getPerfil().getNome_perfil();
+			String nome = user.getNome_usuario();
 			loggedIn = true;
-			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", username);
+			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome " + nome, this.username);
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			FacesContext.getCurrentInstance().getExternalContext().getFlash().put("id", this.getId());
 			FacesContext.getCurrentInstance().getExternalContext().getFlash().put("perfil", this.getPerfil());
@@ -82,6 +82,7 @@ public class UserLoginView implements Serializable {
 	public String logout() {
 		this.password = null;
 		this.username = null;
+		this.perfil = null;
 		this.setId(null);
 		// TODO verificar se eh necessario
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();

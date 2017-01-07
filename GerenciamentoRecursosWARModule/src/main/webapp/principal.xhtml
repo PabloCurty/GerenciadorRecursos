@@ -12,29 +12,29 @@
     <p:growl id="messages"/>
  
     <p:menubar>
-        <p:submenu label="File" icon="ui-icon-document">
-            <p:submenu label="New" icon="ui-icon-contact">
-                <p:menuitem value="Project" url="#" />
-                <p:menuitem value="Other" url="#" />
+        <p:submenu label="Cadastro" icon="ui-icon-document" rendered="#{(menuBean.pegaPermissoes()) == 3}">
+            <p:submenu label="Cadastrar" icon="ui-icon-contact">
+                <p:menuitem value="Gerente" url="#" />
+                <p:menuitem value="Professor" url="#" />
+                <p:menuitem value="Assistente" url="#" />
             </p:submenu>
-            <p:menuitem value="Open" url="#" />
             <p:separator />
-            <p:menuitem value="Quit" url="#" />
+            <p:submenu label="Consultar" icon="ui-icon-contact">
+                <p:menuitem value="Gerente" url="#" />
+                <p:menuitem value="Professor" url="#" />
+                <p:menuitem value="Assistente" url="#" />   
+            </p:submenu>
+             <p:separator />
+            <p:submenu label="Excluir" icon="ui-icon-contact">
+                <p:menuitem value="Gerente" url="#" />
+                <p:menuitem value="Professor" url="#" />
+                <p:menuitem value="Assistente" url="#" />   
+            </p:submenu>
         </p:submenu>
  
-        <p:submenu label="Edit" icon="ui-icon-pencil">
+        <p:submenu label="Solicitação" icon="ui-icon-pencil">
             <p:menuitem value="Undo" url="#" icon="ui-icon-arrowreturnthick-1-w" />
             <p:menuitem value="Redo" url="#" icon="ui-icon-arrowreturnthick-1-e" />
-        </p:submenu>
- 
-        <p:submenu label="Help" icon="ui-icon-help">
-            <p:menuitem value="Contents" url="#" />
-            <p:submenu label="Search" icon="ui-icon-search">
-                <p:submenu label="Text">
-                    <p:menuitem value="Workspace" url="#" />
-                </p:submenu>
-                <p:menuitem value="File" url="#" />
-            </p:submenu>
         </p:submenu>
  
         <p:submenu label="Actions" icon="ui-icon-gear">
@@ -48,10 +48,22 @@
         </p:submenu>
  
         <p:menuitem value="Quit" url="http://www.primefaces.org" icon="ui-icon-close" />
- 
+        
+        <p:submenu label="Help" icon="ui-icon-help">
+            <p:menuitem value="Contents" url="#" />
+            <p:submenu label="Search" icon="ui-icon-search">
+                <p:submenu label="Text">
+                    <p:menuitem value="Workspace" url="#" />
+                </p:submenu>
+                <p:menuitem value="File" url="#" />
+            </p:submenu>
+        </p:submenu>
+ 		
         <f:facet name="options">
             <p:inputText style="margin-right:10px" placeholder="Search"/>
-            <p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />
+            <h:form>
+            	<p:commandButton type="button" value="Sair" icon="ui-icon-extlink" actionListener="#{userLoginView.logout()}"/>
+            </h:form>
         </f:facet>
     </p:menubar>
 </h:form>
