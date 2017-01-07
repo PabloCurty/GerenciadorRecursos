@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:login.xhtml" PATH="login.xhtml"
+  SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:login.xhtml:0" NAME="item" PATH="login.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="success:#{userLoginView.login()}:principal.xhtml" NAME="output"
+    PATH="principal.xhtml" TARGET="rules:principal.xhtml"
+    TITLE="#{userLoginView.login()}:success" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="failure:#{userLoginView.login()}:erroLogin.xhtml" NAME="output1"
+    PATH="erroLogin.xhtml" TARGET="rules:erroLogin.xhtml"
+    TITLE="#{userLoginView.login()}:failure" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="success:#{userLoginView.entrarSemLogin()}:principal.xhtml"
+    NAME="output2" PATH="principal.xhtml" TARGET="rules:principal.xhtml"
+    TITLE="#{userLoginView.entrarSemLogin()}:success" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="failure:#{userLoginView.entrarSemLogin()}:erroLogin.xhtml"
+    NAME="output3" PATH="erroLogin.xhtml" TARGET="rules:erroLogin.xhtml"
+    TITLE="#{userLoginView.entrarSemLogin()}:failure" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:principal.xhtml" PATH="principal.xhtml"
+  SHAPE="256,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:principal.xhtml:0" NAME="item"
+   PATH="principal.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="success:#{userLoginView.logout()}:login.xhtml" NAME="output"
+    PATH="login.xhtml" TARGET="rules:login.xhtml"
+    TITLE="#{userLoginView.logout()}:success" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="failure:#{userLoginView.logout()}:erroLogin.xhtml"
+    NAME="output1" PATH="erroLogin.xhtml" TARGET="rules:erroLogin.xhtml"
+    TITLE="#{userLoginView.logout()}:failure" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:erroLogin.xhtml" PATH="erroLogin.xhtml"
+  SHAPE="256,177,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

@@ -78,15 +78,41 @@ public class UserLoginView implements Serializable {
 		}
 
 	}
+	
+	public String entrarSemLogin(){
+		RequestContext context = RequestContext.getCurrentInstance();
+		FacesMessage message = null;
+		boolean loggedIn = false;
+		try {
+			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Solicite seu cadastro ", null);
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			FacesContext.getCurrentInstance().getExternalContext().getFlash().put("perfil", "Usuario");
+			loggedIn = false;
+			context.addCallbackParam("loggedIn", loggedIn);
+			return "success";
+		} catch (Exception e) {
+			loggedIn = false;
+			message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Não foi possível efetuar a consulta", "Sistema fora do ar");
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			context.addCallbackParam("loggedIn", loggedIn);
+			return "failure";
+		}
+		
+	}
 
 	public String logout() {
-		this.password = null;
-		this.username = null;
-		this.perfil = null;
-		this.setId(null);
-		// TODO verificar se eh necessario
-		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-		return "login.xhtml";
+		
+		try {
+			this.password = null;
+			this.username = null;
+			this.perfil = null;
+			this.setId(null);
+			// TODO verificar se eh necessario
+			FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+			return "success";
+		} catch (Exception e) {
+			return "failure";
+		}
 	}
 
 	public String getId() {

@@ -14,30 +14,23 @@
     <p:menubar>
         <p:submenu label="Cadastro" icon="ui-icon-document" rendered="#{(menuBean.pegaPermissoes()) >= 3}">
             <p:submenu label="Cadastrar" icon="ui-icon-contact">
-                <p:submenu label="Usuario" rendered="#{(menuBean.pegaPermissoes()) == 4}" url="#" >
-                	<p:menuitem value="Professor" url="#" />
-                	<p:menuitem value="Gerente" url="#" />
-                	<p:menuitem value="Assistente" url="#" />
-                </p:submenu>
-                <p:menuitem value="Equipamento" url="#" />
-                <p:menuitem value="Sala" url="#" />
+                <p:menuitem value="Usuario" url="cadastroUsuario.xhtml" rendered="#{(menuBean.pegaPermissoes()) == 4}" />
+                <p:menuitem value="Equipamento" url="cadastroEquipamento.xhtml" />
+                <p:menuitem value="Sala" url="cadastroSala.xhtml" />
             </p:submenu>
         </p:submenu>
  
-        <p:submenu label="Solicitação" icon="ui-icon-pencil" rendered="#{(menuBean.pegaPermissoes()) >= 0}">
-            <p:menuitem value="Solicitar" url="#" icon="ui-icon-arrowreturnthick-1-w" rendered="#{(menuBean.pegaPermissoes()) >= 2}" />
-            <p:menuitem value="Consultar" url="#" icon="ui-icon-arrowreturnthick-1-e" />
+        <p:submenu label="Solicitação" icon="ui-icon-pencil" rendered="#{(menuBean.pegaPermissoes()) >= 2}">
+            <p:menuitem value="Solicitar" url="#" icon="ui-icon-arrowreturnthick-1-w"  />
+            <p:menuitem value="Consultar" url="#" icon="ui-icon-arrowreturnthick-1-e" rendered="#{(menuBean.pegaPermissoes()) >= 1}"/>
             <p:menuitem value="Atender" url="#" icon="ui-icon-arrowreturnthick-1-e"  rendered="#{(menuBean.pegaPermissoes()) >= 3}"/>
         </p:submenu>
  
-        <p:submenu label="Actions" icon="ui-icon-gear">
-            <p:submenu label="Ajax" icon="ui-icon-refresh">
-                <p:menuitem value="Save" actionListener="#{menuView.save}" icon="ui-icon-disk" update="messages"/>
-                <p:menuitem value="Update" actionListener="#{menuView.update}" icon="ui-icon-arrowrefresh-1-w" update="messages"/>
-            </p:submenu>
-            <p:submenu label="Non-Ajax" icon="ui-icon-newwin">
-                <p:menuitem value="Delete" actionListener="#{menuView.delete}" icon="ui-icon-close" update="messages" ajax="false"/>
-            </p:submenu>
+        <p:submenu label="Mapa de recursos" icon="ui-icon-gear" rendered="#{(menuBean.pegaPermissoes()) >= 0}">
+            <p:menuitem value="Salas" actionListener="#{menuView.save}" icon="ui-icon-disk" update="messages"/>
+            <p:menuitem value="Equipamentos" actionListener="#{menuView.update}" icon="ui-icon-arrowrefresh-1-w" update="messages"/>
+
+           
         </p:submenu>
  
         <p:menuitem value="Quit" url="http://www.primefaces.org" icon="ui-icon-close" />
@@ -52,10 +45,11 @@
             </p:submenu>
         </p:submenu>
  		
-        <f:facet name="options">
+        <f:facet name="options" >
             <p:inputText style="margin-right:10px" placeholder="Search"/>
-            <h:form>
-            	<p:commandButton type="button" value="Sair" icon="ui-icon-extlink" actionListener="#{userLoginView.logout()}"/>
+            <h:form >
+            	<p:commandButton ajax="false" rendered="#{(menuBean.pegaPermissoes()) >= 1}" type="button" value="Sair" icon="ui-icon-extlink" onclick="#{userLoginView.logout()}"/>
+            	<p:commandButton ajax="false" rendered="#{(menuBean.pegaPermissoes()) == 0}" type="button" value="Voltar" icon="ui-icon-extlink" onclick="#{userLoginView.logout()}"/>
             </h:form>
         </f:facet>
     </p:menubar>
