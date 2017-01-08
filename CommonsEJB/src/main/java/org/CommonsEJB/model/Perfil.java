@@ -20,6 +20,7 @@ public class Perfil extends EntidadeAbstrata implements Serializable{
 
 	private static final long serialVersionUID = 5917873439974157899L;
 	
+	//TODO quando tava dando errado verificou se o tipo do atributo era PerfilType???
 	//@Enumerated(EnumType.STRING)
 	@Column(name = "NOME_PERFIL")
 	private String nome_perfil;

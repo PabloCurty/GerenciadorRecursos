@@ -25,6 +25,12 @@ public class Sala extends EntidadeAbstrata implements Serializable{
 	@Column(name = "CAPACIDADE", nullable = false)
 	private String capacidade;
 	
+	@Column(name = "TIPO", nullable = false)
+	private String tipo;
+	
+	@Column(name = "RECURSOS", nullable = false)
+	private String recursos;
+	
 	@Column(name = "PREDIO", nullable = false)
 	private String predio;
 	
@@ -32,6 +38,22 @@ public class Sala extends EntidadeAbstrata implements Serializable{
 	@OrderBy
 	private Set<Alocacao> alocacao;
 	
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getRecursos() {
+		return recursos;
+	}
+
+	public void setRecursos(String recursos) {
+		this.recursos = recursos;
+	}
+
 	public String getNumero() {
 		return numero;
 	}
