@@ -13,9 +13,9 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "EMPRESTIMO_EQUIPAMENTO", uniqueConstraints = @UniqueConstraint(columnNames = {"ID_EMPRESTIMO_EQUIP"}))
-@AttributeOverride(name="oid", column=@Column(name="ID_EMPRESTIMO_EQUIP"))
-public class EmprestimoEquipamento extends EntidadeAbstrata implements Serializable{
+@Table(name = "EMPRESTIMO_CHAVE", uniqueConstraints = @UniqueConstraint(columnNames = {"ID_EMPRESTIMO_CHAVE"}))
+@AttributeOverride(name="oid", column=@Column(name="ID_EMPRESTIMO_CHAVE"))
+public class EmprestimoChave extends EntidadeAbstrata implements Serializable{
 
 	/**
 	 * 
@@ -32,17 +32,17 @@ public class EmprestimoEquipamento extends EntidadeAbstrata implements Serializa
 	private String status;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="ID_EQUIPAMENTO")
-	private Equipamento equipamento;
-
-	public Equipamento getEquipamento() {
-		return equipamento;
-	}
-
-	public void setEquipamento(Equipamento equipamento) {
-		this.equipamento = equipamento;
-	}
+	@JoinColumn(name="ID_SALA")
+	private Sala sala;
 	
+	public Sala getSala() {
+		return sala;
+	}
+
+	public void setSala(Sala sala) {
+		this.sala = sala;
+	}
+
 	public Date getHoraSaida() {
 		return horaSaida;
 	}
