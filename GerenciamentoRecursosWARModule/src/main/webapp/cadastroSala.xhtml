@@ -1,11 +1,49 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+<!DOCTYPE html>
+<ui:composition template="/WEB-INF/template/Layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	
+	<f:metadata>
+	<f:viewAction action="#{salaBean.prepararCadastro}" />
+	</f:metadata> 
 
-<h:head></h:head> 
-<body> 
-  Cadastro Sala
-</body> 
-</html>
+<ui:define name="titulo">Cadastro de lançamento</ui:define>
+<ui:define name="corpo">
+	<h1>Cadastro de lançamento</h1>
+	<h:form id="frm">
+		<h:messages showDetail="false" showSummary="true" />
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Descrição" />
+				<h:inputText size="60"
+					value="#{salaBean.sala.numero}"
+					label="Descrição" />
+				<h:outputLabel value="Valor" />
+				<h:inputText size="12"
+					value="#{salaBean.sala.numero}"
+					label="Valor">
+				<f:convertNumber locale="pt_BR" maxFractionDigits="2"
+					minFractionDigits="2" />
+				</h:inputText>
+				<h:outputLabel value="Data de vencimento" />
+				<h:inputText size="12"
+					value="#{salaBean.sala.numero}"
+					label="Data de vencimento">
+				<f:convertDateTime pattern="dd/MM/yyyy"
+					timeZone="America/Sao_Paulo" />
+				</h:inputText>
+				<h:outputLabel value="Data de pagamento" />
+				<h:inputText size="12"
+					value="#{salaBean.sala.numero}"
+					label="Data de pagamento">
+				<f:convertDateTime pattern="dd/MM/yyyy"
+					timeZone="America/Sao_Paulo" />
+				</h:inputText>
+				<h:outputLabel />
+				<h:commandButton value="Salvar"
+					action="#{salaBean.salvar}" />
+		</h:panelGrid>
+	</h:form>
+</ui:define>
+</ui:composition>
