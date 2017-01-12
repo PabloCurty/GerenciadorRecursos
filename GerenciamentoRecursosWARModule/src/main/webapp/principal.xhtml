@@ -25,6 +25,13 @@
 						<p:menuitem value="Sala" url="cadastroSala.xhtml" />
 					</p:submenu>
 				</p:submenu>
+				
+				<p:submenu label="Solicitações" icon="ui-icon-document"
+					rendered="#{(menuBean.pegaPermissoes()) >= 3}">
+						<p:menuitem value="Sala" url="solicitacaoSala.xhtml"
+							rendered="#{(menuBean.pegaPermissoes()) == 4}" />
+						<p:menuitem value="Equipamento" url="solicitacaoEquipamento.xhtml" />
+				</p:submenu>
 
 				<p:submenu label="Solicitação" icon="ui-icon-pencil"
 					rendered="#{(menuBean.pegaPermissoes()) >= 2}">

@@ -3,13 +3,13 @@ package org.CommonsEJB;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
 
 import org.CommonsEJB.model.Sala;
 
-@ManagedBean
-@ViewScoped
+@Stateless
+@LocalBean
 public class SalaBean implements Serializable {
 
 	/**
@@ -20,12 +20,12 @@ public class SalaBean implements Serializable {
 	private Sala sala = new Sala();
 	
 	private List<Sala> salas;
-	
-	public void prepararCadastro() {
-		//sala = todas as salas do banco
-	}
 
 	public void salvar(){}
+	
+	public void cadastrar(){}
+	
+	public void solicitar(){}
 	
 	public List<Sala> getSalas(){
 		return this.salas;

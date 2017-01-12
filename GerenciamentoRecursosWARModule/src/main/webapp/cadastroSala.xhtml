@@ -1,49 +1,45 @@
-<!DOCTYPE html>
-<ui:composition template="/WEB-INF/template/Layout.xhtml"
-	xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui" template="/layout/template.xhtml">
 	
 	<f:metadata>
-	<f:viewAction action="#{salaBean.prepararCadastro}" />
+		<f:viewAction action="#{salaBeanView.prepararCadastro}" />
 	</f:metadata> 
 
-<ui:define name="titulo">Cadastro de lançamento</ui:define>
-<ui:define name="corpo">
-	<h1>Cadastro de lançamento</h1>
-	<h:form id="frm">
-		<h:messages showDetail="false" showSummary="true" />
-		<h:panelGrid columns="2">
-			<h:outputLabel value="Descrição" />
-				<h:inputText size="60"
-					value="#{salaBean.sala.numero}"
-					label="Descrição" />
-				<h:outputLabel value="Valor" />
-				<h:inputText size="12"
-					value="#{salaBean.sala.numero}"
-					label="Valor">
-				<f:convertNumber locale="pt_BR" maxFractionDigits="2"
-					minFractionDigits="2" />
-				</h:inputText>
-				<h:outputLabel value="Data de vencimento" />
-				<h:inputText size="12"
-					value="#{salaBean.sala.numero}"
-					label="Data de vencimento">
-				<f:convertDateTime pattern="dd/MM/yyyy"
-					timeZone="America/Sao_Paulo" />
-				</h:inputText>
-				<h:outputLabel value="Data de pagamento" />
-				<h:inputText size="12"
-					value="#{salaBean.sala.numero}"
-					label="Data de pagamento">
-				<f:convertDateTime pattern="dd/MM/yyyy"
-					timeZone="America/Sao_Paulo" />
-				</h:inputText>
-				<h:outputLabel />
-				<h:commandButton value="Salvar"
-					action="#{salaBean.salvar}" />
-		</h:panelGrid>
-	</h:form>
+<ui:define name="title">Cadastro de sala</ui:define>
+<ui:define name="content">
+	<h1>Cadastro de sala</h1>
+	<h:form>
+		<p:messages id="messages" />
+		<p:panelGrid columns="2">
+			<p:outputLabel for="numero" value="Numero:" />
+			<p:inputText id="numero" value="#{salaBeanView.numero}" />
+	
+			<p:outputLabel for="capacidade" value="Capacidade:" />
+			<p:inputText id="capacidade" value="#{salaBeanView.capacidade}" />
+	
+			<p:outputLabel for="tipo" value="Tipo:" />
+			<p:inputText id="tipo" value="#{salaBeanView.tipo}" />
+	
+			<p:outputLabel for="recursos" value="Recursos:" />
+			<p:inputText id="recursos" value="#{salaBeanView.recursos}" />
+	
+			<p:outputLabel for="predio" value="Predio:" />
+					<p:inputText id="predio" value="#{salaBeanView.predio}" />
+	
+			<!-- <f:facet name="footer">
+				<p:commandButton value="Cadastrar" type="submit" update="growl"
+					action="#{salaBeanView.cadastrar()}" />
+			</f:facet>-->
+			<p:commandButton value="Cadastrar" icon="ui-icon-star"
+					action="#{salaBeanView.cadastrar}" update="messages">
+			</p:commandButton>
+		</p:panelGrid>
+  	</h:form>
 </ui:define>
 </ui:composition>

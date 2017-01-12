@@ -8,26 +8,24 @@
 	xmlns:p="http://primefaces.org/ui" template="/layout/template.xhtml">
 	
 	<f:metadata>
-		<f:viewAction action="#{equipamentoBeanView.prepararCadastro}" />
+		<f:viewAction action="#{solicitacaoSalaBeanView.prepararSolicitacao}" />
 	</f:metadata> 
 
-<ui:define name="title">Cadastro de equipamento</ui:define>
+<ui:define name="title">Solicitação de sala</ui:define>
 <ui:define name="content">
-	<h1>Cadastro de equipamento</h1>
+	<h1>Solicitação de sala</h1>
 	<h:form>
 		<p:messages id="messages" />
 		<p:panelGrid columns="2">
-			<p:outputLabel for="numero" value="Numero:" />
-			<p:inputText id="numero" value="#{equipamentoBeanView.numero}" />
 	
-			<p:outputLabel for="descricao" value="Descricao:" />
-			<p:inputText id="descricao" value="#{equipamentoBeanView.descricao}" />
+			<p:outputLabel for="capacidade" value="Capacidade:" />
+			<p:inputText id="capacidade" value="#{solicitacaoSalaBeanView.capacidade}" />
 	
-			<p:outputLabel for="status" value="Status:" />
-			<p:inputText id="status" value="#{equipamentoBeanView.status}" />
+			<p:outputLabel for="recursos" value="Recursos:" />
+			<p:inputText id="recursos" value="#{solicitacaoSalaBeanView.recursos}" />
 	
-			<p:commandButton value="Cadastrar" icon="ui-icon-star"
-					action="#{equipamentoBeanView.cadastrar}" update="messages">
+			<p:commandButton value="Solicitar" icon="ui-icon-star"
+					action="#{SalaBean.solicitar}" update="messages">
 			</p:commandButton>
 		</p:panelGrid>
   	</h:form>
