@@ -42,14 +42,20 @@
 							rendered="#{(menuBean.pegaPermissoes()) == 4}" />
 				</p:submenu>
 
-				<p:submenu label="Solicitação" icon="ui-icon-pencil"
+				<p:submenu label="Registro" icon="ui-icon-pencil"
 					rendered="#{(menuBean.pegaPermissoes()) >= 2}">
-					<p:menuitem value="Solicitar" url="#"
+					<p:menuitem value="Retirada de chave" url="#"
 						icon="ui-icon-arrowreturnthick-1-w" />
-					<p:menuitem value="Consultar" url="#"
+					<p:menuitem value="Retirada de equipamento" url="#"
 						icon="ui-icon-arrowreturnthick-1-e"
 						rendered="#{(menuBean.pegaPermissoes()) >= 1}" />
-					<p:menuitem value="Atender" url="#"
+					<p:menuitem value="Problema" url="#"
+						icon="ui-icon-arrowreturnthick-1-e"
+						rendered="#{(menuBean.pegaPermissoes()) >= 3}" />
+					<p:menuitem value="Devolução de chave" url="#"
+						icon="ui-icon-arrowreturnthick-1-e"
+						rendered="#{(menuBean.pegaPermissoes()) >= 3}" />
+					<p:menuitem value="Devolução de equipamento" url="#"
 						icon="ui-icon-arrowreturnthick-1-e"
 						rendered="#{(menuBean.pegaPermissoes()) >= 3}" />
 				</p:submenu>
