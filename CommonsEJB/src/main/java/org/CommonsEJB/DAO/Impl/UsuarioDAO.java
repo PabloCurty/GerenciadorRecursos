@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import org.CommonsEJB.model.Usuario;
 
-public class UsuarioDAO extends AbstractDAO<Usuario> implements Serializable{
+public class UsuarioDAO extends AbstractDAO<Usuario>{
 
 
 	private static final long serialVersionUID = 5301196243454701146L;

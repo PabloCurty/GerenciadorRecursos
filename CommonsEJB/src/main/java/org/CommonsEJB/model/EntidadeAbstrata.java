@@ -3,17 +3,13 @@
  */
 package org.CommonsEJB.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.SequenceGenerator;
+import javax.validation.constraints.Size;
 
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.hibernate.annotations.GenericGenerator;
 
 import com.google.common.base.Strings;
 
@@ -24,7 +20,7 @@ import com.google.common.base.Strings;
  *
  */
 @MappedSuperclass
-public abstract class EntidadeAbstrata implements Serializable {
+public abstract class EntidadeAbstrata implements EntityInterface {
 
 	/**
 	 * 
@@ -33,8 +29,9 @@ public abstract class EntidadeAbstrata implements Serializable {
 	
 	
 	@Id
-	@SequenceGenerator(name = "SEQUENCIA_UFF", sequenceName = "SEQ_UFF", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "SEQUENCIA_UFF")
+	@Size(min = 36, max = 36)
+	@GenericGenerator(name = "uuid", strategy = "org.CommonsEJB.util.UFFIdGenerator")
+	@GeneratedValue(generator = "uuid")
 	@Column(name = "OID")
 	protected String oid;
 	
@@ -63,7 +60,7 @@ public abstract class EntidadeAbstrata implements Serializable {
 		return oid;
 	}
 
-	@Override
+	/**@Override
 	public int hashCode() {
 		return new HashCodeBuilder(5, 11).append(oid).toHashCode();
 	}
@@ -79,7 +76,7 @@ public abstract class EntidadeAbstrata implements Serializable {
 		}
 
 		return result;
-	}
+	}**/
 
 	public boolean isNovo() {
 		return Strings.isNullOrEmpty(oid);
@@ -93,6 +90,31 @@ public abstract class EntidadeAbstrata implements Serializable {
 	 */
 	public boolean canEqual(Object obj) {
 		return obj instanceof EntidadeAbstrata;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((oid == null) ? 0 : oid.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		EntidadeAbstrata other = (EntidadeAbstrata) obj;
+		if (oid == null) {
+			if (other.oid != null)
+				return false;
+		} else if (!oid.equals(other.oid))
+			return false;
+		return true;
 	}
 	
 	

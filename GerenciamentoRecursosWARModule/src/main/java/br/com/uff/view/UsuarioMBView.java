@@ -4,8 +4,18 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+
+import org.CommonsEJB.PerfilBean;
+import org.CommonsEJB.UsuarioBean;
+import org.CommonsEJB.UsuarioBeanInterface;
+import org.CommonsEJB.model.Perfil;
+import org.CommonsEJB.model.Usuario;
+import org.primefaces.context.RequestContext;
 
 @ManagedBean(name = "usuarioMB")
 @ViewScoped
@@ -28,8 +38,41 @@ public class UsuarioMBView implements Serializable {
 	private String txt6;
 
 	private List<String> perfilType;
+	
+	@EJB
+	private UsuarioBeanInterface usuarioBean;
+	
+	@EJB
+	private PerfilBean perfiBean;
 
 	public UsuarioMBView() {
+		
+	}
+	
+	public String cadastraUsuario(){
+		RequestContext context = RequestContext.getCurrentInstance();
+		FacesMessage message = null;
+		Usuario user;
+		Perfil perfil;
+		boolean cadIn = false;
+		
+		try {
+			perfil = perfiBean.pegaPerfil(this.perfil);
+			user = new Usuario(this.nomeUsuario, this.email, this.password, this.username, this.matricula, perfil);
+			Usuario userRetorno = usuarioBean.cadastraUsuario(user);
+			cadIn = true;
+			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuario " + userRetorno.getNome_usuario() + " cadastrado com sucesso ", this.nomeUsuario);
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			context.addCallbackParam("cadIn", cadIn);
+			return "success";
+		} catch (Exception e) {
+			cadIn = false;
+			message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erro de cadastro", "Cadastro inválido");
+			FacesContext.getCurrentInstance().addMessage(null, message);
+			context.addCallbackParam("cadIn", cadIn);
+			return "failure";
+		}
+		
 		
 	}
 

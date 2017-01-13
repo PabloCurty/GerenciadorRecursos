@@ -5,43 +5,59 @@
 	version="2.2">
 
 	<navigation-rule>
-		<from-view-id>login.xhtml</from-view-id>
+		<from-view-id>/login.xhtml</from-view-id>
 		<navigation-case>
 			<from-action>#{userLoginView.login()}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>principal.xhtml</to-view-id>
+			<to-view-id>/principal.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
 			<from-action>#{userLoginView.login()}</from-action>
 			<from-outcome>failure</from-outcome>
-			<to-view-id>erroLogin.xhtml</to-view-id>
+			<to-view-id>/erroLogin.xhtml</to-view-id>
 		</navigation-case>
 
 		<navigation-case>
 			<from-action>#{userLoginView.entrarSemLogin()}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>principal.xhtml</to-view-id>
+			<to-view-id>/principal.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
 			<from-action>#{userLoginView.entrarSemLogin()}</from-action>
 			<from-outcome>failure</from-outcome>
-			<to-view-id>erroLogin.xhtml</to-view-id>
+			<to-view-id>/erroLogin.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 
 	<navigation-rule>
-		<from-view-id>principal.xhtml</from-view-id>
+		<from-view-id>/principal.xhtml</from-view-id>
 
 		<navigation-case>
 			<from-action>#{userLoginView.logout()}</from-action>
 			<from-outcome>success</from-outcome>
-			<to-view-id>login.xhtml</to-view-id>
+			<to-view-id>/login.xhtml</to-view-id>
 		</navigation-case>
 		
 		<navigation-case>
 			<from-action>#{userLoginView.logout()}</from-action>
 			<from-outcome>failure</from-outcome>
-			<to-view-id>erroLogin.xhtml</to-view-id>
+			<to-view-id>/erroLogin.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/cadastroUsuario.xhtml</from-view-id>
+	
+		<navigation-case>
+			<from-action>#{usuarioMB.cadastraUsuario()}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/cadastroUsuario.xhtml</to-view-id>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-action>#{usuarioMB.cadastraUsuario()}</from-action>
+			<from-outcome>failure</from-outcome>
+			<to-view-id>/principal.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 

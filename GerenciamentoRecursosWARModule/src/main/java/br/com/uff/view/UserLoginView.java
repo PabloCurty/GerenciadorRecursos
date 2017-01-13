@@ -11,7 +11,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import org.CommonsEJB.UserLoginBean;
+import org.CommonsEJB.UserLoginBeanInterface;
+import org.CommonsEJB.model.Perfil;
 import org.CommonsEJB.model.Usuario;
 import org.primefaces.context.RequestContext;
 
@@ -34,7 +35,7 @@ public class UserLoginView implements Serializable {
 	private String perfil;
 	
 	@EJB
-	private UserLoginBean userLoginBean;
+	private UserLoginBeanInterface userLoginBean;
 
 	public String getUsername() {
 		return username;
@@ -60,7 +61,7 @@ public class UserLoginView implements Serializable {
 		try {
 			user = userLoginBean.login(this.username, this.password);
 			this.id = user.getOid();
-			this.perfil = user.getPerfil().getNome_perfil();
+			this.perfil  =  user.getPerfil().getNome_perfil();
 			String nome = user.getNome_usuario();
 			loggedIn = true;
 			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome " + nome, this.username);

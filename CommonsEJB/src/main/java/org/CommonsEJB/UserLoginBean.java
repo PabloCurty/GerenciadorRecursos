@@ -5,11 +5,12 @@ package org.CommonsEJB;
 
 import java.io.Serializable;
 
-import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import org.CommonsEJB.DAO.Impl.LoginDAOImpl;
+import org.CommonsEJB.DAO.Impl.PerfilDAO;
+import org.CommonsEJB.model.Perfil;
 import org.CommonsEJB.model.Usuario;
 
 /**
@@ -17,8 +18,7 @@ import org.CommonsEJB.model.Usuario;
  *
  */
 @Stateless
-@LocalBean
-public class UserLoginBean implements Serializable {
+public class UserLoginBean implements Serializable, UserLoginBeanInterface {
 
 	private static final long serialVersionUID = 6310959737543447061L;
 	
@@ -27,11 +27,14 @@ public class UserLoginBean implements Serializable {
 	
 	Usuario usuario;
 
+	@Override
 	public Usuario login(String username, String password) {
 		
 		usuario = new Usuario(username, password);
 				
 		return loginDAO.doLogin(usuario);
 	}
+	
+
 
 }

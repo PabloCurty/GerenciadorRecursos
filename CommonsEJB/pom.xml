@@ -19,24 +19,26 @@
 		<org.hibernate.version>5.0.10.Final</org.hibernate.version>
 		<org.apache.commons.lang.version>3.1</org.apache.commons.lang.version>
 		<com.google.guava.version>20.0</com.google.guava.version>
+		<org.hibernate.version>5.0.10.Final</org.hibernate.version>
+		<org.hibernate.validator.version>5.2.4.Final</org.hibernate.validator.version>
 	</properties>
 
 	<dependencies>
-	
+
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 			<version>7.0</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<!-- MySQL database driver -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.9</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
@@ -54,7 +56,29 @@
 			<artifactId>guava</artifactId>
 			<version>${com.google.guava.version}</version>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${org.hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${org.hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${org.hibernate.validator.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-envers</artifactId>
+			<version>${org.hibernate.version}</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
@@ -67,6 +91,7 @@
 					<configuration>
 						<source>1.8</source>
 						<target>1.8</target>
+						<debug>true</debug>
 						<compilerArguments>
 							<endorseddirs>${endorsed.dir}</endorseddirs>
 						</compilerArguments>
@@ -78,6 +103,11 @@
 					<version>2.3</version>
 					<configuration>
 						<ejbVersion>3.2</ejbVersion>
+						<archive>
+							<manifest>
+								<addClasspath>true</addClasspath>
+							</manifest>
+						</archive>
 					</configuration>
 				</plugin>
 				<plugin>

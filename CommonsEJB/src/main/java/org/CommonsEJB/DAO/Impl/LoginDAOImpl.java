@@ -3,7 +3,6 @@
  */
 package org.CommonsEJB.DAO.Impl;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -16,7 +15,7 @@ import org.CommonsEJB.model.Usuario;
  * @author Pablo
  *
  */
-public class LoginDAOImpl extends AbstractDAO<Usuario> implements Serializable, LoginDAOInterface {
+public class LoginDAOImpl extends AbstractDAO<Usuario> implements LoginDAOInterface {
 
 
 	private static final long serialVersionUID = 4669525348150194770L;
@@ -42,5 +41,6 @@ public class LoginDAOImpl extends AbstractDAO<Usuario> implements Serializable, 
 			throw new InfraestruturaException(e);
 		}
 	}
+
 	
 }

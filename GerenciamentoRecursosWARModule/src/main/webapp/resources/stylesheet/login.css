@@ -46,17 +46,7 @@
 	width: 100%;
 }
 
-.content .login-area #login {
-	position: relative;
-	background-color: #f2f2f2;
-	border: 1px solid #ddd;
-	border-radius: 5px;
-	box-shadow: 0 5px 10px rgba(0,0,0,.15);
-	-moz-box-shadow: 0 5px 10px rgba(0,0,0,.15);
-	-webkit-box-shadow: 0 5px 10px rgba(0,0,0,.15);
-	float: right;
-	min-width: 250px;
-}
+
 
 .content .login-area form h4 {
 	font-size: 15px;
@@ -89,28 +79,12 @@
 	width: 100%;
 }
 
-.content .login-area .gnosys-campo-requerido:after {
-	display: none;
-}
-
-.content .login-area input[type="submit"] {
-	display: inline-block;
-	width: initial;
-}
-
-.content .login-area span.botao,
-.content .login-area span ~ input {
-	margin: 0.5em 1em 0 0;
-}
 
 .content .gerir-senha {
 	display: inline-block;
 }
 
-.content .gerir-senha a {
-	display: block;
-	margin-bottom: 0.15em;
-}
+
 
 .content .solicitar p {
 	margin-bottom: 10px;
