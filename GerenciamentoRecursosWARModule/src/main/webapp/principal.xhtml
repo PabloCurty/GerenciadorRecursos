@@ -30,7 +30,16 @@
 					rendered="#{(menuBean.pegaPermissoes()) >= 3}">
 						<p:menuitem value="Sala" url="solicitacaoSala.xhtml"
 							rendered="#{(menuBean.pegaPermissoes()) == 4}" />
-						<p:menuitem value="Equipamento" url="solicitacaoEquipamento.xhtml" />
+						<p:menuitem value="Equipamento" url="solicitacaoEquipamento.xhtml"
+							rendered="#{(menuBean.pegaPermissoes()) == 4}" />
+				</p:submenu>
+				
+				<p:submenu label="Atendimento de solicitações" icon="ui-icon-document"
+					rendered="#{(menuBean.pegaPermissoes()) >= 3}">
+						<p:menuitem value="Sala" url="atendimentoSala.xhtml"
+							rendered="#{(menuBean.pegaPermissoes()) == 4}" />
+						<p:menuitem value="Equipamento" url="atendimentoEquipamento.xhtml"
+							rendered="#{(menuBean.pegaPermissoes()) == 4}" />
 				</p:submenu>
 
 				<p:submenu label="Solicitação" icon="ui-icon-pencil"

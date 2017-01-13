@@ -8,24 +8,21 @@
 	xmlns:p="http://primefaces.org/ui" template="/layout/template.xhtml">
 	
 	<f:metadata>
-		<f:viewAction action="#{solicitacaoSalaBeanView.prepararSolicitacao}" />
+		<f:viewAction action="#{solicitacaoEquipamentoBeanView.prepararSolicitacao}" />
 	</f:metadata> 
 
-<ui:define name="title">Solicitação de reserva de sala</ui:define>
+<ui:define name="title">Solicitação de reserva de Equipamento</ui:define>
 <ui:define name="content">
-	<h1>Solicitação de reserva de sala</h1>
+	<h1>Solicitação de reserva de Equipamento</h1>
 	<h:form>
 		<p:messages id="messages" />
 		<p:panelGrid columns="2">
 	
-			<p:outputLabel for="capacidade" value="Capacidade:" />
-			<p:inputText id="capacidade" value="#{solicitacaoSalaBeanView.capacidade}" />
-	
-			<p:outputLabel for="recursos" value="Recursos:" />
-			<p:inputText id="recursos" value="#{solicitacaoSalaBeanView.recursos}" />
+			<p:outputLabel for="tipo" value="Tipo:" />
+			<p:inputText id="tipo" value="#{solicitacaoEquipamentoBeanView.tipo}" />
 	
 			<p:commandButton value="Solicitar" icon="ui-icon-star"
-					action="#{solicitacaoSalaBeanView.solicitar}" update="messages">
+					action="#{solicitacaoEquipamentoBeanView.solicitar}" update="messages">
 			</p:commandButton>
 		</p:panelGrid>
   	</h:form>
