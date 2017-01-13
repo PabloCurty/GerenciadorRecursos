@@ -8,7 +8,7 @@ import org.CommonsEJB.SalaBean;
 
 @ManagedBean (name="solicitacaoSalaBeanView")
 @SessionScoped
-public class SolicitacaoSalaBeanView {
+public class SolicitacaoSalaView {
 	
 	@EJB
 	private SalaBean salaBean;

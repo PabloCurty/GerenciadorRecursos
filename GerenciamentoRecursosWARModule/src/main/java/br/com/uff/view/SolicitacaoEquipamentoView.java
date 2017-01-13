@@ -5,24 +5,30 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import org.CommonsEJB.EquipamentoBean;
-import org.CommonsEJB.SalaBean;
 
-@ManagedBean(name="registroProblemaBeanView")
+@ManagedBean(name="solicitacaoEquipamentoBeanView")
 @SessionScoped
-public class RegistroProblemaBeanView {
+public class SolicitacaoEquipamentoView {
 	
 	@EJB
 	private EquipamentoBean equipamentoBean;
 	
-	@EJB
-	private SalaBean salaBean;
+	private String tipo;
 	
-	public void prepararRegistro(){
-		System.out.println("Preparar registro");
+	public void prepararSolicitacao(){
+		System.out.println("Preparar Solicitacao");
 	}
 
-	public void registrar(){
-		System.out.println("registrar");
+	public void solicitar(){
+		System.out.println("solicitar");
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 	public EquipamentoBean getEquipamentoBean() {
@@ -31,14 +37,6 @@ public class RegistroProblemaBeanView {
 
 	public void setEquipamentoBean(EquipamentoBean equipamentoBean) {
 		this.equipamentoBean = equipamentoBean;
-	}
-	
-	public SalaBean getSalaBean() {
-		return salaBean;
-	}
-
-	public void setSalaBean(SalaBean salaBean) {
-		this.salaBean = salaBean;
 	}
 
 }

@@ -21,7 +21,7 @@ public class UsuarioBean implements Serializable, UsuarioBeanInterface{
 	@Override
 	public Usuario cadastraUsuario(Usuario user) {
 		
-		usuario = usuarioDAO.persist(user);
+		usuario = usuarioDAO.merge(user);
 		return usuario;
 	}
 

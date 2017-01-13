@@ -13,7 +13,7 @@ import org.CommonsEJB.model.SolicitacaoEquipamento;
 
 @ManagedBean(name="atendimentoEquipamentoBeanView")
 @SessionScoped
-public class AtendimentoEquipamentoBeanView {
+public class AtendimentoEquipamentoView {
 	
 	private List<SolicitacaoEquipamento> solicitacoes;
 	

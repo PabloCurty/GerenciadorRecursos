@@ -8,7 +8,7 @@ import org.CommonsEJB.EquipamentoBean;
 
 @ManagedBean(name="equipamentoBeanView")
 @SessionScoped
-public class EquipamentoBeanView {
+public class EquipamentoView {
 	
 	@EJB
 	private EquipamentoBean equipamentoBean;

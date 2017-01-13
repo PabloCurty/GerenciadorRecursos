@@ -9,7 +9,7 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean (name="menuBean")
 @SessionScoped
-public class MenuBeanView implements Serializable{
+public class MenuView implements Serializable{
     
 	private static final long serialVersionUID = -1779241254755068025L;
 	
@@ -17,7 +17,7 @@ public class MenuBeanView implements Serializable{
 	private String id;
 	private String perfil;
    
-    public MenuBeanView() {
+    public MenuView() {
     	
     	this.id = (String) FacesContext.getCurrentInstance().getExternalContext().getFlash().get("id");
     	this.perfil = (String) FacesContext.getCurrentInstance().getExternalContext().getFlash().get("perfil");

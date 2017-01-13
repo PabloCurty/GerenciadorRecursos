@@ -20,6 +20,12 @@
         	<!-- Dialeto do mysql -->
         	<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
         	
+        	<!-- Estabelece a "profundidade" máxima para árvore de busca de união 
+        	externa para associações finais únicas (um para um, muitos para um). 
+        	Um 0 desativa por padrão a busca de união externa.
+			eg. valores recomendados entre0 e 3 -->
+        	<property name="hibernate.max_fetch_depth" value="0"/>
+        	
         	<!-- 
         	
         		 Update -> faz as alterações no banco do tipo, criar novas colunas ou tabelas. 

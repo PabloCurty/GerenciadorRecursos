@@ -11,7 +11,6 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import org.CommonsEJB.PerfilBean;
-import org.CommonsEJB.UsuarioBean;
 import org.CommonsEJB.UsuarioBeanInterface;
 import org.CommonsEJB.model.Perfil;
 import org.CommonsEJB.model.Usuario;
@@ -19,7 +18,7 @@ import org.primefaces.context.RequestContext;
 
 @ManagedBean(name = "usuarioMB")
 @ViewScoped
-public class UsuarioMBView implements Serializable {
+public class UsuarioView implements Serializable {
 
 	private static final long serialVersionUID = 6928509066244122179L;
 
@@ -45,7 +44,7 @@ public class UsuarioMBView implements Serializable {
 	@EJB
 	private PerfilBean perfiBean;
 
-	public UsuarioMBView() {
+	public UsuarioView() {
 		
 	}
 	
