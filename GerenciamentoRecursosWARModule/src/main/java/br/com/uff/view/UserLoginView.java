@@ -84,6 +84,7 @@ public class UserLoginView implements Serializable {
 		FacesMessage message = null;
 		boolean loggedIn = false;
 		try {
+			limpaUsuario();
 			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Solicite seu cadastro ", null);
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			FacesContext.getCurrentInstance().getExternalContext().getFlash().put("perfil", "Usuario");
@@ -99,16 +100,26 @@ public class UserLoginView implements Serializable {
 		}
 		
 	}
-
-	public String logout() {
+	
+	public boolean limpaUsuario() {
 		
 		try {
 			this.password = null;
 			this.username = null;
 			this.perfil = null;
 			this.setId(null);
-			// TODO verificar se eh necessario
 			FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+		
+	}
+
+	public String logout() {
+		
+		try {
+			limpaUsuario();
 			return "success";
 		} catch (Exception e) {
 			return "failure";
