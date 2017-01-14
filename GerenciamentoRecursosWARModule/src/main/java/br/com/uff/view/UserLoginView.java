@@ -136,7 +136,7 @@ public class UserLoginView implements Serializable {
 	public String logout() {
 
 		try {
-			limpaUsuario();
+			//limpaUsuario();
 			// cleanSubmittedValues(form);
 			return "succsess";
 		} catch (Exception e) {

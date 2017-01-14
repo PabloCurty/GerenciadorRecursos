@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 
 @ManagedBean (name="menuBean")
@@ -21,6 +22,10 @@ public class MenuView implements Serializable{
     	
     	this.id = (String) FacesContext.getCurrentInstance().getExternalContext().getFlash().get("id");
     	this.perfil = (String) FacesContext.getCurrentInstance().getExternalContext().getFlash().get("perfil");
+    	FacesContext fc = FacesContext.getCurrentInstance();
+    	HttpSession session = (HttpSession) fc.getExternalContext().getSession(true);
+    	session.setAttribute("oid", this.id );
+    	session.setAttribute("perfi", this.perfil );
 
     }
     

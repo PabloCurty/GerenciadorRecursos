@@ -15,9 +15,6 @@ import org.CommonsEJB.model.SolicitacaoSala;
 @LocalBean
 public class SalaBean implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -3630123330471989147L;
 	
 	private Sala sala;
@@ -33,7 +30,7 @@ public class SalaBean implements Serializable {
 	
 	public SolicitacaoSala solicitar(SolicitacaoSala solicitacaoSala){
 		
-		solicitacaoSala = solicitacaoSalaDAO.merge(solicitacaoSala);
+		solicitacaoSala = solicitacaoSalaDAO.persist(solicitacaoSala);
 		
 		return solicitacaoSala;
 	}

@@ -16,7 +16,7 @@
 			<!-- para formatamos as querys -->
 			<property name="hibernate.formate_sql" value="true"/>
         	<!-- atualizará e cria as suas tabelas quando necessário -->
-        	<property name="hibernate.hbm2ddl.auto" value="update" />  
+        	<property name="hibernate.hbm2ddl.auto" value="create" />  
         	<!-- Dialeto do mysql -->
         	<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
         	

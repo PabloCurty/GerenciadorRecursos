@@ -63,11 +63,11 @@
 				     <p:inputText style="margin-right:10px" placeholder="Search" />
 				   
 				      <p:commandButton ajax="false"
-				       rendered="#{(menuBean.pegaPermissoes()) >= 1}" type="submit"
+				       rendered="#{(menuBean.pegaPermissoes()) >= 1}" type="button"
 				       value="Sair" icon="ui-icon-extlink" update="growl"
 				       onclick="#{userLoginView.logout()}" />
 				      <p:commandButton ajax="false"
-				       rendered="#{(menuBean.pegaPermissoes()) == 0}" type="submit"
+				       rendered="#{(menuBean.pegaPermissoes()) == 0}" type="button"
 				       value="Voltar" icon="ui-icon-extlink" update="growl"
 				       onclick="#{userLoginView.logout()}" />
 				</f:facet>

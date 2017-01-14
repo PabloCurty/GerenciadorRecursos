@@ -6,25 +6,44 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:p="http://primefaces.org/ui" template="/layout/template.xhtml">
-	
-	<f:metadata>
-		<f:viewAction action="#{solicitacaoEquipamentoBeanView.prepararSolicitacao}" />
-	</f:metadata> 
 
-<ui:define name="title">Solicitação de reserva de Equipamento</ui:define>
-<ui:define name="content">
-	<h1>Solicitação de reserva de Equipamento</h1>
-	<h:form>
-		<p:messages id="messages" />
-		<p:panelGrid columns="2">
-	
-			<p:outputLabel for="tipo" value="Tipo:" />
-			<p:inputText id="tipo" value="#{solicitacaoEquipamentoBeanView.tipo}" />
-	
+	<f:metadata>
+		<f:viewAction
+			action="#{solicitacaoEquipamentoBeanView.prepararSolicitacao}" />
+	</f:metadata>
+
+	<ui:define name="title">Solicitação de reserva de Equipamento</ui:define>
+	<ui:define name="content">
+		<h1>Solicitação de reserva de Equipamento</h1>
+		<h:form>
+			<p:growl id="messages" showDetail="true" />
+			<p:panelGrid columns="2" cellpadding="5">
+
+				<p:outputLabel value="tipo" for="tipo" />
+				<p:autoComplete id="tipo" dropdown="true"
+					value="#{solicitacaoEquipamentoBeanView.tipo}"
+					completeMethod="#{solicitacaoEquipamentoBeanView.completeText()}" />
+
+				<p:outputLabel for="datetime" value="Datetime:" />
+				<p:calendar id="datetime" value="#{solicitacaoEquipamentoBeanView.data}"
+					pattern="MM/dd/yyyy HH:mm:ss" />
+			</p:panelGrid>
 			<p:commandButton value="Solicitar" icon="ui-icon-star"
-					action="#{solicitacaoEquipamentoBeanView.solicitar}" update="messages">
+				action="#{solicitacaoEquipamentoBeanView.solicitar}"
+				update="messages">
 			</p:commandButton>
-		</p:panelGrid>
-  	</h:form>
-</ui:define>
+			
+			<p:dialog modal="true" resizable="false" header="Values"
+				widgetVar="dlg" showEffect="fold">
+				<p:panelGrid id="display" columns="2" columnClasses="label,value">
+					<h:outputText value="Datetime:" />
+					<h:outputText value="#{solicitacaoEquipamentoBeanView.data}">
+						<f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+					</h:outputText>
+
+				</p:panelGrid>
+			</p:dialog>
+
+		</h:form>
+	</ui:define>
 </ui:composition>

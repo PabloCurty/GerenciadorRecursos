@@ -32,7 +32,7 @@ public class SolicitacaoSala extends EntidadeAbstrata implements Serializable {
 	private Usuario professor;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="ID_SALA")
+	@JoinColumn(name="ID_SALA", nullable = true)
 	private Sala sala;
 	
 	@Column(name = "CAPACIDADE", nullable = true)
@@ -41,16 +41,15 @@ public class SolicitacaoSala extends EntidadeAbstrata implements Serializable {
 	@Column(name = "RECURSOS", nullable = true)
 	private String recursos;
 	
-	@Column(name = "STATUS", nullable = false)
+	@Column(name = "STATUS", nullable = false, length=45)
 	@Enumerated(EnumType.STRING)
 	private StatusSolicitacao status;
 
-	public SolicitacaoSala(Date data, Usuario professor, Sala sala, String capacidade, String recursos,
-			boolean status) {
+	public SolicitacaoSala(Date data, Usuario professor, String capacidade, String recursos,
+			StatusSolicitacao status) {
 		super();
 		this.data = data;
 		this.professor = professor;
-		this.sala = sala;
 		this.capacidade = capacidade;
 		this.recursos = recursos;
 		this.status = status;
@@ -74,14 +73,6 @@ public class SolicitacaoSala extends EntidadeAbstrata implements Serializable {
 
 	public void setProfessor(Usuario professor) {
 		this.professor = professor;
-	}
-
-	public Sala getSala() {
-		return sala;
-	}
-
-	public void setSala(Sala sala) {
-		this.sala = sala;
 	}
 
 	public String getCapacidade() {

@@ -1,29 +1,38 @@
 package br.com.uff.view;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.CommonsEJB.SalaBean;
 import org.CommonsEJB.UsuarioBeanInterface;
-import org.CommonsEJB.model.Sala;
+import org.CommonsEJB.enums.StatusSolicitacao;
 import org.CommonsEJB.model.SolicitacaoSala;
 import org.CommonsEJB.model.Usuario;
 import org.primefaces.context.RequestContext;
 
 @ManagedBean (name="solicitacaoSalaBeanView")
-@SessionScoped
-public class SolicitacaoSalaView {
+@RequestScoped
+public class SolicitacaoSalaView implements Serializable{
 	
+	private static final long serialVersionUID = 4483189948552126347L;
+
 	@EJB
 	private SalaBean salaBean;
 	
 	@EJB
 	private UsuarioBeanInterface userBean;
+	
+	@ManagedProperty("#{userSession}")
+	private UserLoginView userSession;
 	
 	private String capacidade;
 	
@@ -31,6 +40,20 @@ public class SolicitacaoSalaView {
 	
 	private Date data;
 	
+	private String id;
+	
+	private String perfil;
+	
+	
+	
+	public SolicitacaoSalaView() {
+		HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		HttpSession session = (HttpSession) request.getSession();
+		setId((String) session.getAttribute("oid"));
+		setPerfil((String) session.getAttribute("perf"));
+
+	}
+
 	public void prepararSolicitacao(){
 		System.out.println("Preparar Solicitacao");
 	}
@@ -40,14 +63,12 @@ public class SolicitacaoSalaView {
 		FacesMessage message = null;
 		SolicitacaoSala solicitacaoSala;
 		Usuario user;
-		Sala sala = new Sala();
-		String idUser = "id";
 		boolean solIn = false;
 		
 		try {
-			idUser = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get(idUser);
-			user = userBean.pegaUsuario(idUser);
-			solicitacaoSala = new SolicitacaoSala(this.data, user, sala , this.capacidade, this.recursos, false);
+			
+			user = userBean.pegaUsuario(id);
+			solicitacaoSala = new SolicitacaoSala(this.data, user, this.capacidade, this.recursos, StatusSolicitacao.EM_ABERTO);
 			solicitacaoSala = salaBean.solicitar(solicitacaoSala);
 			solIn = true;
 			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sala solicitada com sucesso ", null);
@@ -93,6 +114,30 @@ public class SolicitacaoSalaView {
 
 	public void setData(Date data) {
 		this.data = data;
+	}
+
+	public UserLoginView getUserSession() {
+		return userSession;
+	}
+
+	public void setUserSession(UserLoginView userSession) {
+		this.userSession = userSession;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(String perfil) {
+		this.perfil = perfil;
 	}
 
 }

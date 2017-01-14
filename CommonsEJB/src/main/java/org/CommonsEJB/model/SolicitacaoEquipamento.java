@@ -34,12 +34,24 @@ public class SolicitacaoEquipamento extends EntidadeAbstrata implements Serializ
 	private Usuario professor;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="ID_EQUIPAMENTO")
+	@JoinColumn(name="ID_EQUIPAMENTO", nullable = true)
 	private Equipamento equipamento;
 	
-	@Column(name = "STATUS", nullable = false)
+	@Column(name = "STATUS", nullable = false, length=45)
 	@Enumerated(EnumType.STRING)
 	private StatusSolicitacao status;
+	
+	
+	public SolicitacaoEquipamento() {
+		super();
+	}
+
+	public SolicitacaoEquipamento(Date data, Usuario professor, StatusSolicitacao status) {
+		super();
+		this.data = data;
+		this.professor = professor;
+		this.status = status;
+	}
 
 	public Date getData() {
 		return data;
