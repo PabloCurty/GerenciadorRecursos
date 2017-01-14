@@ -16,4 +16,5 @@ public interface UserLoginBeanInterface {
 
 	public Usuario login(String username, String password);
 
+
 }

@@ -8,4 +8,6 @@ import org.CommonsEJB.model.Usuario;
 public interface UsuarioBeanInterface {
 
 	public Usuario cadastraUsuario(Usuario user);
+
+	public Usuario pegaUsuario(String id);
 }

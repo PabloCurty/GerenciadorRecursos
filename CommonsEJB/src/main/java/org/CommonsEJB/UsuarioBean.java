@@ -24,5 +24,10 @@ public class UsuarioBean implements Serializable, UsuarioBeanInterface{
 		usuario = usuarioDAO.merge(user);
 		return usuario;
 	}
+	
+	public Usuario pegaUsuario(String id){
+		usuario = usuarioDAO.buscarPorId(id);
+		return usuario;
+	}
 
 }

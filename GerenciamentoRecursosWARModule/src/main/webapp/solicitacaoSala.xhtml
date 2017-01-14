@@ -6,28 +6,45 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:p="http://primefaces.org/ui" template="/layout/template.xhtml">
-	
+
 	<f:metadata>
 		<f:viewAction action="#{solicitacaoSalaBeanView.prepararSolicitacao}" />
-	</f:metadata> 
+	</f:metadata>
 
-<ui:define name="title">Solicitação de reserva de sala</ui:define>
-<ui:define name="content">
-	<h1>Solicitação de reserva de sala</h1>
-	<h:form>
-		<p:messages id="messages" />
-		<p:panelGrid columns="2">
-	
-			<p:outputLabel for="capacidade" value="Capacidade:" />
-			<p:inputText id="capacidade" value="#{solicitacaoSalaBeanView.capacidade}" />
-	
-			<p:outputLabel for="recursos" value="Recursos:" />
-			<p:inputText id="recursos" value="#{solicitacaoSalaBeanView.recursos}" />
-	
+	<ui:define name="title">Solicitação de reserva de sala</ui:define>
+	<ui:define name="content">
+		<h1>Solicitação de reserva de sala</h1>
+		<h:form>
+			<p:growl id="messages" showDetail="true" />
+			<p:panelGrid columns="2" cellpadding="5">
+
+				<p:outputLabel for="capacidade" value="Capacidade:" />
+				<p:inputText id="capacidade"
+					value="#{solicitacaoSalaBeanView.capacidade}" />
+
+				<p:outputLabel for="recursos" value="Recursos:" />
+				<p:inputText id="recursos"
+					value="#{solicitacaoSalaBeanView.recursos}" />
+
+				<p:outputLabel for="datetime" value="Datetime:" />
+				<p:calendar id="datetime" value="#{solicitacaoSalaBeanView.data}"
+					pattern="MM/dd/yyyy HH:mm:ss" />
+			</p:panelGrid>
 			<p:commandButton value="Solicitar" icon="ui-icon-star"
-					action="#{solicitacaoSalaBeanView.solicitar}" update="messages">
+				action="#{solicitacaoSalaBeanView.solicitar()}" update="messages">
 			</p:commandButton>
-		</p:panelGrid>
-  	</h:form>
-</ui:define>
+
+			<p:dialog modal="true" resizable="false" header="Values"
+				widgetVar="dlg" showEffect="fold">
+				<p:panelGrid id="display" columns="2" columnClasses="label,value">
+					<h:outputText value="Datetime:" />
+					<h:outputText value="#{solicitacaoSalaBeanView.data}">
+						<f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+					</h:outputText>
+
+				</p:panelGrid>
+			</p:dialog>
+
+		</h:form>
+	</ui:define>
 </ui:composition>
