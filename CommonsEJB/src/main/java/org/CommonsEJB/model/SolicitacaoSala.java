@@ -17,9 +17,7 @@ import javax.persistence.UniqueConstraint;
 @AttributeOverride(name="oid", column=@Column(name="ID_SOLICITACAO"))
 public class SolicitacaoSala extends EntidadeAbstrata implements Serializable {
 	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -8920073542652884613L;
 
 	@Column(name = "DATA", nullable = false)

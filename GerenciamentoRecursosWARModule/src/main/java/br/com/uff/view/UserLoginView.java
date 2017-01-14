@@ -12,7 +12,6 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import org.CommonsEJB.UserLoginBeanInterface;
-import org.CommonsEJB.model.Perfil;
 import org.CommonsEJB.model.Usuario;
 import org.primefaces.context.RequestContext;
 
