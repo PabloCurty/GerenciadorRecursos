@@ -9,9 +9,13 @@
         <title>
             <ui:insert name="title">Some title</ui:insert>
         </title>        
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        
+		<h:outputStylesheet rel="stylesheet"  href="login.css" />
+
     </h:head>
 
-    <ui:include src="header.xhtml"/>
+    <ui:include src="header.xhtml" styleClasse="header"/>
 
     <h:body>
         <ui:insert name="content" />

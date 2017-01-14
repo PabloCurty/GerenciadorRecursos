@@ -1,7 +1,5 @@
 package org.CommonsEJB.DAO.Impl;
 
-import java.io.Serializable;
-
 import org.CommonsEJB.model.Usuario;
 
 public class UsuarioDAO extends AbstractDAO<Usuario>{

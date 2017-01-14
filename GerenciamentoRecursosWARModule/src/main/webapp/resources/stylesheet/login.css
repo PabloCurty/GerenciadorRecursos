@@ -1,91 +1,18 @@
-.content .bem-vindo {
-	float: left;
-	width: 60%;
-	vertical-align: top;
+.body{
+    margin:0px;
+    background:#000;
 }
-
-.content .bem-vindo p {
-	font-size: 14px;
+.header {
+    height:50px;
+    background:#FFFFF;
+    border:1px solid #CCC;
+    width:960px;
+    margin:50px auto;
 }
-
-.content .bem-vindo ul {
-	padding-left: 1em;
-	margin-left: 1em;
-	font-size: 13px;
-	color: #565558;
-}
-
-.content form#login span.sessao-expirada {
-	font-size: 13px;
-	font-weight: bold;
-	color: #f95b2a;
-	float: right;
-	padding-top: 2px;
-	text-align: right;
-	width: 110px;
-}
-
-.content .login-area {
-	float: right;
-
-}
-
-.content .login-area > form,
-.content .login-area > div {
-	padding: 20px;
-}
-
-.content .login-area li.gnosys-mensagens-erro {
-	color: #f95b2a;
-	font-weight: bold;
-	list-style: none;
-	margin: 22px -40px 0;
-	position: absolute;
-	text-align: right;
-	top: 0;
-	width: 100%;
-}
-
-
-
-.content .login-area form h4 {
-	font-size: 15px;
-	margin: 0 0 2em;
-	text-transform: none;
-}
-
-.content .login-area form span.gnosys-campo {
-	display: block;
-	margin-bottom: 1em;	
-	width: 100%;
-}
-
-.content .login-area label,
-.content .login-area input {
-	display: block;
-}
-
-.content .login-area label {
-	margin-bottom: 5px;
-}
-
-.content .login-area input {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
-.content .login-area input {
-	width: 100%;
-}
-
-
-.content .gerir-senha {
-	display: inline-block;
-}
-
-
-
-.content .solicitar p {
-	margin-bottom: 10px;
+.content {
+    width:960px;
+    background: #F0F0F0;
+    border: 1px solid #CCC;
+    height: 2000px;
+    margin: 20px auto;
 }
