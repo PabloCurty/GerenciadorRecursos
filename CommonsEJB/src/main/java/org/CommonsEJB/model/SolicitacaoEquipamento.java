@@ -6,11 +6,15 @@ import java.util.Date;
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+
+import org.CommonsEJB.enums.StatusSolicitacao;
 
 @Entity
 @Table(name = "SOLICITACAO_EQUIPAMENTO", uniqueConstraints = @UniqueConstraint(columnNames = {"ID_SOLICITACAO"}))
@@ -33,8 +37,9 @@ public class SolicitacaoEquipamento extends EntidadeAbstrata implements Serializ
 	@JoinColumn(name="ID_EQUIPAMENTO")
 	private Equipamento equipamento;
 	
-	@Column(name = "STATUS", nullable = true)
-	private boolean status;
+	@Column(name = "STATUS", nullable = false)
+	@Enumerated(EnumType.STRING)
+	private StatusSolicitacao status;
 
 	public Date getData() {
 		return data;
@@ -60,11 +65,11 @@ public class SolicitacaoEquipamento extends EntidadeAbstrata implements Serializ
 		this.equipamento = equipamento;
 	}
 
-	public boolean isStatus() {
+	public StatusSolicitacao getStatus() {
 		return status;
 	}
 
-	public void setStatus(boolean status) {
+	public void setStatus(StatusSolicitacao status) {
 		this.status = status;
 	}
 

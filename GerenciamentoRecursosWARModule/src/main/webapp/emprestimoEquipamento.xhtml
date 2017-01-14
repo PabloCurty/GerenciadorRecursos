@@ -12,9 +12,9 @@
 		<f:viewAction action="#{emprestimoBeanView.prepararEmprestimoDevolucaoChave}" />
 	</f:metadata> 
 
-<ui:define name="title">Atendimento de solicitação de chave</ui:define>
+<ui:define name="title">Atendimento de solicitação de equipamento</ui:define>
 <ui:define name="content">
-	<h1>Atendimento de solicitação de chave</h1>
+	<h1>Atendimento de solicitação de equipamento</h1>
 	
 	<h:form id="form1">
 	
@@ -22,10 +22,10 @@
 	
 		<p:outputLabel value="Solicitações:" for="solicitacao" />
 		<p:autoComplete id="solicitacao" dropdown="true"
-			value="" completeMethod="#{emprestimoBeanView.obtemSolicitacoesSalaComboBox()}" />
+			value="" completeMethod="#{emprestimoBeanView.obtemSolicitacoesEquipamentoComboBox()}" />
 			
 		<p:commandButton value="Conceder emprestimo" icon="ui-icon-star"
-					action="#{emprestimoBeanView.solicitarEmprestimoChave}" update="messages">
+					action="#{emprestimoBeanView.solicitarEmprestimoEquipamento}" update="messages">
 		</p:commandButton>
 	</h:form>
 	
@@ -35,9 +35,9 @@
 	
 		<p:growl id="messages" showDetail="true" />
 		
-	    <p:dataTable id="basicDT" var="sol" value="#{emprestimoBeanView.emprestimosChave}">
+	    <p:dataTable id="basicDT" var="sol" value="#{emprestimoBeanView.emprestimosEquipamento}">
 	        <f:facet name="header">
-	            Processar devolução de chave
+	            Processar devolução de equipamento
 	        </f:facet>
 	        <p:column headerText="Hora saída]">
 	            <h:outputText value="#{sol.horaSaida}" />
@@ -48,13 +48,10 @@
 	        <p:column headerText="Status">
 	            <h:outputText value="#{sol.status}" />
 	        </p:column>
-	        <p:column headerText="Número">
-	            <h:outputText value="#{sol.sala.numero}" />
-	        </p:column>
 	        
 	        <p:column style="width:32px;text-align: center">
 	             <p:commandButton oncomplete="atendimentoSalaBeanView.solicitarEmprestimoChave()" icon="ui-icon-search" title="View">
-	                <f:setPropertyActionListener value="#{sol}" target="#{emprestimoBeanView.selectedEmprestimoChave}" />
+	                <f:setPropertyActionListener value="#{sol}" target="#{emprestimoBeanView.selectedEmprestimoEquipamento}" />
 	            </p:commandButton>
 	        </p:column>
 	    </p:dataTable>	

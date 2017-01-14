@@ -25,6 +25,8 @@ public class RegistroProblemaView {
 	
 	private String descricao;
 	
+	private String[] selectedProblemas;
+	
 	public void prepararRegistro(){
 		System.out.println("Preparar registro");
 	}
@@ -80,6 +82,14 @@ public class RegistroProblemaView {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public String[] getSelectedProblemas() {
+		return selectedProblemas;
+	}
+
+	public void setSelectedProblemas(String[] selectedProblemas) {
+		this.selectedProblemas = selectedProblemas;
 	}
 
 }
