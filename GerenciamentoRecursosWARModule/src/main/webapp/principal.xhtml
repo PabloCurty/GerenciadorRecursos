@@ -37,57 +37,39 @@
 						<p:menuitem value="Sala" url="atendimentoSala.xhtml" />
 						<p:menuitem value="Equipamento" url="atendimentoEquipamento.xhtml" />
 				</p:submenu>
-
+				
 				<p:submenu label="Registro" icon="ui-icon-pencil"
-<<<<<<< 1e62f26c3f07557c9375e3f07c1dfddc60cb6292
-					rendered="#{(menuBean.pegaPermissoes()) >= 1}">
-					<p:menuitem value="Retirada de chave" url="#"
-						icon="ui-icon-arrowreturnthick-1-w" 
-						rendered="#{(menuBean.pegaPermissoes()) == 1 or (menuBean.pegaPermissoes()) >= 3 }"/>
-					<p:menuitem value="Retirada de equipamento" url="#"
-=======
-					rendered="#{(menuBean.pegaPermissoes()) >= 2}">
-					<p:menuitem value="Retirada/Devolução de chave" url="emprestimoChave.xhtml"
-						icon="ui-icon-arrowreturnthick-1-w" />
-					<p:menuitem value="Retirada/Devolução de equipamento" url="emprestimoEquipamento.xhtml"
->>>>>>> Telas de devolucao e emprestimo equi e chave
-						icon="ui-icon-arrowreturnthick-1-e"
-						rendered="#{(menuBean.pegaPermissoes()) == 1 or (menuBean.pegaPermissoes()) >= 3 }" />
-					<p:menuitem value="Problema" url="registroProblema.xhtml"
-<<<<<<< 1e62f26c3f07557c9375e3f07c1dfddc60cb6292
-						icon="ui-icon-arrowreturnthick-1-e" />
-					<p:menuitem value="Devolução de chave" url="#"
-						icon="ui-icon-arrowreturnthick-1-e"
-						rendered="#{(menuBean.pegaPermissoes()) == 1 or (menuBean.pegaPermissoes()) >= 3 }" />
-					<p:menuitem value="Devolução de equipamento" url="#"
-						icon="ui-icon-arrowreturnthick-1-e"
-						rendered="#{(menuBean.pegaPermissoes()) == 1 or (menuBean.pegaPermissoes()) >= 3 }" />
-=======
-						icon="ui-icon-arrowreturnthick-1-e"
-						rendered="#{(menuBean.pegaPermissoes()) >= 3}" />
->>>>>>> Telas de devolucao e emprestimo equi e chave
-				</p:submenu>
+				     rendered="#{(menuBean.pegaPermissoes()) >= 1}">
+				     <p:menuitem value="Retirada/Devolução de chave" url="emprestimoChave.xhtml"
+				      icon="ui-icon-arrowreturnthick-1-w" 
+				      rendered="#{(menuBean.pegaPermissoes()) == 1 or (menuBean.pegaPermissoes()) >= 3 }"/>
+				     <p:menuitem value="Problema" url="registroProblema.xhtml"
+				      icon="ui-icon-arrowreturnthick-1-e" />
+				     <p:menuitem value="Retirada/Devolução de equipamento" url="emprestimoEquipamento.xhtml"
+				      icon="ui-icon-arrowreturnthick-1-e"
+				      rendered="#{(menuBean.pegaPermissoes()) == 1 or (menuBean.pegaPermissoes()) >= 3 }" />
+			    </p:submenu>
 
 				<p:submenu label="Mapa de recursos" icon="ui-icon-gear"
-					rendered="#{(menuBean.pegaPermissoes()) >= 0}">
-					<p:menuitem value="Salas" actionListener="#{menuView.save}"
-						icon="ui-icon-disk" update="messages" />
-					<p:menuitem value="Equipamentos"
-						actionListener="#{menuView.update}"
-						icon="ui-icon-arrowrefresh-1-w" update="messages" />
+				     rendered="#{(menuBean.pegaPermissoes()) >= 0}">
+				     <p:menuitem value="Salas" actionListener="#{menuView.save}"
+				      icon="ui-icon-disk" update="messages" />
+				     <p:menuitem value="Equipamentos"
+				      actionListener="#{menuView.update}"
+				      icon="ui-icon-arrowrefresh-1-w" update="messages" />
 				</p:submenu>
-				<f:facet name="options">
-					<p:inputText style="margin-right:10px" placeholder="Search" />
-					<!-- <h:form id="formSair" >   -->
-						<p:commandButton ajax="false"
-							rendered="#{(menuBean.pegaPermissoes()) >= 1}" type="submit"
-							value="Sair" icon="ui-icon-extlink" update="growl"
-							onclick="#{userLoginView.logout()}" />
-						<p:commandButton ajax="false"
-							rendered="#{(menuBean.pegaPermissoes()) == 0}" type="submit"
-							value="Voltar" icon="ui-icon-extlink" update="growl"
-							onclick="#{userLoginView.logout()}" />
-					<!-- </h:form>  -->
+				
+			    <f:facet name="options">
+				     <p:inputText style="margin-right:10px" placeholder="Search" />
+				   
+				      <p:commandButton ajax="false"
+				       rendered="#{(menuBean.pegaPermissoes()) >= 1}" type="submit"
+				       value="Sair" icon="ui-icon-extlink" update="growl"
+				       onclick="#{userLoginView.logout()}" />
+				      <p:commandButton ajax="false"
+				       rendered="#{(menuBean.pegaPermissoes()) == 0}" type="submit"
+				       value="Voltar" icon="ui-icon-extlink" update="growl"
+				       onclick="#{userLoginView.logout()}" />
 				</f:facet>
 			</p:menubar>
 		</h:form>
