@@ -4,8 +4,9 @@
   SHAPE="32,225,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules:#principal.xhtml:0" NAME="item"
    PATH="/principal.xhtml" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="success:#{userLoginView.logout()}:#"
-    NAME="output" PATH="/" TARGET="rules:#"
+   <PROCESS-ITEM-OUTPUT
+    ID="success:#{userLoginView.logout()}:#login.xhtml" NAME="output"
+    PATH="/login.xhtml" TARGET="rules:#login.xhtml"
     TITLE="#{userLoginView.logout()}:success" model-entity="JSFProcessItemOutput"/>
    <PROCESS-ITEM-OUTPUT
     ID="failure:#{userLoginView.logout()}:#erroLogin.xhtml"
@@ -57,5 +58,4 @@
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#erroLogin.xhtml" PATH="/erroLogin.xhtml"
   SHAPE="304,401,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#" PATH="/" SHAPE="320,257,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

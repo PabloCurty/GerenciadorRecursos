@@ -9,6 +9,9 @@ import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.component.EditableValueHolder;
+import javax.faces.component.UIComponent;
+import javax.faces.component.UIForm;
 import javax.faces.context.FacesContext;
 
 import org.CommonsEJB.UserLoginBeanInterface;
@@ -30,11 +33,21 @@ public class UserLoginView implements Serializable {
 	private String username;
 
 	private String password;
-	
+
 	private String perfil;
-	
+
+	private UIForm form;
+
 	@EJB
 	private UserLoginBeanInterface userLoginBean;
+
+	public UIForm getForm() {
+		return form;
+	}
+
+	public void setForm(UIForm form) {
+		this.form = form;
+	}
 
 	public String getUsername() {
 		return username;
@@ -60,7 +73,7 @@ public class UserLoginView implements Serializable {
 		try {
 			user = userLoginBean.login(this.username, this.password);
 			this.id = user.getOid();
-			this.perfil  =  user.getPerfil().getNome_perfil();
+			this.perfil = user.getPerfil().getNome_perfil();
 			String nome = user.getNome_usuario();
 			loggedIn = true;
 			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome " + nome, this.username);
@@ -78,8 +91,8 @@ public class UserLoginView implements Serializable {
 		}
 
 	}
-	
-	public String entrarSemLogin(){
+
+	public String entrarSemLogin() {
 		RequestContext context = RequestContext.getCurrentInstance();
 		FacesMessage message = null;
 		boolean loggedIn = false;
@@ -90,40 +103,82 @@ public class UserLoginView implements Serializable {
 			FacesContext.getCurrentInstance().getExternalContext().getFlash().put("perfil", "Usuario");
 			loggedIn = false;
 			context.addCallbackParam("loggedIn", loggedIn);
-			return "success";
+			return "succsess";
 		} catch (Exception e) {
 			loggedIn = false;
-			message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Não foi possível efetuar a consulta", "Sistema fora do ar");
+			message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Não foi possível efetuar a consulta",
+					"Sistema fora do ar");
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			context.addCallbackParam("loggedIn", loggedIn);
 			return "failure";
 		}
-		
+
 	}
-	
+
 	public boolean limpaUsuario() {
-		
+
 		try {
-			this.password = null;
-			this.username = null;
-			this.perfil = null;
+			this.setPassword(null);
+			this.setUsername(null);
+			this.setPerfil(null);
 			this.setId(null);
+			FacesContext.getCurrentInstance().getExternalContext().getFlash().put("id", this.getId());
+			FacesContext.getCurrentInstance().getExternalContext().getFlash().put("perfil", this.getPerfil());
+
 			FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 			return true;
 		} catch (Exception e) {
 			return false;
 		}
-		
+
 	}
 
 	public String logout() {
-		
+
 		try {
 			limpaUsuario();
-			return "success";
+			// cleanSubmittedValues(form);
+			return "succsess";
 		} catch (Exception e) {
 			return "failure";
 		}
+	}
+
+	/**
+	 * Limpa os dados dos componentes de edição e de seus filhos,
+	 * recursivamente. Checa se o componente é instância de EditableValueHolder
+	 * e 'reseta' suas propriedades.
+	 * <p>
+	 * Quando este método, por algum motivo, não funcionar, parta para
+	 * ignorância e limpe o componente assim:
+	 * <p>
+	 * <blockquote>
+	 * 
+	 * <pre>
+	 * component.getChildren().clear()
+	 * </pre>
+	 * 
+	 * </blockquote> :-)
+	 */
+	public boolean cleanSubmittedValues(UIComponent component) {
+
+		if (component != null) {
+
+			if (component instanceof EditableValueHolder) {
+				EditableValueHolder evh = (EditableValueHolder) component;
+				evh.setSubmittedValue(null);
+				evh.setValue(null);
+				evh.setLocalValueSet(false);
+				evh.setValid(true);
+			}
+			if (component.getChildCount() > 0) {
+				for (UIComponent child : component.getChildren()) {
+					cleanSubmittedValues(child);
+				}
+			}
+		}
+
+		return true;
 	}
 
 	public String getId() {
@@ -142,5 +197,4 @@ public class UserLoginView implements Serializable {
 		this.perfil = perfil;
 	}
 
-	
 }

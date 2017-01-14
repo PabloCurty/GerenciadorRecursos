@@ -26,6 +26,18 @@
 		<param-name>primefaces.THEME</param-name>
 		<param-value>bootstrap</param-value>
 	</context-param>
+	
+	
+	<filter>
+		<filter-name>sessaoExpiradaFilter</filter-name>
+		<filter-class>br.com.uff.web.session.SessaoExpiradaFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>sessaoExpiradaFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
 
 	<!-- É ideal configurar o parâmetro PROJECT_STAGE para Development, com 
 		isso vamos ver warnings e/ou errors na tela. -->
