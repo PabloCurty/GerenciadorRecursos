@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.Query;
 
 import org.CommonsEJB.model.Perfil;
-import org.CommonsEJB.model.Usuario;
 
 public class PerfilDAO extends AbstractDAO<Perfil> implements Serializable {
 

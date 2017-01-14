@@ -32,6 +32,9 @@ public class SolicitacaoEquipamento extends EntidadeAbstrata implements Serializ
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="ID_EQUIPAMENTO")
 	private Equipamento equipamento;
+	
+	@Column(name = "STATUS", nullable = true)
+	private boolean status;
 
 	public Date getData() {
 		return data;
@@ -55,6 +58,14 @@ public class SolicitacaoEquipamento extends EntidadeAbstrata implements Serializ
 
 	public void setEquipamento(Equipamento equipamento) {
 		this.equipamento = equipamento;
+	}
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 
 }

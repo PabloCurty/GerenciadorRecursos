@@ -17,11 +17,34 @@
 	<h:form>
 		<p:messages id="messages" />
 		<p:panelGrid columns="2">
-	
-			<p:commandButton value="Solicitar" icon="ui-icon-star"
+			<h3 style="margin-top:0px">Escolha os tipos de problemas</h3>
+	   		<p:selectManyCheckbox id="basic" value="#{checkboxView.selectedConsoles}">
+		        <f:selectItem itemLabel="Sala" itemValue="Sala" />
+		        <f:selectItem itemLabel="Equipamento" itemValue="Equipamento" />
+	    	</p:selectManyCheckbox>
+	    	
+	    	<p:outputLabel for="numeroEquipmento" value="Digite o número do equipamento:" />
+			<p:inputText id="numeroEquipmento" value="#{registroProblemaBeanView.numeroEquipamento}" />
+			
+			<p:outputLabel for="numeroSala" value="Digite o número da sala:" />
+			<p:inputText id="numeroSala" value="#{registroProblemaBeanView.numeroSala}" />
+		</p:panelGrid>		
+			<p:outputLabel for="descricao" value="Entre com a descrição do problema:" />
+			<!--<p:inputText id="descricao" value="#{registroProblemaBeanView.descricao}" />-->
+		<p:panelGrid columns="1">
+			<p:inputTextarea 
+				id="descricao" value="#{registroProblemaBeanView.descricao}" 
+				rows="10" cols="50" 
+				completeMethod="#{registroProblemaBeanView.completaArea}" 
+				queryDelay="750" minQueryLength="4" />
+		</p:panelGrid>		
+		<p:panelGrid columns="1">
+			<p:commandButton value="Registrar" icon="ui-icon-star" 
 					action="#{registroProblemaBeanView.registrar}" update="messages">
 			</p:commandButton>
-		</p:panelGrid>
+		</p:panelGrid>	
+			<!-- <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-check" /> -->
+		
   	</h:form>
 </ui:define>
 </ui:composition>

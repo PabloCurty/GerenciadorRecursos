@@ -5,7 +5,6 @@ package org.CommonsEJB;
 
 import javax.ejb.Local;
 
-import org.CommonsEJB.model.Perfil;
 import org.CommonsEJB.model.Usuario;
 
 /**

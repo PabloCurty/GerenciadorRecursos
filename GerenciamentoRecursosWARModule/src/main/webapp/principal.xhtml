@@ -49,7 +49,7 @@
 					<p:menuitem value="Retirada de equipamento" url="#"
 						icon="ui-icon-arrowreturnthick-1-e"
 						rendered="#{(menuBean.pegaPermissoes()) >= 1}" />
-					<p:menuitem value="Problema" url="#"
+					<p:menuitem value="Problema" url="registroProblema.xhtml"
 						icon="ui-icon-arrowreturnthick-1-e"
 						rendered="#{(menuBean.pegaPermissoes()) >= 3}" />
 					<p:menuitem value="Devolução de chave" url="#"
@@ -67,23 +67,7 @@
 					<p:menuitem value="Equipamentos"
 						actionListener="#{menuView.update}"
 						icon="ui-icon-arrowrefresh-1-w" update="messages" />
-
-
 				</p:submenu>
-
-				<p:menuitem value="Quit" url="http://www.primefaces.org"
-					icon="ui-icon-close" />
-
-				<p:submenu label="Help" icon="ui-icon-help">
-					<p:menuitem value="Contents" url="#" />
-					<p:submenu label="Search" icon="ui-icon-search">
-						<p:submenu label="Text">
-							<p:menuitem value="Workspace" url="#" />
-						</p:submenu>
-						<p:menuitem value="File" url="#" />
-					</p:submenu>
-				</p:submenu>
-
 				<f:facet name="options">
 					<p:inputText style="margin-right:10px" placeholder="Search" />
 					<h:form>

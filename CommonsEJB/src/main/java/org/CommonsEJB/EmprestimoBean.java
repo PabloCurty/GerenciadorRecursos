@@ -10,10 +10,10 @@ import org.CommonsEJB.model.Equipamento;
 
 @Stateless
 @LocalBean
-public class EquipamentoBean implements Serializable {
+public class EmprestimoBean implements Serializable {
 
 	/**
-	 * deve checar as alocacoes de sala, solicitacoes de sala e solicitacoes de equipamento
+	 * 
 	 */
 	private static final long serialVersionUID = -3630123330471989147L;
 	

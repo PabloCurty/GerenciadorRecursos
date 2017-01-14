@@ -34,6 +34,9 @@ public class SolicitacaoSala extends EntidadeAbstrata implements Serializable {
 	private String capacidade;
 	
 	private String recursos;
+	
+	@Column(name = "STATUS", nullable = true)
+	private boolean status;
 
 	public Date getData() {
 		return data;
@@ -74,5 +77,12 @@ public class SolicitacaoSala extends EntidadeAbstrata implements Serializable {
 	public void setRecursos(String recursos) {
 		this.recursos = recursos;
 	}
+	
+	public boolean isStatus() {
+		return status;
+	}
 
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
 }

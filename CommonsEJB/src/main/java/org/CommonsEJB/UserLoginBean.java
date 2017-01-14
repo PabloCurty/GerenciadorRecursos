@@ -9,8 +9,6 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 import org.CommonsEJB.DAO.Impl.LoginDAOImpl;
-import org.CommonsEJB.DAO.Impl.PerfilDAO;
-import org.CommonsEJB.model.Perfil;
 import org.CommonsEJB.model.Usuario;
 
 /**
