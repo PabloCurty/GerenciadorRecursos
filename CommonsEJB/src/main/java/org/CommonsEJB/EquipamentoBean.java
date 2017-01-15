@@ -55,6 +55,10 @@ public class EquipamentoBean implements Serializable {
 		this.equipamento = equipamento;
 	}
 
-	
+	public List<SolicitacaoEquipamento> getAllSolicitacoes(){
+		List<SolicitacaoEquipamento> lista = solicitacaoEquipamentoDAO.buscarTodos();
+		
+		return lista;
+	}
 	
 }

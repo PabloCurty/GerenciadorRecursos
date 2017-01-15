@@ -9,7 +9,7 @@
 
 	<f:metadata>
 		<f:viewAction
-			action="#{solicitacaoEquipamentoBeanView.prepararSolicitacao}" />
+			action="#{solicitacaoEquipamentoView.prepararSolicitacao}" />
 	</f:metadata>
 
 	<ui:define name="title">Solicitação de reserva de Equipamento</ui:define>
@@ -21,15 +21,15 @@
 
 				<p:outputLabel value="tipo" for="tipo" />
 				<p:autoComplete id="tipo" dropdown="true"
-					value="#{solicitacaoEquipamentoBeanView.tipo}"
-					completeMethod="#{solicitacaoEquipamentoBeanView.completeText()}" />
+					value="#{solicitacaoEquipamentoView.tipo}"
+					completeMethod="#{solicitacaoEquipamentoView.completeText()}" />
 
 				<p:outputLabel for="datetime" value="Datetime:" />
-				<p:calendar id="datetime" value="#{solicitacaoEquipamentoBeanView.data}"
+				<p:calendar id="datetime" value="#{solicitacaoEquipamentoView.data}"
 					pattern="MM/dd/yyyy HH:mm:ss" />
 			</p:panelGrid>
 			<p:commandButton value="Solicitar" icon="ui-icon-star"
-				action="#{solicitacaoEquipamentoBeanView.solicitar}"
+				action="#{solicitacaoEquipamentoView.solicitar}"
 				update="messages">
 			</p:commandButton>
 			
@@ -37,7 +37,7 @@
 				widgetVar="dlg" showEffect="fold">
 				<p:panelGrid id="display" columns="2" columnClasses="label,value">
 					<h:outputText value="Datetime:" />
-					<h:outputText value="#{solicitacaoEquipamentoBeanView.data}">
+					<h:outputText value="#{solicitacaoEquipamentoView.data}">
 						<f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
 					</h:outputText>
 

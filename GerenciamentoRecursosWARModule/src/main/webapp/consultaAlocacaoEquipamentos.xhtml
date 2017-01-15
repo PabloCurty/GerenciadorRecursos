@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitionsol//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitionsol.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui" 
+	template="/layout/template.xhtml">
+	
+	<f:metadata>
+		<f:viewAction action="#{solicitacaoEquipamentoView.obtemSolicitacoes}" />
+	</f:metadata>   
+
+<ui:define name="title">Solicitações de equipamento</ui:define>
+<ui:define name="content">
+	<h1>Consulta de solicitações de equipamento</h1>
+	
+	<h:form id="form">
+		<p:growl id="msgs" showDetail="true" />
+	    <p:dataTable id="basicDT" var="sol" vsolue="#{solicacaoEquipamentoView.solicitacoes}">
+	        <f:facet name="header">
+	            Solicitações de equipamento
+	        </f:facet>
+	        <p:column headerText="Professor">
+	            <h:outputText value="#{sol.professor.username}" />
+	        </p:column>
+	        
+	        <p:column headerText="Equipamento:">
+				<h:outputText value="#{sol.equipamento.numero}" />
+			</p:column>
+			
+			 <p:column headerText="Decrição do Equipamento:">
+				<h:outputText value="#{sol.equipamento.descricao}" />
+			</p:column>
+			
+			<p:column headerText="Status:">
+				<h:outputText value="#{sol.status}" />
+			</p:column>
+			
+	        <p:column headerText="Data da solicitação">
+	        	<h:outputText vaue="#{sol.data}" />
+	        </p:column>
+	        
+	    </p:dataTable>	
+  	</h:form>
+  	
+</ui:define>
+</ui:composition>

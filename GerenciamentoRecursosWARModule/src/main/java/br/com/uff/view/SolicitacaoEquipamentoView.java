@@ -19,7 +19,7 @@ import org.CommonsEJB.model.SolicitacaoEquipamento;
 import org.CommonsEJB.model.Usuario;
 import org.primefaces.context.RequestContext;
 
-@ManagedBean(name = "solicitacaoEquipamentoBeanView")
+@ManagedBean(name = "solicitacaoEquipamentoView")
 @SessionScoped
 public class SolicitacaoEquipamentoView {
 
@@ -28,6 +28,8 @@ public class SolicitacaoEquipamentoView {
 	
 	@EJB
 	private UsuarioBeanInterface userBean;
+	
+	private List<SolicitacaoEquipamento> solicitacoes;
 
 	private List<String> tipos;
 
@@ -39,7 +41,10 @@ public class SolicitacaoEquipamentoView {
 	
 	private String perfil;
 	
-	
+	public void obtemSolicitacoes(){
+		solicitacoes = equipamentoBean.getAllSolicitacoes();
+		
+	}
 
 	public SolicitacaoEquipamentoView() {
 		HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
@@ -135,6 +140,14 @@ public class SolicitacaoEquipamentoView {
 
 	public void setPerfil(String perfil) {
 		this.perfil = perfil;
+	}
+
+	public List<SolicitacaoEquipamento> getSolicitacoes() {
+		return solicitacoes;
+	}
+
+	public void setSolicitacoes(List<SolicitacaoEquipamento> solicitacoes) {
+		this.solicitacoes = solicitacoes;
 	}
 
 }
