@@ -28,15 +28,20 @@ public class SolicitacaoSalaBean implements Serializable {
 		return solicitacaoSala;
 	}
 	
-	public List<SolicitacaoSala> buscaTodasSolicitacoesConcedidas(){
+	public List<SolicitacaoSala> buscaTodasSolicitacoesPassandoStatus(StatusSolicitacao status){
 		List<SolicitacaoSala> lista = solicitacaoSalaDAO.buscarTodos();
 		List<SolicitacaoSala> listaConcedidos = new ArrayList<SolicitacaoSala>();
 		for(SolicitacaoSala s : lista){
-			if(s.getStatus()==StatusSolicitacao.CONCEDIDO){
+			if(s.getStatus()==status){
 				listaConcedidos.add(s);
 			}
 		}
 		return listaConcedidos;
 	}
+
+	public SolicitacaoSala negar(SolicitacaoSala selectedSol) {
+		return solicitacaoSalaDAO.merge(selectedSol);
+	}
+	
 	
 }

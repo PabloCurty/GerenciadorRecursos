@@ -31,6 +31,7 @@ public class SalaBean implements Serializable {
 	}
 	
 	public List<Sala> getSalas(){
+		this.salas = salaDAO.buscarTodos();
 		return this.salas;
 	}
 

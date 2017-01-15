@@ -9,6 +9,7 @@ import javax.faces.bean.SessionScoped;
 
 import org.CommonsEJB.AlocacaoBean;
 import org.CommonsEJB.SolicitacaoSalaBean;
+import org.CommonsEJB.enums.StatusSolicitacao;
 import org.CommonsEJB.model.Alocacao;
 import org.CommonsEJB.model.SolicitacaoSala;
 
@@ -31,7 +32,7 @@ public class AlocacaoSalaView {
 	private Date data;
 	
 	public void prepararAlocacoes(){
-		this.setSolicitacoes(solicitacaoSalaBean.buscaTodasSolicitacoesConcedidas());
+		this.setSolicitacoes(solicitacaoSalaBean.buscaTodasSolicitacoesPassandoStatus(StatusSolicitacao.CONCEDIDO));
 		this.setAlocacoes(alocacaoBean.buscaTodasAlocacoes());
 	}
 	

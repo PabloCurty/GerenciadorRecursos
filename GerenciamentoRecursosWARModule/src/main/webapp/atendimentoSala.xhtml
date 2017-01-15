@@ -5,50 +5,61 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:p="http://primefaces.org/ui" 
-	template="/layout/template.xhtml">
-	
-	<f:metadata>
-		<f:viewAction action="#{atendimentoSalaBeanView.obtemSolicitacoes}" />
-	</f:metadata> 
+	xmlns:p="http://primefaces.org/ui" template="/layout/template.xhtml">
 
-<ui:define name="title">Atendimento de solicitação de reserva de sala</ui:define>
-<ui:define name="content">
-	<h1>Atendimento de solicitação de reserva de sala</h1>
-	<h:form id="form">
-	
-		<p:growl id="msgs" showDetail="true" />
-		
-	    <p:dataTable id="basicDT" var="sol" value="#{atendimentoSalaBeanView.solicitacoes}">
-	        <f:facet name="header">
+	<f:metadata>
+		<f:viewAction action="#{atendimentoSalaBeanView.obtemSolicitacoes()}" />
+	</f:metadata>
+
+	<ui:define name="title">Atendimento de solicitação de reserva de sala</ui:define>
+	<ui:define name="content">
+		<h1>Atendimento de solicitação de reserva de sala</h1>
+		<h:form id="form">
+
+			<p:growl id="msgs" showDetail="true" />
+
+			<p:dataTable id="basicDT" var="sol"
+				value="#{atendimentoSalaBeanView.solicitacoes}">
+				<f:facet name="header">
 	            Solicitações
 	        </f:facet>
-	        <p:column headerText="Solicitante">
-	            <h:outputText value="#{sol.professor.username}" />
-	        </p:column>
-	        <p:column headerText="Recursos">
-	            <h:outputText value="#{sol.recursos}" />
-	        </p:column>
-	        <p:column headerText="Capacidade">
-	            <h:outputText value="#{sol.capacidade}" />
-	        </p:column>
-	        <p:column headerText="Data da solicitação">
-	            <h:outputText value="#{sol.data}" />
-	        </p:column>
-	        
-	        <p:outputLabel for="sala" value="Sala:" />
-    		<p:inputText id="sala" value="#{salaBeanView.recursos}" />
-    		
-    		<p:outputLabel value="Sala:" for="sala" />
-		    <p:autoComplete id="sala" dropdown="true"
-		     value="#{atendimentoSalaBeanView.numeroSala}" completeMethod="#{atendimentoSalaBeanView.completeSalaComboBox()}" />
-	        
-	        <p:column style="width:32px;text-align: center">
-	             <p:commandButton oncomplete="atendimentoSalaBeanView.atender()" icon="ui-icon-search" title="View">
-	                <f:setPropertyActionListener value="#{sol}" target="#{atendimentoSalaBeanView.selectedSol}" />
-	            </p:commandButton>
-	        </p:column>
-	    </p:dataTable>	
-  	</h:form>
-</ui:define>
+				<p:column headerText="Solicitante">
+					<h:outputText value="#{sol.professor.username}" />
+				</p:column>
+				<p:column headerText="Recursos">
+					<h:outputText value="#{sol.recursos}" />
+				</p:column>
+				<p:column headerText="Capacidade">
+					<h:outputText value="#{sol.capacidade}" />
+				</p:column>
+				<p:column headerText="Data da solicitação">
+					<h:outputText value="#{sol.data}" />
+				</p:column>
+
+				<p:column headerText="sala">
+					<p:outputLabel value="Sala:" for="sala" />
+					<p:autoComplete id="sala" dropdown="true"
+						value="#{atendimentoSalaBeanView.numeroSala}"
+						completeMethod="#{atendimentoSalaBeanView.completeSalaComboBox()}" />
+				</p:column>
+				
+				<p:column style="width:32px;text-align: center">
+					<p:commandButton 
+						action="#{atendimentoSalaBeanView.atender()}"
+						icon="ui-icon-play" title="Conceder">
+					 <f:setPropertyActionListener value="#{sol}"
+							target="#{atendimentoSalaBeanView.selectedSol}" /> 
+					</p:commandButton>
+				</p:column>
+				<p:column style="width:32px;text-align: center">
+					<p:commandButton 
+						action="#{atendimentoSalaBeanView.negar()}"
+						icon="ui-icon-cancel" title="Negar">
+					 <f:setPropertyActionListener value="#{sol}"
+							target="#{atendimentoSalaBeanView.selectedSol}" /> 
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
 </ui:composition>
