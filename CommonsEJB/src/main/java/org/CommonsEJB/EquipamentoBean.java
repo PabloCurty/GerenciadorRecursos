@@ -7,6 +7,7 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import org.CommonsEJB.DAO.Impl.EquipamentoDAO;
 import org.CommonsEJB.DAO.Impl.SolicitacaoEquipamentoDAO;
 import org.CommonsEJB.model.Equipamento;
 import org.CommonsEJB.model.SolicitacaoEquipamento;
@@ -23,7 +24,10 @@ public class EquipamentoBean implements Serializable {
 	@Inject
 	private SolicitacaoEquipamentoDAO solicitacaoEquipamentoDAO;
 	
-	private Equipamento equipamento = new Equipamento();
+	@Inject
+	private EquipamentoDAO equipamentoDAO;
+	
+	private Equipamento equipamento;
 	
 	private List<Equipamento> equipamentos;
 	
@@ -34,7 +38,10 @@ public class EquipamentoBean implements Serializable {
 
 	public void salvar(){}
 	
-	public void cadastrar(){}
+	public Equipamento cadastrar(Equipamento equipamento2){
+		equipamento2 = equipamentoDAO.merge(equipamento2);
+		return equipamento2;
+	}
 	
 	public List<Equipamento> getEquipamentos(){
 		return this.equipamentos;

@@ -7,6 +7,7 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import org.CommonsEJB.DAO.Impl.SalaDAO;
 import org.CommonsEJB.DAO.Impl.SolicitacaoSalaDAO;
 import org.CommonsEJB.model.Sala;
 import org.CommonsEJB.model.SolicitacaoSala;
@@ -23,10 +24,16 @@ public class SalaBean implements Serializable {
 	
 	@Inject
 	private SolicitacaoSalaDAO solicitacaoSalaDAO;
+	
+	@Inject
+	private SalaDAO salaDAO;
 
 	public void salvar(){}
 	
-	public void cadastrar(){}
+	public Sala cadastrar(Sala sala2){
+		sala2 = salaDAO.merge(sala2);
+		return sala2;
+	}
 	
 	public SolicitacaoSala solicitar(SolicitacaoSala solicitacaoSala){
 		

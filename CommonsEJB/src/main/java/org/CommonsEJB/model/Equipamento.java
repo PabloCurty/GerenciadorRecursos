@@ -18,14 +18,35 @@ public class Equipamento extends EntidadeAbstrata implements Serializable{
 	 */
 	private static final long serialVersionUID = -1547210011731613009L;
 	
-	@Column(name = "STATUS", nullable = false)
+	@Column(name = "STATUS", nullable = true)
 	private String status;
 	
 	@Column(name = "NUMERO", nullable = false)
 	private String numero;
 	
-	@Column(name = "DESCRICAO", nullable = false)
+	@Column(name = "DESCRICAO", nullable = true)
 	private String descricao;
+	
+	@Column(name = "TIPO", nullable = false)
+	private String tipo;
+
+	public Equipamento() {
+		super();
+	}
+
+	public Equipamento(String numero, String tipo) {
+		super();
+		this.numero = numero;
+		this.tipo = tipo;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
 
 	public String getStatus() {
 		return status;

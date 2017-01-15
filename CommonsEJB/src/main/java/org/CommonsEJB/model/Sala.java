@@ -36,8 +36,22 @@ public class Sala extends EntidadeAbstrata implements Serializable{
 	
 	@OneToMany(mappedBy="sala", cascade={CascadeType.ALL})
 	@OrderBy
+	@Column(name = "ALOCACAO", nullable = true)
 	private Set<Alocacao> alocacao;
 	
+	public Sala() {
+		super();
+	}
+
+	public Sala(String numero, String capacidade, String tipo, String recursos, String predio) {
+		super();
+		this.numero = numero;
+		this.capacidade = capacidade;
+		this.tipo = tipo;
+		this.recursos = recursos;
+		this.predio = predio;
+	}
+
 	public String getTipo() {
 		return tipo;
 	}
