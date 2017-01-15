@@ -1,6 +1,7 @@
 package org.CommonsEJB;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.LocalBean;
@@ -24,4 +25,12 @@ public class AlocacaoBean implements Serializable{
 		return lista;
 	}
 	
+	public List<Alocacao> buscaTodasAlocacoes(Date date){
+		List<Alocacao> lista = alocacaoDAO.buscarTodos();
+		return lista;
+	}
+	
+	public Alocacao criaAlocacao(Alocacao alocacao){
+		return alocacaoDAO.persist(alocacao);
+	}
 }

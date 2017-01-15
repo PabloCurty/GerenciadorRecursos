@@ -9,7 +9,7 @@
 	template="/layout/template.xhtml">
 	
 	<f:metadata>
-		<f:viewAction action="#{atendimentoSalaBeanView.prepararAtendimento}" />
+		<f:viewAction action="#{atendimentoSalaBeanView.obtemSolicitacoes}" />
 	</f:metadata> 
 
 <ui:define name="title">Atendimento de solicitação de reserva de sala</ui:define>
@@ -35,6 +35,14 @@
 	        <p:column headerText="Data da solicitação">
 	            <h:outputText value="#{sol.data}" />
 	        </p:column>
+	        
+	        <p:outputLabel for="sala" value="Sala:" />
+    		<p:inputText id="sala" value="#{salaBeanView.recursos}" />
+    		
+    		<p:outputLabel value="Sala:" for="sala" />
+		    <p:autoComplete id="sala" dropdown="true"
+		     value="#{atendimentoSalaBeanView.numeroSala}" completeMethod="#{atendimentoSalaBeanView.completeSalaComboBox()}" />
+	        
 	        <p:column style="width:32px;text-align: center">
 	             <p:commandButton oncomplete="atendimentoSalaBeanView.atender()" icon="ui-icon-search" title="View">
 	                <f:setPropertyActionListener value="#{sol}" target="#{atendimentoSalaBeanView.selectedSol}" />

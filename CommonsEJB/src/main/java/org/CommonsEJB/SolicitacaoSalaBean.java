@@ -23,7 +23,7 @@ public class SolicitacaoSalaBean implements Serializable {
 	
 	public SolicitacaoSala solicitar(SolicitacaoSala solicitacaoSala){
 		
-		solicitacaoSala = solicitacaoSalaDAO.persist(solicitacaoSala);
+		solicitacaoSala = solicitacaoSalaDAO.merge(solicitacaoSala);
 		
 		return solicitacaoSala;
 	}

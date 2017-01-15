@@ -41,5 +41,18 @@ public class SalaBean implements Serializable {
 	public void setSala(Sala sala) {
 		this.sala = sala;
 	}
+
+	public Sala buscaSalaPorNumero(String numeroSala) {
+		
+		salas = salaDAO.buscarTodos();
+		
+		for(Sala sala : salas){
+			if(sala.getNumero().equals(numeroSala)){
+				return sala;
+			}
+		}
+		
+		return null;
+	}
 	
 }
