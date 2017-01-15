@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui" 
+	template="/layout/template.xhtml">
+	
+	<!-- <f:metadata>
+		<f:viewAction action="#{alocacaoSalaView.prepararAlocacoes}" />
+	</f:metadata>  --> 
+
+<ui:define name="title">Consulta da alocação de salas</ui:define>
+<ui:define name="content">
+	<h1>Consulta da alocação de salas de aula para um período (dia ou semana)</h1>
+	<h:form>
+		<p:growl id="messages" showDetail="true" />
+			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+	        <p:outputLabel for="console" value="Período:" />
+	        <p:selectOneRadio id="console" value="#{alocacaoSalaView.selectedItem}">
+	            <f:selectItem itemLabel="Dia" itemValue="Dia" />
+	            <f:selectItem itemLabel="Semana" itemValue="Semana" />
+	        </p:selectOneRadio>
+    		</h:panelGrid>
+    		
+    		<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+			<p:outputLabel for="datetime" value="Datetime:" />
+			<p:calendar id="datetime" value="#{alocacaoSalaView.data}"
+				pattern="MM/dd/yyyy HH:mm:ss" />
+			</h:panelGrid>
+			
+			<p:commandButton value="Buscar" icon="ui-icon-star"
+				action="#{alocacaoSalaView.buscar()}" update="messages">
+			</p:commandButton>
+
+			<p:dialog modal="true" resizable="false" header="Values"
+				widgetVar="dlg" showEffect="fold">
+				<p:panelGrid id="display" columns="2" columnClasses="label,value">
+					<h:outputText value="Datetime:" />
+					<h:outputText value="#{alocacaoSalaView.data}">
+						<f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+					</h:outputText>
+
+				</p:panelGrid>
+			</p:dialog>
+		
+	</h:form>
+</ui:define>
+</ui:composition>

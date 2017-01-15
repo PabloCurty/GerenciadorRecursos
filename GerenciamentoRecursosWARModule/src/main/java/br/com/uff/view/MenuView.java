@@ -7,7 +7,6 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
-
 @ManagedBean (name="menuBean")
 @SessionScoped
 public class MenuView implements Serializable{

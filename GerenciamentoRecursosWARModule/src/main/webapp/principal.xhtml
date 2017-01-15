@@ -40,22 +40,26 @@
 				
 				<p:submenu label="Registro" icon="ui-icon-pencil"
 				     rendered="#{(menuBean.pegaPermissoes()) >= 1}">
+				     
 				     <p:menuitem value="Retirada/Devolução de chave" url="emprestimoChave.xhtml"
 				      icon="ui-icon-arrowreturnthick-1-w" 
 				      rendered="#{(menuBean.pegaPermissoes()) == 1 or (menuBean.pegaPermissoes()) >= 3 }"/>
-				     <p:menuitem value="Problema" url="registroProblema.xhtml"
-				      icon="ui-icon-arrowreturnthick-1-e" />
+				     
 				     <p:menuitem value="Retirada/Devolução de equipamento" url="emprestimoEquipamento.xhtml"
 				      icon="ui-icon-arrowreturnthick-1-e"
 				      rendered="#{(menuBean.pegaPermissoes()) == 1 or (menuBean.pegaPermissoes()) >= 3 }" />
+				      
+				     <p:menuitem value="Problema" url="registroProblema.xhtml"
+				      icon="ui-icon-arrowreturnthick-1-e" />
 			    </p:submenu>
 
 				<p:submenu label="Mapa de recursos" icon="ui-icon-gear"
 				     rendered="#{(menuBean.pegaPermissoes()) >= 0}">
-				     <p:menuitem value="Salas" actionListener="#{menuView.save}"
+				     <p:menuitem value="Salas" 
+				      url="buscaAlocacaoSalas.xhtml"
 				      icon="ui-icon-disk" update="messages" />
 				     <p:menuitem value="Equipamentos"
-				      actionListener="#{menuView.update}"
+				      url="consultaAlocacaoEquipamentos.xhtml"
 				      icon="ui-icon-arrowrefresh-1-w" update="messages" />
 				</p:submenu>
 				

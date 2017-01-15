@@ -12,25 +12,25 @@
 		<f:viewAction action="#{atendimentoSalaBeanView.prepararAtendimento}" />
 	</f:metadata> 
 
-<ui:define name="title">Atendimento de solicitação de reserva de Sala</ui:define>
+<ui:define name="title">Atendimento de solicitação de reserva de sala</ui:define>
 <ui:define name="content">
-	<h1>Atendimento de solicitação de reserva de Sala</h1>
+	<h1>Atendimento de solicitação de reserva de sala</h1>
 	<h:form id="form">
 	
 		<p:growl id="msgs" showDetail="true" />
 		
 	    <p:dataTable id="basicDT" var="sol" value="#{atendimentoSalaBeanView.solicitacoes}">
 	        <f:facet name="header">
-	            Solicitações de reserva de Equipamento
+	            Solicitações
 	        </f:facet>
 	        <p:column headerText="Solicitante">
 	            <h:outputText value="#{sol.professor.username}" />
 	        </p:column>
-	        <p:column headerText="Sala">
-	            <h:outputText value="#{sol.sala.numero}" />
-	        </p:column>
 	        <p:column headerText="Recursos">
-	            <h:outputText value="#{sol.sala.recursos}" />
+	            <h:outputText value="#{sol.recursos}" />
+	        </p:column>
+	        <p:column headerText="Capacidade">
+	            <h:outputText value="#{sol.capacidade}" />
 	        </p:column>
 	        <p:column headerText="Data da solicitação">
 	            <h:outputText value="#{sol.data}" />

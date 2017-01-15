@@ -12,7 +12,7 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.CommonsEJB.SalaBean;
+import org.CommonsEJB.SolicitacaoSalaBean;
 import org.CommonsEJB.UsuarioBeanInterface;
 import org.CommonsEJB.enums.StatusSolicitacao;
 import org.CommonsEJB.model.SolicitacaoSala;
@@ -26,7 +26,7 @@ public class SolicitacaoSalaView implements Serializable{
 	private static final long serialVersionUID = 4483189948552126347L;
 
 	@EJB
-	private SalaBean salaBean;
+	private SolicitacaoSalaBean solicitacaoSalaBean;
 	
 	@EJB
 	private UsuarioBeanInterface userBean;
@@ -69,7 +69,7 @@ public class SolicitacaoSalaView implements Serializable{
 			
 			user = userBean.pegaUsuario(id);
 			solicitacaoSala = new SolicitacaoSala(this.data, user, this.capacidade, this.recursos, StatusSolicitacao.EM_ABERTO);
-			solicitacaoSala = salaBean.solicitar(solicitacaoSala);
+			solicitacaoSala = solicitacaoSalaBean.solicitar(solicitacaoSala);
 			solIn = true;
 			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sala solicitada com sucesso ", null);
 			FacesContext.getCurrentInstance().addMessage(null, message);
@@ -100,12 +100,12 @@ public class SolicitacaoSalaView implements Serializable{
 		this.recursos = recursos;
 	}
 
-	public SalaBean getSalaBean() {
-		return salaBean;
+	public SolicitacaoSalaBean getSalaBean() {
+		return solicitacaoSalaBean;
 	}
 
-	public void setSalaBean(SalaBean salaBean) {
-		this.salaBean = salaBean;
+	public void setSalaBean(SolicitacaoSalaBean solicitacaoSalaBean) {
+		this.solicitacaoSalaBean = solicitacaoSalaBean;
 	}
 
 	public Date getData() {

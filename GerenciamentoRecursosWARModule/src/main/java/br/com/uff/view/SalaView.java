@@ -10,9 +10,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import org.CommonsEJB.SalaBean;
-import org.CommonsEJB.model.Perfil;
 import org.CommonsEJB.model.Sala;
-import org.CommonsEJB.model.Usuario;
 import org.primefaces.context.RequestContext;
 
 @ManagedBean(name = "salaBeanView")

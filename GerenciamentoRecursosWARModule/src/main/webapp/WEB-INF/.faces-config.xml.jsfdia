@@ -58,4 +58,22 @@
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#erroLogin.xhtml" PATH="/erroLogin.xhtml"
   SHAPE="304,401,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#buscaAlocacaoSalas.xhtml"
+  PATH="/buscaAlocacaoSalas.xhtml" SHAPE="64,737,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#buscaAlocacaoSalas.xhtml:0" NAME="item"
+   PATH="/buscaAlocacaoSalas.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="success:#{alocacaoSalaView.buscar()}:#consultaAlocacaoSalas.xhtml"
+    NAME="output" PATH="/consultaAlocacaoSalas.xhtml"
+    TARGET="rules:#consultaAlocacaoSalas.xhtml"
+    TITLE="#{alocacaoSalaView.buscar()}:success" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="failure:#{alocacaoSalaView.buscar()}:#buscaAlocacaoSalas.xhtml"
+    NAME="output1" PATH="/buscaAlocacaoSalas.xhtml"
+    TARGET="rules:#buscaAlocacaoSalas.xhtml"
+    TITLE="#{alocacaoSalaView.buscar()}:failure" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#consultaAlocacaoSalas.xhtml"
+  PATH="/consultaAlocacaoSalas.xhtml" SHAPE="240,865,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

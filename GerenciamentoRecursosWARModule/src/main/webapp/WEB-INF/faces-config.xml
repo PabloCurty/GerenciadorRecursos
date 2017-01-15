@@ -60,5 +60,21 @@
 			<to-view-id>/principal.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/buscaAlocacaoSalas.xhtml</from-view-id>
+		
+		<navigation-case>
+			<from-action>#{alocacaoSalaView.buscar()}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/consultaAlocacaoSalas.xhtml</to-view-id>
+		</navigation-case>
+		<!-- mudar isso, deve gerar uma mensagem informando ao usuario -->
+		<navigation-case>
+			<from-action>#{alocacaoSalaView.buscar()}</from-action>
+			<from-outcome>failure</from-outcome>
+			<to-view-id>/buscaAlocacaoSalas.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
 </faces-config>
