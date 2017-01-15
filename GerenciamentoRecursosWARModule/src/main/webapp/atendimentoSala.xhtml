@@ -29,7 +29,7 @@
 				<p:column headerText="Recursos">
 					<h:outputText value="#{sol.recursos}" />
 				</p:column>
-				<p:column headerText="Capacidade">
+				<p:column headerText="Capacidade" style="text-align: center">
 					<h:outputText value="#{sol.capacidade}" />
 				</p:column>
 				<p:column headerText="Data da solicitação">
@@ -43,7 +43,7 @@
 						completeMethod="#{atendimentoSalaBeanView.completeSalaComboBox()}" />
 				</p:column>
 				
-				<p:column style="width:32px;text-align: center">
+				<p:column headerText="Conceder" style="width:80px;text-align: center">
 					<p:commandButton 
 						action="#{atendimentoSalaBeanView.atender()}"
 						icon="ui-icon-play" title="Conceder">
@@ -51,7 +51,7 @@
 							target="#{atendimentoSalaBeanView.selectedSol}" /> 
 					</p:commandButton>
 				</p:column>
-				<p:column style="width:32px;text-align: center">
+				<p:column headerText="Negar" style="width:64px;text-align: center">
 					<p:commandButton 
 						action="#{atendimentoSalaBeanView.negar()}"
 						icon="ui-icon-cancel" title="Negar">
