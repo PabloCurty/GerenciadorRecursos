@@ -28,26 +28,7 @@
 	</repositories>
 
 	<dependencies>
-		<!-- 
-		<dependency>
-	      <groupId>org.jboss.resteasy</groupId>
-	      <artifactId>resteasy-jaxrs</artifactId>
-	      <version>3.0.1.Final</version>
-   		</dependency>
-   		
-	    <dependency>
-	      <groupId>org.jboss.resteasy</groupId>
-	      <artifactId>resteasy-client</artifactId>
-	      <version>3.0.1.Final</version>
-	    </dependency>
-		 -->
 	
-		<dependency>
-			<groupId>org.jboss.resteasy</groupId>
-			<artifactId>resteasy-jaxrs</artifactId>
-			<version>2.2.1.GA</version>
-			<scope>provided</scope>
-		</dependency>
 	
 		<dependency>
 			<groupId>junit</groupId>
