@@ -46,7 +46,7 @@
 				<p:column headerText="Conceder" style="width:80px;text-align: center">
 					<p:commandButton 
 						action="#{atendimentoSalaBeanView.atender()}"
-						icon="ui-icon-play" title="Conceder" update="message">
+						icon="ui-icon-play" title="Conceder" >
 					 <f:setPropertyActionListener value="#{sol}"
 							target="#{atendimentoSalaBeanView.selectedSol}" /> 
 					</p:commandButton>
@@ -54,7 +54,7 @@
 				<p:column headerText="Negar" style="width:64px;text-align: center">
 					<p:commandButton 
 						action="#{atendimentoSalaBeanView.negar()}"
-						icon="ui-icon-cancel" title="Negar" update="message">
+						icon="ui-icon-cancel" title="Negar" >
 					 <f:setPropertyActionListener value="#{sol}"
 							target="#{atendimentoSalaBeanView.selectedSol}" /> 
 					</p:commandButton>

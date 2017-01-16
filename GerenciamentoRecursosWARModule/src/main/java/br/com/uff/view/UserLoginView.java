@@ -103,7 +103,7 @@ public class UserLoginView implements Serializable {
 			FacesContext.getCurrentInstance().getExternalContext().getFlash().put("perfil", "Usuario");
 			loggedIn = false;
 			context.addCallbackParam("loggedIn", loggedIn);
-			return "succsess";
+			return "success";
 		} catch (Exception e) {
 			loggedIn = false;
 			message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Não foi possível efetuar a consulta",

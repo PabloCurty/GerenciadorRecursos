@@ -18,7 +18,7 @@
 	
 	<h:form id="form">
 		<p:growl id="msgs" showDetail="true" />
-	    <p:dataTable id="basicDT" var="sol" vsolue="#{solicacaoEquipamentoView.solicitacoes}">
+	    <p:dataTable id="basicDT" var="sol" value="#{solicacaoEquipamentoView.solicitacoes}">
 	        <f:facet name="header">
 	            Solicitações de equipamento
 	        </f:facet>
@@ -39,7 +39,7 @@
 			</p:column>
 			
 	        <p:column headerText="Data da solicitação">
-	        	<h:outputText vaue="#{sol.data}" />
+	        	<h:outputText value="#{sol.data}" />
 	        </p:column>
 	        
 	    </p:dataTable>	

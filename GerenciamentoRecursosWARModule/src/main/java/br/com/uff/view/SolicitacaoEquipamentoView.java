@@ -43,6 +43,7 @@ public class SolicitacaoEquipamentoView {
 	
 	public void obtemSolicitacoes(){
 		solicitacoes = equipamentoBean.getAllSolicitacoes();
+		System.out.println("");
 		
 	}
 

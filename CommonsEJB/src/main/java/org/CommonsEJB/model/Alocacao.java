@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.AttributeOverride;
-import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -34,9 +33,8 @@ public class Alocacao extends EntidadeAbstrata implements Serializable {
 	@Column(name = "HORARIO", nullable = false)
 	private String horario;
 
-	@ElementCollection(targetClass=DiasSemana.class)
+	@ElementCollection(targetClass=DiasSemana.class , fetch=FetchType.EAGER)
     @Enumerated(EnumType.STRING) 
-    @CollectionTable(name="DIAS_SEMANA")
     @Column(name="DIAS", nullable = false)
 	private List<DiasSemana> dias;
 
