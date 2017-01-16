@@ -12,8 +12,8 @@
 
 	<ui:define name="content">
 
-		<h:form>
-			<p:growl id="messages" />
+		<h:form id="principal">
+			<p:growl id="messages" life="2000"/>
 
 			<p:menubar>
 				<p:submenu label="Cadastro" icon="ui-icon-document"
@@ -25,59 +25,60 @@
 						<p:menuitem value="Sala" url="cadastroSala.xhtml" />
 					</p:submenu>
 				</p:submenu>
-				
+
 				<p:submenu label="Solicitações" icon="ui-icon-document"
 					rendered="#{(menuBean.pegaPermissoes()) >= 2}">
-						<p:menuitem value="Sala" url="solicitacaoSala.xhtml" />
-						<p:menuitem value="Equipamento" url="solicitacaoEquipamento.xhtml" />
+					<p:menuitem value="Sala" url="solicitacaoSala.xhtml" />
+					<p:menuitem value="Equipamento" url="solicitacaoEquipamento.xhtml" />
 				</p:submenu>
-				
-				<p:submenu label="Atendimento de solicitações" icon="ui-icon-document"
+
+				<p:submenu label="Atendimento de solicitações"
+					icon="ui-icon-document"
 					rendered="#{(menuBean.pegaPermissoes()) >= 3}">
-						<p:menuitem value="Sala" url="atendimentoSala.xhtml" />
-						<p:menuitem value="Equipamento" url="atendimentoEquipamento.xhtml" />
+					<p:menuitem value="Sala" url="atendimentoSala.xhtml" />
+					<p:menuitem value="Equipamento" url="atendimentoEquipamento.xhtml" />
 				</p:submenu>
-				
+
 				<p:submenu label="Registro" icon="ui-icon-pencil"
-				     rendered="#{(menuBean.pegaPermissoes()) >= 1}">
-				     
-				     <p:menuitem value="Retirada/Devolução de chave" url="emprestimoChave.xhtml"
-				      icon="ui-icon-arrowreturnthick-1-w" 
-				      rendered="#{(menuBean.pegaPermissoes()) == 1 or (menuBean.pegaPermissoes()) >= 3 }"/>
-				     
-				     <p:menuitem value="Retirada/Devolução de equipamento" url="emprestimoEquipamento.xhtml"
-				      icon="ui-icon-arrowreturnthick-1-e"
-				      rendered="#{(menuBean.pegaPermissoes()) == 1 or (menuBean.pegaPermissoes()) >= 3 }" />
-				      
-				     <p:menuitem value="Problema" url="registroProblema.xhtml"
-				      icon="ui-icon-arrowreturnthick-1-e" />
-			    </p:submenu>
+					rendered="#{(menuBean.pegaPermissoes()) >= 1}">
+
+					<p:menuitem value="Retirada/Devolução de chave"
+						url="emprestimoChave.xhtml" icon="ui-icon-arrowreturnthick-1-w"
+						rendered="#{(menuBean.pegaPermissoes()) == 1 or (menuBean.pegaPermissoes()) >= 3 }" />
+
+					<p:menuitem value="Retirada/Devolução de equipamento"
+						url="emprestimoEquipamento.xhtml"
+						icon="ui-icon-arrowreturnthick-1-e"
+						rendered="#{(menuBean.pegaPermissoes()) == 1 or (menuBean.pegaPermissoes()) >= 3 }" />
+
+					<p:menuitem value="Problema" url="registroProblema.xhtml"
+						icon="ui-icon-arrowreturnthick-1-e" />
+				</p:submenu>
 
 				<p:submenu label="Mapa de recursos" icon="ui-icon-gear"
-				     rendered="#{(menuBean.pegaPermissoes()) >= 0}">
-				     <p:menuitem value="Salas" 
-				      url="buscaAlocacaoSalas.xhtml"
-				      icon="ui-icon-disk" update="messages" />
-				     <p:menuitem value="Equipamentos"
-				      url="consultaAlocacaoEquipamentos.xhtml"
-				      icon="ui-icon-arrowrefresh-1-w" update="messages" />
-				     <p:menuitem value="Registros de Problema"
-				      url="consultaRegistrosProblema.xhtml"
-				      icon="ui-icon-arrowrefresh-1-w" update="messages" /> 
+					rendered="#{(menuBean.pegaPermissoes()) >= 0}">
+					<p:menuitem value="Salas" url="buscaAlocacaoSalas.xhtml"
+						icon="ui-icon-disk" update="messages" />
+					<p:menuitem value="Equipamentos"
+						url="consultaAlocacaoEquipamentos.xhtml"
+						icon="ui-icon-arrowrefresh-1-w" update="messages" />
+					<p:menuitem value="Registros de Problema"
+						url="consultaRegistrosProblema.xhtml"
+						icon="ui-icon-arrowrefresh-1-w" update="messages" />
 				</p:submenu>
-				
-			    <f:facet name="options">
-				     <p:inputText style="margin-right:10px" placeholder="Search" />
-				   
-				      <p:commandButton ajax="false"
-				       rendered="#{(menuBean.pegaPermissoes()) >= 1}" type="button"
-				       value="Sair" icon="ui-icon-extlink" update="growl"
-				       onclick="#{userLoginView.logout()}" />
-				      <p:commandButton ajax="false"
-				       rendered="#{(menuBean.pegaPermissoes()) == 0}" type="button"
-				       value="Voltar" icon="ui-icon-extlink" update="growl"
-				       onclick="#{userLoginView.logout()}" />
+
+
+
+				<f:facet name="options">
+					<p:inputText style="margin-right:10px" placeholder="Search" />
+					<p:commandButton value="Sair" update="messages"
+						actionListener="#{userLoginView.logout}"
+						action="login.xhtml?faces-redirect=true"
+						icon="ui-icon-extlink" />
+
 				</f:facet>
+
+
 			</p:menubar>
 		</h:form>
 	</ui:define>

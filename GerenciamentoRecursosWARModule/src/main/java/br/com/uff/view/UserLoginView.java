@@ -13,6 +13,7 @@ import javax.faces.component.EditableValueHolder;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIForm;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import org.CommonsEJB.UserLoginBeanInterface;
 import org.CommonsEJB.model.Usuario;
@@ -118,27 +119,38 @@ public class UserLoginView implements Serializable {
 	public boolean limpaUsuario() {
 
 		try {
-			this.setPassword(null);
-			this.setUsername(null);
-			this.setPerfil(null);
-			this.setId(null);
-			FacesContext.getCurrentInstance().getExternalContext().getFlash().put("id", this.getId());
-			FacesContext.getCurrentInstance().getExternalContext().getFlash().put("perfil", this.getPerfil());
+			FacesContext context = FacesContext.getCurrentInstance(); 
+	        context.getExternalContext().getSessionMap().remove("#{userLoginView}");
+	        context.getExternalContext().getSessionMap().remove("#{menuBean}");
+	        HttpSession session = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+	        session.invalidate();
 
-			FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 			return true;
 		} catch (Exception e) {
 			return false;
 		}
 
 	}
+	
+	private boolean limpaUsuarioNobean(){
+		this.setPassword(null);
+		this.setUsername(null);
+		this.setPerfil(null);
+		this.setId(null);
+		FacesContext.getCurrentInstance().getExternalContext().getFlash().put("id", this.getId());
+		FacesContext.getCurrentInstance().getExternalContext().getFlash().put("perfil", this.getPerfil());
+
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return true;
+	}
 
 	public String logout() {
 
 		try {
-			//limpaUsuario();
-			// cleanSubmittedValues(form);
-			return "succsess";
+			limpaUsuarioNobean();
+			limpaUsuario();
+			cleanSubmittedValues(form);
+			return "success";
 		} catch (Exception e) {
 			return "failure";
 		}

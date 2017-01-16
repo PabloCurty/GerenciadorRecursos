@@ -73,5 +73,9 @@ public class EquipamentoBean implements Serializable {
 		
 		return lista;
 	}
+
+	public List<Equipamento> buscaTodosEquipamentos() {
+		return equipamentoDAO.buscarTodos();
+	}
 	
 }

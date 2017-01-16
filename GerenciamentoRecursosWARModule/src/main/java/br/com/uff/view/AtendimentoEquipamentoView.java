@@ -22,7 +22,11 @@ public class AtendimentoEquipamentoView {
 	
 	private List<SolicitacaoEquipamento> solicitacoes;
 	
+	private List<Equipamento> equipamentos;
+	
 	private SolicitacaoEquipamento selectedSol;
+	
+	private String tipoEquipamento;
 	
 	private Equipamento equipamento;
 	
@@ -69,7 +73,15 @@ public class AtendimentoEquipamentoView {
 		
 		try {
 			selectedSol.setStatus(StatusSolicitacao.CONCEDIDO);
+			for (Equipamento equipamento : equipamentos) {
+				if(equipamento.getTipo().equalsIgnoreCase(tipoEquipamento)){
+					this.equipamento = equipamento;
+					break;
+				}
+			}
+			selectedSol.setEquipamento(equipamento);
 			selectedSol = solicitacaoEquipamentoBean.salva(selectedSol);
+			
 			
 			atendIn = true;
 			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Equipamento concedido com sucesso ", null);
@@ -88,7 +100,7 @@ public class AtendimentoEquipamentoView {
 	public List<String> completeEquipamentoComboBox(){
 		List<String> equipamentosString = new ArrayList<String>();
 
-		List<Equipamento> equipamentos = equipamentoBean.getEquipamentos();
+		equipamentos = equipamentoBean.buscaTodosEquipamentos();
 
 		for (Equipamento equipamento : equipamentos) {
 			equipamentosString.add(equipamento.getTipo());
@@ -102,8 +114,8 @@ public class AtendimentoEquipamentoView {
 		/**
 		 * TODO ver equipamento tipo
 		 */
-		equipamento = new Equipamento();
-		equipamento.setTipo("PROJETOR");
+		//equipamento = new Equipamento();
+		//equipamento.setTipo("PROJETOR");
 	}
 
 	public EquipamentoBean getEquipamentoBean() {
@@ -136,6 +148,22 @@ public class AtendimentoEquipamentoView {
 
 	public void setEquipamento(Equipamento equipamento) {
 		this.equipamento = equipamento;
+	}
+
+	public String getTipoEquipamento() {
+		return tipoEquipamento;
+	}
+
+	public void setTipoEquipamento(String tipoEquipamento) {
+		this.tipoEquipamento = tipoEquipamento;
+	}
+
+	public List<Equipamento> getEquipamentos() {
+		return equipamentos;
+	}
+
+	public void setEquipamentos(List<Equipamento> equipamentos) {
+		this.equipamentos = equipamentos;
 	}
 
 }

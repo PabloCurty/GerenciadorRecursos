@@ -28,13 +28,21 @@
 					<h:outputText value="#{sol.professor.username}" />
 				</p:column>
 				
-				<p:column headerText="Tipo">
+				<!-- <p:column headerText="Tipo">
 					<h:outputText value="#{atendimentoEquipamentoBeanView.equipamento.tipo}" />
-				</p:column>
+				</p:column> -->
 				
 				<p:column headerText="Data da solicitação">
 					<h:outputText value="#{sol.data}" />
 				</p:column>
+				
+				<p:column headerText="Equipamento">
+					<p:outputLabel value="Equipamento:" for="equipamento" />
+					<p:autoComplete id="equipamento" dropdown="true"
+						value="#{atendimentoEquipamentoBeanView.tipoEquipamento}"
+						completeMethod="#{atendimentoEquipamentoBeanView.completeEquipamentoComboBox()}" />
+				</p:column>
+				
 				<p:column headerText="Conceder"
 					style="width:80px;text-align: center">
 					<p:commandButton action="#{atendimentoEquipamentoBeanView.atender()}"
