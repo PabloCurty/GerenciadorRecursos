@@ -13,9 +13,7 @@ import javax.persistence.UniqueConstraint;
 @AttributeOverride(name="oid", column=@Column(name="ID_EQUIPAMENTO"))
 public class Equipamento extends EntidadeAbstrata implements Serializable{
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -1547210011731613009L;
 	
 	@Column(name = "STATUS", nullable = true)

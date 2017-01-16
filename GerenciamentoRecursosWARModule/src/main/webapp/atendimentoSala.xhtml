@@ -16,7 +16,7 @@
 		<h1>Atendimento de solicitação de reserva de sala</h1>
 		<h:form id="form">
 
-			<p:growl id="msgs" showDetail="true" />
+			<p:growl id="messages" showDetail="true" />
 
 			<p:dataTable id="basicDT" var="sol"
 				value="#{atendimentoSalaBeanView.solicitacoes}">
@@ -46,7 +46,7 @@
 				<p:column headerText="Conceder" style="width:80px;text-align: center">
 					<p:commandButton 
 						action="#{atendimentoSalaBeanView.atender()}"
-						icon="ui-icon-play" title="Conceder">
+						icon="ui-icon-play" title="Conceder" update="message">
 					 <f:setPropertyActionListener value="#{sol}"
 							target="#{atendimentoSalaBeanView.selectedSol}" /> 
 					</p:commandButton>
@@ -54,7 +54,7 @@
 				<p:column headerText="Negar" style="width:64px;text-align: center">
 					<p:commandButton 
 						action="#{atendimentoSalaBeanView.negar()}"
-						icon="ui-icon-cancel" title="Negar">
+						icon="ui-icon-cancel" title="Negar" update="message">
 					 <f:setPropertyActionListener value="#{sol}"
 							target="#{atendimentoSalaBeanView.selectedSol}" /> 
 					</p:commandButton>

@@ -6,37 +6,52 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:p="http://primefaces.org/ui" template="/layout/template.xhtml">
-	
-	<f:metadata>
-		<f:viewAction action="#{atendimentoEquipamentoBeanView.prepararAtendimento}" />
-	</f:metadata> 
 
-<ui:define name="title">Atendimento de solicitação de reserva de equipamento</ui:define>
-<ui:define name="content">
-	<h1>Atendimento de solicitação de reserva de equipamento</h1>
-	<h:form id="form">
-	
-		<p:growl id="msgs" showDetail="true" />
-		
-	    <p:dataTable id="basicDT" var="sol" value="#{atendimentoEquipamentoBeanView.solicitacoes}">
-	        <f:facet name="header">
+	<f:metadata>
+		<f:viewAction
+			action="#{atendimentoEquipamentoBeanView.prepararAtendimento}" />
+	</f:metadata>
+
+	<ui:define name="title">Atendimento de solicitação de reserva de equipamento</ui:define>
+	<ui:define name="content">
+		<h1>Atendimento de solicitação de reserva de equipamento</h1>
+		<h:form id="form">
+
+			<p:growl id="messages" showDetail="true" />
+
+			<p:dataTable id="basicDT" var="sol"
+				value="#{atendimentoEquipamentoBeanView.solicitacoes}">
+				<f:facet name="header">
 	            Solicitações
 	        </f:facet>
-	        <p:column headerText="Solicitante">
-	            <h:outputText value="#{sol.professor.username}" />
-	        </p:column>
-	        <p:column headerText="Equipamento">
-	            <h:outputText value="#{sol.equipamento.descricao}" />
-	        </p:column>
-	        <p:column headerText="Data da solicitação">
-	            <h:outputText value="#{sol.data}" />
-	        </p:column>
-	        <p:column style="width:32px;text-align: center">
-	             <p:commandButton  oncomplete="atendimentoEquipamentoBeanView.atender()" icon="ui-icon-search" title="View">
-	                <f:setPropertyActionListener value="#{sol}" target="#{atendimentoEquipamentoBeanView.selectedSol}" />
-	            </p:commandButton>
-	        </p:column>
-	    </p:dataTable>	
-  	</h:form>
-</ui:define>
+				<p:column headerText="Solicitante">
+					<h:outputText value="#{sol.professor.username}" />
+				</p:column>
+				
+				<p:column headerText="Tipo">
+					<h:outputText value="#{atendimentoEquipamentoBeanView.equipamento.tipo}" />
+				</p:column>
+				
+				<p:column headerText="Data da solicitação">
+					<h:outputText value="#{sol.data}" />
+				</p:column>
+				<p:column headerText="Conceder"
+					style="width:80px;text-align: center">
+					<p:commandButton action="#{atendimentoEquipamentoBeanView.atender()}"
+						icon="ui-icon-play" title="Conceder" >
+						<f:setPropertyActionListener value="#{sol}"
+							target="#{atendimentoEquipamentoBeanView.selectedSol}" />
+					</p:commandButton>
+				</p:column>
+
+				<p:column headerText="Negar" style="width:64px;text-align: center">
+					<p:commandButton action="#{atendimentoEquipamentoBeanView.negar()}"
+						icon="ui-icon-cancel" title="Negar" >
+						<f:setPropertyActionListener value="#{sol}"
+							target="#{atendimentoEquipamentoBeanView.selectedSol}" />
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
 </ui:composition>
