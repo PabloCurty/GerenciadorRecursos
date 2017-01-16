@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui" 
+	template="/layout/template.xhtml">
+	
+	<f:metadata>
+		<f:viewAction action="#{registroProblemaBeanView.prepararRegistro}" />
+	</f:metadata>  
+
+<ui:define name="title">Registros de problema</ui:define>
+<ui:define name="content">
+	<h1>Consulta de registros de problema</h1>
+	
+	<h:form id="form">
+		<p:growl id="msgs" showDetail="true" />
+	    <p:dataTable id="basicDT" var="reg" value="#{registroProblemaBeanView.listaRegistros}">
+	        <f:facet name="header">
+	            Alocações
+	        </f:facet>
+	        <p:column headerText="Sala">
+	            <h:outputText value="#{reg.sala.numero}" />
+	        </p:column>
+	        
+	        <p:column headerText="Equipamento">
+	            <h:outputText value="#{reg.equipamento.numero}" />
+	        </p:column>
+	        
+	        <p:column headerText="Data">
+	        <h:outputText value="#{reg.data}" />
+	        </p:column>
+			
+	        <p:column headerText="Descrição">
+	        <h:outputText value="#{reg.descricao}" />
+	        </p:column>
+	        
+	    </p:dataTable>	
+  	</h:form>
+  	
+</ui:define>
+</ui:composition>

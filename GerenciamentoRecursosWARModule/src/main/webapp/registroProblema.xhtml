@@ -7,9 +7,9 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:p="http://primefaces.org/ui" template="/layout/template.xhtml">
 	
-	<f:metadata>
+	<!-- <f:metadata>
 		<f:viewAction action="#{registroProblemaBeanView.prepararRegistro}" />
-	</f:metadata> 
+	</f:metadata>  --> 
 
 <ui:define name="title">Registro de problema</ui:define>
 <ui:define name="content">
@@ -34,8 +34,7 @@
 		<p:panelGrid columns="1">
 			<p:inputTextarea 
 				id="descricao" value="#{registroProblemaBeanView.descricao}" 
-				rows="10" cols="50" 
-				completeMethod="#{registroProblemaBeanView.completaArea}" 
+				rows="10" cols="50"
 				queryDelay="750" minQueryLength="4" />
 		</p:panelGrid>		
 		<p:panelGrid columns="1">
@@ -43,7 +42,6 @@
 					action="#{registroProblemaBeanView.registrar}" update="messages">
 			</p:commandButton>
 		</p:panelGrid>	
-			<!-- <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" icon="ui-icon-check" /> -->
 		
   	</h:form>
 </ui:define>

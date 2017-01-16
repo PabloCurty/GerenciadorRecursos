@@ -31,6 +31,19 @@ public class EquipamentoBean implements Serializable {
 	
 	private List<Equipamento> equipamentos;
 	
+	public Equipamento buscaEquipamentoPorNumero(String numeroEquipamento) {
+		
+		equipamentos = equipamentoDAO.buscarTodos();
+		
+		for(Equipamento eq : equipamentos){
+			if(eq.getNumero().equals(numeroEquipamento)){
+				return eq;
+			}
+		}
+		
+		return null;
+	}
+	
 	public SolicitacaoEquipamento solicitar(SolicitacaoEquipamento solicitacaoEquipamento) {
 		solicitacaoEquipamento = solicitacaoEquipamentoDAO.merge(solicitacaoEquipamento);
 		return solicitacaoEquipamento;

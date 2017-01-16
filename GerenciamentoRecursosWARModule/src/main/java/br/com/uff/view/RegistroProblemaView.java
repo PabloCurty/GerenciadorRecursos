@@ -1,5 +1,6 @@
 package br.com.uff.view;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -7,17 +8,26 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import org.CommonsEJB.EquipamentoBean;
+import org.CommonsEJB.RegistroProblemaBean;
 import org.CommonsEJB.SalaBean;
+import org.CommonsEJB.model.Equipamento;
+import org.CommonsEJB.model.RegistroProblema;
+import org.CommonsEJB.model.Sala;
 
 @ManagedBean(name="registroProblemaBeanView")
 @SessionScoped
 public class RegistroProblemaView {
 	
 	@EJB
-	private EquipamentoBean equipamentoBean;
+	private RegistroProblemaBean registroProblemaBean;
 	
 	@EJB
 	private SalaBean salaBean;
+	
+	@EJB
+	private EquipamentoBean equipamentoBean;
+	
+	private List<RegistroProblema> listaRegistros;
 	
 	private String numeroSala;
 	
@@ -28,36 +38,18 @@ public class RegistroProblemaView {
 	private String[] selectedProblemas;
 	
 	public void prepararRegistro(){
-		System.out.println("Preparar registro");
+		listaRegistros = registroProblemaBean.buscaRegistros();
 	}
 
 	public void registrar(){
 		
-		System.out.println(numeroSala);
-		System.out.println(numeroEquipamento);
-		System.out.println(descricao);
+		Sala sala = salaBean.buscaSalaPorNumero(numeroSala);
 		
-	}
-	
-	public List<String> completaArea(String query){
-		return null;
+		Equipamento equipamento = equipamentoBean.buscaEquipamentoPorNumero(numeroEquipamento);
 		
-	}
-
-	public EquipamentoBean getEquipamentoBean() {
-		return equipamentoBean;
-	}
-
-	public void setEquipamentoBean(EquipamentoBean equipamentoBean) {
-		this.equipamentoBean = equipamentoBean;
-	}
-	
-	public SalaBean getSalaBean() {
-		return salaBean;
-	}
-
-	public void setSalaBean(SalaBean salaBean) {
-		this.salaBean = salaBean;
+		RegistroProblema registro = new RegistroProblema(sala, equipamento, new Date(), descricao);
+		
+		registroProblemaBean.criaRegistro(registro);
 	}
 
 	public String getNumeroSala() {
@@ -90,6 +82,14 @@ public class RegistroProblemaView {
 
 	public void setSelectedProblemas(String[] selectedProblemas) {
 		this.selectedProblemas = selectedProblemas;
+	}
+
+	public List<RegistroProblema> getListaRegistros() {
+		return listaRegistros;
+	}
+
+	public void setListaRegistros(List<RegistroProblema> listaRegistros) {
+		this.listaRegistros = listaRegistros;
 	}
 
 }

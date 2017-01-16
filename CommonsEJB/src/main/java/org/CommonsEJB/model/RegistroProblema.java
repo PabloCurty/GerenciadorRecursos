@@ -22,6 +22,15 @@ public class RegistroProblema extends EntidadeAbstrata implements Serializable{
 	 */
 	private static final long serialVersionUID = -6159133778817607728L;
 	
+	public RegistroProblema(){}
+	
+	public RegistroProblema(Sala sala, Equipamento equipamento, Date data, String descricao){
+		this.sala = sala;
+		this.equipamento = equipamento;
+		this.data = data;
+		this.descricao = descricao;
+	}
+	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="ID_SALA")
 	private Sala sala;

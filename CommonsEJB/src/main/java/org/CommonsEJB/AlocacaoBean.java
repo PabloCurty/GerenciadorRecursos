@@ -1,6 +1,7 @@
 package org.CommonsEJB;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -27,7 +28,19 @@ public class AlocacaoBean implements Serializable{
 	
 	public List<Alocacao> buscaTodasAlocacoes(Date date){
 		List<Alocacao> lista = alocacaoDAO.buscarTodos();
-		return lista;
+		
+		String semestre = date.getMonth() > 5 ? "2" : "1";
+		
+		List<Alocacao> novaLista = new ArrayList<Alocacao>();
+		
+		for(Alocacao al : lista){
+			if(al.getAno().equals(String.valueOf(date.getYear()))
+					&& al.getSemestre().equals(semestre)){
+				novaLista.add(al);
+			}
+		}
+		
+		return novaLista;
 	}
 	
 	public Alocacao criaAlocacao(Alocacao alocacao){
