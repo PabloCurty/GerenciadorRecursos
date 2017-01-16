@@ -14,14 +14,26 @@
 
 	<ui:define name="title">Solicitações de equipamento</ui:define>
 	<ui:define name="content">
-		<h1>Consulta de solicitações de equipamento</h1>
+	<div id="content" class="content">
+		<h2>Consulta de solicitações de equipamento</h2>
 
 		<h:form id="form">
-			<p:growl id="mensagens" showDetail="true" />
+			<p:growl id="messages" showDetail="true" />
+			
+			<p:menubar>
+				<f:facet name="options">
+					<p:inputText style="margin-right:8px" placeholder="Search" />
+					<p:commandButton value="Sair" update="messages"
+						action="principal.xhtml?faces-redirect=true"
+						icon="ui-icon-extlink" />
+
+				</f:facet>
+			</p:menubar>
+			
 			<p:dataTable id="basicDT" var="sol"
 				value="#{solicitacaoEquipamentoView.solicitacoes}">
 				<f:facet name="header">
-	            Solicitações de equipamento
+
 	        </f:facet>
 				<p:column headerText="Professor">
 					<h:outputText value="#{sol.professor.nome_usuario}" />
@@ -45,6 +57,6 @@
 
 			</p:dataTable>
 		</h:form>
-
+</div>
 	</ui:define>
 </ui:composition>

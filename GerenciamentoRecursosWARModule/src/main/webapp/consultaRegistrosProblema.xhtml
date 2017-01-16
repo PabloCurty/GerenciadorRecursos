@@ -14,10 +14,22 @@
 
 <ui:define name="title">Registros de problema</ui:define>
 <ui:define name="content">
+<div id="content" class="content">
 	<h1>Consulta de registros de problema</h1>
 	
 	<h:form id="form">
-		<p:growl id="msgs" showDetail="true" />
+		<p:growl id="messages" showDetail="true" />
+		
+		<p:menubar>
+				<f:facet name="options">
+					<p:inputText style="margin-right:10px" placeholder="Search" />
+					<p:commandButton value="Sair" update="messages"
+						action="principal.xhtml?faces-redirect=true"
+						icon="ui-icon-extlink" />
+
+				</f:facet>
+			</p:menubar>
+		
 	    <p:dataTable id="basicDT" var="reg" value="#{registroProblemaBeanView.listaRegistros}">
 	        <f:facet name="header">
 	            Registros de problema
@@ -40,6 +52,6 @@
 	        
 	    </p:dataTable>	
   	</h:form>
-  	
+  	</div>
 </ui:define>
 </ui:composition>

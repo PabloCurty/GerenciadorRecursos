@@ -10,32 +10,34 @@
 	<ui:define name="title">Gerenciador de Recursos UFF</ui:define>
 
 	<ui:define name="content">
-		<h:form id="login">
-			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
-			<!-- <p:messages autoUpdate="true" />  -->
-			<h:panelGrid columns="2">
-				<h:outputLabel for="username" value="Usuário:" />
-				<p:inputText id="username" value="#{userLoginView.username}"
-					required="false" label="username" />
+		<div id="content" class="content">
+			<h:form id="login">
+				<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+				<!-- <p:messages autoUpdate="true" />  -->
+				<h:panelGrid columns="2">
+					<h:outputLabel for="username" value="Usuário:" />
+					<p:inputText id="username" value="#{userLoginView.username}"
+						required="false" label="username" />
 
-				<h:outputLabel for="password" value="Senha:" />
-				<p:password id="password" value="#{userLoginView.password}"
-					required="false" label="password" />
+					<h:outputLabel for="password" value="Senha:" />
+					<p:password id="password" value="#{userLoginView.password}"
+						required="false" label="password" />
 
-				<f:facet name="footer">
-					<p:commandButton value="Login" type="submit" update="growl"
-						action="#{userLoginView.login()}" />
-				</f:facet>
-
-
-			</h:panelGrid>
-
-			<p:separator />
-			<h:commandLink action="#{userLoginView.entrarSemLogin()}"
-				value="Consulta salas e equipamentos" />
-
-		</h:form>
+					<f:facet name="footer">
+						<p:commandButton value="Login" type="submit" update="growl"
+							action="#{userLoginView.login()}" />
+					</f:facet>
 
 
+				</h:panelGrid>
+
+				<p:separator />
+				<h:commandLink action="#{userLoginView.entrarSemLogin()}"
+					value="Consulta salas e equipamentos" />
+
+			</h:form>
+
+		</div>
 	</ui:define>
+
 </ui:composition>

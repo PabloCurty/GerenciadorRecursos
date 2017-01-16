@@ -14,10 +14,22 @@
 
 	<ui:define name="title">Atendimento de solicitação de reserva de equipamento</ui:define>
 	<ui:define name="content">
+	<div id="content" class="content">
 		<h1>Atendimento de solicitação de reserva de equipamento</h1>
+
 		<h:form id="form">
 
-			<p:growl id="messages" showDetail="true" />
+			<p:growl id="messages" showDetail="true" life="2000" />
+			
+			<p:menubar>
+				<f:facet name="options">
+					<p:inputText style="margin-right:10px" placeholder="Search" />
+					<p:commandButton value="Sair" update="messages"
+						action="principal.xhtml?faces-redirect=true"
+						icon="ui-icon-extlink" />
+
+				</f:facet>
+			</p:menubar>
 
 			<p:dataTable id="basicDT" var="sol"
 				value="#{atendimentoEquipamentoBeanView.solicitacoes}">
@@ -27,39 +39,39 @@
 				<p:column headerText="Solicitante">
 					<h:outputText value="#{sol.professor.username}" />
 				</p:column>
-				
-				<!-- <p:column headerText="Tipo">
-					<h:outputText value="#{atendimentoEquipamentoBeanView.equipamento.tipo}" />
-				</p:column> -->
-				
+
 				<p:column headerText="Data da solicitação">
 					<h:outputText value="#{sol.data}" />
 				</p:column>
-				
+
 				<p:column headerText="Equipamento">
 					<p:outputLabel value="Equipamento:" for="equipamento" />
 					<p:autoComplete id="equipamento" dropdown="true"
 						value="#{atendimentoEquipamentoBeanView.tipoEquipamento}"
 						completeMethod="#{atendimentoEquipamentoBeanView.completeEquipamentoComboBox()}" />
 				</p:column>
-				
+
 				<p:column headerText="Conceder"
 					style="width:80px;text-align: center">
-					<p:commandButton action="#{atendimentoEquipamentoBeanView.atender()}"
-						icon="ui-icon-play" title="Conceder" >
+					<p:commandButton
+						action="#{atendimentoEquipamentoBeanView.atender()}"
+						icon="ui-icon-play" title="Conceder" update="form">
 						<f:setPropertyActionListener value="#{sol}"
 							target="#{atendimentoEquipamentoBeanView.selectedSol}" />
 					</p:commandButton>
 				</p:column>
 
 				<p:column headerText="Negar" style="width:64px;text-align: center">
-					<p:commandButton action="#{atendimentoEquipamentoBeanView.negar()}"
-						icon="ui-icon-cancel" title="Negar" >
+					<p:commandButton
+						action="#{atendimentoEquipamentoBeanView.negar()}"
+						icon="ui-icon-cancel" title="Negar" update="form">
 						<f:setPropertyActionListener value="#{sol}"
 							target="#{atendimentoEquipamentoBeanView.selectedSol}" />
 					</p:commandButton>
 				</p:column>
 			</p:dataTable>
+			
 		</h:form>
+		</div>
 	</ui:define>
 </ui:composition>

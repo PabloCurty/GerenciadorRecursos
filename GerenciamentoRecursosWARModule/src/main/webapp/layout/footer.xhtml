@@ -8,13 +8,13 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:p="http://primefaces.org/ui">
 
-	<div>
+	<div id="footer-padrao" class="footer">
 		<p:separator />
 		<br/>
 		FOOTER
 		<br/>
 		<br/>
-		<div class="links">
+		<div id="links" class="links">
 			<a href="http://www.uff.gov.br/" target="_blank">Conheça a UFF</a>
 			<a href="http://www.google.com.br" target="_blank"> O que fazemos</a>
 			<a href="http://www.google.com.br" target="_blank">Fale conosco</a>
@@ -23,7 +23,7 @@
 				<h:outputLink value="#{site.url}" target="_blank">Gerenciador de Recursos</h:outputLink>
 			</ui:repeat>
 		</div>
-		<div class="info">
+		<div id= "info" class="info">
 			<p>
 				<h:outputText value="UFF - Unversidade Federal Fluminense" />
 			</p>

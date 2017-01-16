@@ -1,19 +1,46 @@
 .body{
     margin:0px;
-    background-color:#cff;
+    background-color:#ddd;
+    
 }
-.header {
-    height:50px;
-    background-image: url('background.gif');
-    background-color:#FFFFF;
-    border:1px solid #cff;
-    width:960px;
-    margin:50px auto;
-}
+
 .content {
-    width:960px;
+	width: 1180px;
     background: #F0F0F0;
-    border: 1px solid #CCC;
-    height: 2000px;
     margin: 20px auto;
+    height: 30vmax;
+	font-size: 14px;
+}
+
+.header {
+	background: #1c1917;
+	border-bottom: 1px solid #d1d4d4;
+	font-size: 14px;
+	color: white;
+	text-align: center;
+
+}  
+
+.header .header-padrao .h1{
+   display: table-cell;
+   text-align: center;
+   vertical-align: middle;
+}
+
+
+.footer {
+	background: #1c1917;
+	background-color: #1c1917;
+	border-bottom: 1px solid #d1d4d4;
+	font-size: 14px;
+	color: white;
+	text-align: center;
+}
+
+.links {
+	
+}
+
+.info {
+	
 }

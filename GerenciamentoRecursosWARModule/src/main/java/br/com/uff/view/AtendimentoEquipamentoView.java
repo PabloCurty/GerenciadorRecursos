@@ -56,13 +56,13 @@ public class AtendimentoEquipamentoView {
 		message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Solicitação negada com sucesso ", null);
 		FacesContext.getCurrentInstance().addMessage(null, message);
 		context.addCallbackParam("atendIn", atendIn);
-		return "/";
+		return "/atendimentoEquipamento.xhtml?faces-redirect=true";
 		} catch (Exception e) {
 			atendIn = false;
 			message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erro ao negar solicitação", "Solicitação inválida");
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			context.addCallbackParam("atendIn", atendIn);
-			return "/";
+			return "/atendimentoEquipamento.xhtml?faces-redirect=true";
 		}
 	}
 
@@ -87,13 +87,13 @@ public class AtendimentoEquipamentoView {
 			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Equipamento concedido com sucesso ", null);
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			context.addCallbackParam("atendIn", atendIn);
-			return "/";
+			return "/atendimentoEquipamento.xhtml?faces-redirect=true";
 		} catch (Exception e) {
 			atendIn = false;
 			message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Erro de conceção", "Conceção inválida");
 			FacesContext.getCurrentInstance().addMessage(null, message);
 			context.addCallbackParam("atendIn", atendIn);
-			return "/";
+			return "/atendimentoEquipamento.xhtml?faces-redirect=true";
 		}
 	}
 	

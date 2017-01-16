@@ -14,15 +14,26 @@
 
 <ui:define name="title">Atendimento de solicitação de equipamento</ui:define>
 <ui:define name="content">
+<div id="content" class="content">
 	<h1>Atendimento de solicitação de equipamento</h1>
 	
 	<h:form id="form1">
 	
 		<p:growl id="messages" showDetail="true" />
+		
+		<p:menubar>
+				<f:facet name="options">
+					<p:inputText style="margin-right:10px" placeholder="Search" />
+					<p:commandButton value="Sair" update="messages"
+						action="principal.xhtml?faces-redirect=true"
+						icon="ui-icon-extlink" />
+
+				</f:facet>
+			</p:menubar>
 	
 		<p:outputLabel value="Solicitações:" for="solicitacao" />
 		<p:autoComplete id="solicitacao" dropdown="true"
-			value="" completeMethod="#{emprestimoBeanView.obtemSolicitacoesEquipamentoComboBox()}" />
+			value="#" completeMethod="#{emprestimoBeanView.obtemSolicitacoesEquipamentoComboBox()}" />
 			
 		<p:commandButton value="Conceder emprestimo" icon="ui-icon-star"
 					action="#{emprestimoBeanView.solicitarEmprestimoEquipamento}" update="messages">
@@ -56,5 +67,6 @@
 	        </p:column>
 	    </p:dataTable>	
   	</h:form>
+  	</div>
 </ui:define>
 </ui:composition>

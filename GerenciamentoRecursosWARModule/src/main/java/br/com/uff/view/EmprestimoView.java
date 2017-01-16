@@ -9,8 +9,10 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import org.CommonsEJB.EmprestimoBean;
-import org.CommonsEJB.enums.TipoSolicitacao;
+import org.CommonsEJB.SolicitacaoSalaBean;
+import org.CommonsEJB.enums.StatusEmprestimo;
 import org.CommonsEJB.enums.StatusSolicitacao;
+import org.CommonsEJB.enums.TipoSolicitacao;
 import org.CommonsEJB.model.EmprestimoChave;
 import org.CommonsEJB.model.EmprestimoEquipamento;
 import org.CommonsEJB.model.SolicitacaoEquipamento;
@@ -25,6 +27,9 @@ public class EmprestimoView {
 	
 	@EJB
 	private EmprestimoBean emprestimoBean;
+	
+	@EJB
+	private SolicitacaoSalaBean solicitacaoSalaBean;
 	
 	private EmprestimoChave selectedEmprestimoChave;
 	
@@ -42,7 +47,7 @@ public class EmprestimoView {
 		
 		//TODO buscar do banco as solicitacoes de sala e emprestimos concedidos de chave 
 		
-		solicitacoesSalas = new ArrayList<SolicitacaoSala>();
+		solicitacoesSalas = solicitacaoSalaBean.buscaTodasSolicitacoesPassandoStatus(StatusSolicitacao.CONCEDIDO);
 		
 		SolicitacaoSala sol = new SolicitacaoSala();
 		sol.setData(new Date());
@@ -58,7 +63,9 @@ public class EmprestimoView {
 
 	public void solicitarEmprestimoChave(){
 		
-		emprestimoBean.solicitarEmprestimoChave(TipoSolicitacao.EMPRESTIMO_CHAVE,selectedEmprestimoChave);
+		selectedEmprestimoChave.setStatus(StatusEmprestimo.AGUARDANDO_RETORNO);
+		emprestimoBean.solicitarEmprestimoChave(selectedEmprestimoChave);
+		//emprestimoBean.solicitarEmprestimoChave(TipoSolicitacao.EMPRESTIMO_CHAVE,selectedEmprestimoChave);
 		
 		System.out.println("Cadastrar");
 	}

@@ -11,8 +11,20 @@
 	<!-- TODO colocar a barra em todas as paginas -->
 	<!-- <ui:include src="principal.xhtml" /> -->
 	<ui:define name="content">
+	<div id="content" class="content">
 		<h:form>
 			<p:growl id="messages" />
+			<h1>Cadastro de Usuários </h1>
+			<p:menubar>	
+				<f:facet name="options">
+					<p:inputText style="margin-right:10px" placeholder="Search" />
+					<p:commandButton value="Voltar" update="messages"
+						action="principal.xhtml?faces-redirect=true"
+						icon="ui-icon-extlink" />
+
+				</f:facet>
+			</p:menubar>
+			
 			<p:panelGrid columns="2">
 				<p:outputLabel for="username" value="Username:" />
 				<p:inputText id="username" value="#{usuarioMB.username}" />
@@ -43,5 +55,6 @@
 
 			</p:panelGrid>
 		</h:form>
+		</div>
 	</ui:define>
 </ui:composition>

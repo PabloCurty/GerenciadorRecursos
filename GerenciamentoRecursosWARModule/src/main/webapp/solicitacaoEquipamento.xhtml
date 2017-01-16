@@ -14,9 +14,21 @@
 
 	<ui:define name="title">Solicitação de reserva de Equipamento</ui:define>
 	<ui:define name="content">
+	<div id="content" class="content">
 		<h1>Solicitação de reserva de Equipamento</h1>
 		<h:form>
 			<p:growl id="messages" showDetail="true" />
+			
+			<p:menubar>
+				<f:facet name="options">
+					<p:inputText style="margin-right:10px" placeholder="Search" />
+					<p:commandButton value="Sair" update="messages"
+						action="principal.xhtml?faces-redirect=true"
+						icon="ui-icon-extlink" />
+
+				</f:facet>
+			</p:menubar>
+			
 			<p:panelGrid columns="2" cellpadding="5">
 
 				<p:outputLabel value="tipo" for="tipo" />
@@ -45,5 +57,6 @@
 			</p:dialog>
 
 		</h:form>
+		</div>
 	</ui:define>
 </ui:composition>
