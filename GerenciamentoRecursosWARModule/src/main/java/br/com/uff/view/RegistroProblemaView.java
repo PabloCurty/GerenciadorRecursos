@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 
 import org.CommonsEJB.EquipamentoBean;
 import org.CommonsEJB.RegistroProblemaBean;
@@ -15,7 +15,7 @@ import org.CommonsEJB.model.RegistroProblema;
 import org.CommonsEJB.model.Sala;
 
 @ManagedBean(name="registroProblemaBeanView")
-@SessionScoped
+@RequestScoped
 public class RegistroProblemaView {
 	
 	@EJB
